@@ -1,0 +1,20 @@
+# Temporary software files
+/build
+/build_emu
+*.o
+a.out
+
+# Vivado files
+*.str
+*.log
+*.jou
+*.html
+*.Xil
+
+# Check and zip generated files
+/test_repo
+*_lab*.zip
+
+# Other
+*.dump
+report

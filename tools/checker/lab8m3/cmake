@@ -1,0 +1,4 @@
+add_executable(lab8m3.elf main_m3.c missile.c gameControl.c plane.c)
+target_link_libraries(lab8m3.elf ${330_LIBS} intervalTimer interrupts touchscreen)
+target_compile_definitions(lab8m3.elf PUBLIC LAB8_M3)
+set_target_properties(lab8m3.elf PROPERTIES LINKER_LANGUAGE CXX)
