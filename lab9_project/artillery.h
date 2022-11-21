@@ -43,4 +43,6 @@ typedef struct {
 
   bool is_turn;
 
+  bool is_fired;
+
 } player_t;
