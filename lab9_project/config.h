@@ -7,9 +7,7 @@
 #define CONFIG_MAX_PLAYERS 2
 
 // Speed of bullet
-#define CONFIG_BULLET_DISTANCE_PER_SECOND 35
-#define CONFIG_BULLET_DISTANCE_PER_TICK                                 \
-  (CONFIG_BULLET_DISTANCE_PER_SECOND * CONFIG_GAME_TIMER_PERIOD)
+#define CONFIG_GRAVITY_ACCELERATION 30
 
 // How fast explosion radius increases/decreases per second
 #define CONFIG_EXPLOSION_RADIUS_CHANGE_PER_SECOND 30

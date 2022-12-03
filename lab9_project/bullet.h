@@ -13,10 +13,11 @@ typedef struct {
   uint16_t x_current;
   uint16_t y_current;
 
+  int16_t wind;
 
-  bool bullet_is_dead;
+  bool dead;
 
-  bool bullet_splode;
+  bool splode;
 
 } bullet_t;
 
@@ -24,7 +25,7 @@ typedef struct {
 void bullet_init_dead(bullet_t *bullet);
 
 // Initialize the bullet state machine
-void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_t power, double angle);
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_t power, double angle, int16_t wind);
 
 
 ////////// State Machine TICK Function //////////
