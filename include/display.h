@@ -96,8 +96,7 @@ void display_setTextWrap(bool w);
 void display_setRotation(uint8_t r);
 int16_t display_height();
 int16_t display_width();
-uint16_t display_color565(uint8_t r, uint8_t g,
-                          uint8_t b); // Packs r,g,b into 16 bits.
+uint16_t display_color565(uint8_t r, uint8_t g, uint8_t b); // Packs r,g,b into 16 bits.
 
 // Print routines
 size_t display_println(const char str[]);
