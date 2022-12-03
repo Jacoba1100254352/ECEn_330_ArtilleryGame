@@ -4,7 +4,9 @@
 
 typedef enum { INACTIVE, MOVING, DEAD } bullet_st_t;
 
+double x_vel(uint16_t power, double angle) { return power * sine(angle); }
 
+double y_vel(uint16_t power, double angle) { return power * cos(angle); }
 
 // Print the given state passed in by the state variable
 static void
@@ -40,48 +42,33 @@ static void debug(bullet_st_t currentState) {
   }
 }
 
-////////// State Machine INIT Functions //////////
-
-// Initialize the missile as a dead missile.  This is useful at the start of the
-// game to ensure that player and plane missiles aren't moving before they
-// should.
-void bullet_init_dead(player_t *player) { player->bullet.currentState = DEAD; }
+void bullet_init_dead(bullet_t *bullet) { bullet->bullet_is_dead = true; }
 
 // Initialize the bullet state machine
-void bullet_init(player_t *player, uint16_t x_dest, uint16_t y_dest) {
-  // player->type = PLAYER_TYPE_PLAYER; // or ENEMY_TYPE_PLAYER
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_t power, double angle) { 
+  bullet->x_current = x_origin;
+  bullet->y_current = y_origin;
 
-  player->bullet.x_dest = x_dest;
-  player->bullet.y_dest = y_dest;
 
-  player->bullet.x_origin = player->x_current;
-  player->bullet.y_origin = player->y_current;
-  player->bullet.currentState = INACTIVE;
-
-  //missile->total_length =\
-      distance((missile_location_t){missile->x_origin, missile->y_origin},\
-               (missile_location_t){missile->x_dest, missile->y_dest});
-
-  player->bullet.x_current = player->bullet.x_origin;
-  player->bullet.y_current = player->bullet.y_origin;
 }
-
 
 ////////// State Machine TICK Function //////////
 
 // State machine tick function
-void bullet_tick(player_t *player) {
+void bullet_tick(bullet_t *bullet)
+{
 
 }
 
 // Return whether the bullet is dead.
-bool bullet_is_dead(player_t *player) { return player->bullet.currentState == DEAD; }
+bool bullet_is_dead(bullet_t *bullet)
+{
+
+}
 
 // Return whether the given missile is flying.
 //bool bullet_is_flying();
 
 // Used to indicate that the flying bullet should be detonated. This occurs when
 // the bullet hits the ground or the player.
-void bullet_trigger_explosion(player_t *player) {
-
-}
+void bullet_trigger_explosion(bullet_t *bullet) { bullet->bullet_splode = true; }

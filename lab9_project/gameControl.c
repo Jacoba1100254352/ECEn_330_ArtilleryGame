@@ -10,7 +10,6 @@
 // If the bullet lands close enough to the player to count (may want to change with addition of radius?)
 #define HIT_RANGE 10
 
-player_t players[CONFIG_MAX_PLAYERS];
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.

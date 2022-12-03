@@ -25,24 +25,3 @@ typedef struct {
   int16_t y_current;
 
 } bullet_t;
-
-/* This struct contains all information about a player */
-typedef struct {
-  // player type (player, enemy)
-  player_type_t type;
-
-  bullet_t bullet;
-
-  // Current state (the 'enum' will be defined in your missile.c file, so it's
-  // just declared as an integer type here)
-  int32_t currentState;
-
-  // Used to track the current x,y of missile
-  int16_t x_current;
-  int16_t y_current;
-
-  bool is_turn;
-
-  bool is_fired;
-
-} player_t;
