@@ -7,8 +7,11 @@
 ////////// State Machine INIT Functions //////////
 
 typedef struct {
-  uint16_t x_vel;
-  uint16_t y_vel;
+  int16_t x_vel;
+  int16_t y_vel;
+
+  uint16_t x_current;
+  uint16_t y_current;
 
   uint16_t vel_magnitude;
 

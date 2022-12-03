@@ -1,5 +1,6 @@
 #include "bullet.h"
 #include "config.h"
+#include <math.h>
 
 typedef enum { INACTIVE, MOVING, DEAD } bullet_st_t;
 
