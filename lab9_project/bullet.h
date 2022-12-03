@@ -6,9 +6,17 @@
 
 ////////// State Machine INIT Functions //////////
 
-// Initialize the missile as a dead missile.  This is useful at the start of the
-// game to ensure that player and plane missiles aren't moving before they
-// should.
+typedef struct {
+  uint16_t x_vel;
+  uint16_t y_vel;
+
+  uint16_t vel_magnitude;
+
+  bool bullet_is_dead;
+
+} bullet_t;
+
+//Initialize the bullet as dead.
 void bullet_init_dead(player_t *player);
 
 // Initialize the bullet state machine

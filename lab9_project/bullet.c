@@ -3,8 +3,11 @@
 
 typedef enum { INACTIVE, MOVING, DEAD } bullet_st_t;
 
+
+
 // Print the given state passed in by the state variable
-static void printStateString(bullet_st_t currentState) {
+static void
+printStateString(bullet_st_t currentState) {
   // Print the given state
   switch (currentState) {
   case INACTIVE:
