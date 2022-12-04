@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "bullet.h"
 #include "config.h"
 #include <math.h>
@@ -6,19 +7,19 @@
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 bullet_st_t currentState;
 
-double x_vel(uint16_t power, double angle) { return power * sine(angle); }
+double x_vel(uint16_t power, double angle) { return power * sin(angle); }
 
 double y_vel(uint16_t power, double angle) { return power * cos(angle); }
 
-static void drawBullet(bullet_t bullet, bool erase)
+static void drawBullet(bullet_t *bullet, bool erase)
 {
   int16_t color;
   if (erase)
     color = DISPLAY_BLUE;
   else
-    color = CONFIG_COLOR_BULLET;
+    color = DISPLAY_WHITE;
 
-  display_drawRect(bullet.x_current, bullet.y_current, 25, 25, color);
+  display_fillRect(bullet->x_current, bullet->y_current, 20, 20, color);
 }
 
 // Print the given state passed in by the state variable
@@ -65,17 +66,19 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
-  drawBullet(*bullet, true);
+  drawBullet(bullet, true);
   bullet->x_vel = x_vel(power, angle);
   bullet->y_vel = y_vel(power, angle);
 
   bullet->x_current += bullet->x_vel;
   bullet->y_current += bullet->y_vel;
-  drawBullet(*bullet, false);
+  drawBullet(bullet, false);
 
   currentState = INIT;
 
   bullet->wind = wind;
+
+  bullet->dead = false;
 }
 
 ////////// State Machine TICK Function //////////
@@ -85,16 +88,24 @@ void bullet_tick(bullet_t *bullet)
 {
   switch (currentState) {
   case INIT:
+    printf("INIT");
     currentState = MOVING;
     break;
   case MOVING:
+    printf("MOVING");
     if (bullet->dead)
       currentState = DEAD;
     else
       currentState = MOVING;
 
-    bullet->y_vel += CONFIG_GRAVITY_ACCELERATION;
+    bullet->y_vel -= CONFIG_GRAVITY_ACCELERATION;
     bullet->x_vel += bullet->wind;
+
+    bullet->x_current += bullet->x_vel;
+    bullet->y_current += bullet->y_vel;
+    drawBullet(bullet, false);
+
+    printf("x: %d y: %d\n", bullet->x_current, bullet->y_current);
     break;
   case DEAD:
     printf("DEAD");

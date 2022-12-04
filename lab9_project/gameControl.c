@@ -8,10 +8,10 @@ bullet_t bullet;
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
 void gameControl_init() { // Clear the screen
-  display_fillScreen(DISPLAY_BLUE);
-  bullet_init(&bullet, 40, 280, 15, 1.5, 0);
   display_fillScreen(DISPLAY_BLACK);
-  display_drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap, int16_t w, int16_t h, uint16_t color);
+  bullet_init(&bullet, 100, 100, 15, .5, 0);
+  //display_fillScreen(DISPLAY_BLACK);
+  //display_drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap, int16_t w, int16_t h, uint16_t color);
 
 }
 
