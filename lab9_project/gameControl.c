@@ -1,13 +1,13 @@
 #include "gameControl.h"
 #include "bullet.h"
 #include "config.h"
-#include "touchscreen.h"
+#include "display.h"
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
 void gameControl_init() { // Clear the screen
   display_fillScreen(DISPLAY_BLACK);
-
+  display_drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap, int16_t w, int16_t h, uint16_t color);
 
 }
 

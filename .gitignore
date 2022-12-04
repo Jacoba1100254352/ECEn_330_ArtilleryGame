@@ -1,6 +1,4 @@
 # Temporary software files
-/build
-/build_emu
 *.o
 a.out
 
