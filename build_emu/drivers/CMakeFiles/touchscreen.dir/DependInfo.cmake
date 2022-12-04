@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/ecen330/drivers/touchscreen.c" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o" "gcc" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o.d"
+  "/home/student/ecen330_p9/drivers/touchscreen.c" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o" "gcc" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o.d"
   )
 
 # Targets to which this target links.

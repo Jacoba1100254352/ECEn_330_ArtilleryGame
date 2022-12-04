@@ -57,10 +57,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build_emu
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build_emu
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build_emu/CMakeFiles /home/student/ecen330/build_emu/lab9_project//CMakeFiles/progress.marks
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build_emu/CMakeFiles 0
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build_emu/CMakeFiles /home/student/ecen330_p9/build_emu/lab9_project//CMakeFiles/progress.marks
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build_emu/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/clean
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 lab9_project/CMakeFiles/lab9.elf.dir/rule:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/CMakeFiles/lab9.elf.dir/rule
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/CMakeFiles/lab9.elf.dir/rule
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/rule
 
 # fast build rule for target.
 lab9.elf/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/build
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/build
 .PHONY : lab9.elf/fast
 
 bullet.o: bullet.c.o
@@ -135,7 +135,7 @@ bullet.o: bullet.c.o
 
 # target to build an object file
 bullet.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o
 .PHONY : bullet.c.o
 
 bullet.i: bullet.c.i
@@ -143,7 +143,7 @@ bullet.i: bullet.c.i
 
 # target to preprocess a source file
 bullet.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.i
 .PHONY : bullet.c.i
 
 bullet.s: bullet.c.s
@@ -151,7 +151,7 @@ bullet.s: bullet.c.s
 
 # target to generate assembly for a file
 bullet.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.s
 .PHONY : bullet.c.s
 
 gameControl.o: gameControl.c.o
@@ -159,7 +159,7 @@ gameControl.o: gameControl.c.o
 
 # target to build an object file
 gameControl.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
 .PHONY : gameControl.c.o
 
 gameControl.i: gameControl.c.i
@@ -167,7 +167,7 @@ gameControl.i: gameControl.c.i
 
 # target to preprocess a source file
 gameControl.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.i
 .PHONY : gameControl.c.i
 
 gameControl.s: gameControl.c.s
@@ -175,7 +175,7 @@ gameControl.s: gameControl.c.s
 
 # target to generate assembly for a file
 gameControl.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.s
 .PHONY : gameControl.c.s
 
 main.o: main.c.o
@@ -183,7 +183,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -191,7 +191,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -199,32 +199,8 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.s
 .PHONY : main.c.s
-
-player.o: player.c.o
-.PHONY : player.o
-
-# target to build an object file
-player.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/player.c.o
-.PHONY : player.c.o
-
-player.i: player.c.i
-.PHONY : player.i
-
-# target to preprocess a source file
-player.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/player.c.i
-.PHONY : player.c.i
-
-player.s: player.c.s
-.PHONY : player.s
-
-# target to generate assembly for a file
-player.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/player.c.s
-.PHONY : player.c.s
 
 # Help Target
 help:
@@ -244,9 +220,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... player.o"
-	@echo "... player.i"
-	@echo "... player.s"
 .PHONY : help
 
 
@@ -258,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

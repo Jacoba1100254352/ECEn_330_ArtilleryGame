@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DQT_NO_VERSION_TAGGING
 
-C_INCLUDES = -I/home/student/ecen330/. -I/home/student/ecen330/include -I/home/student/ecen330/drivers -I/home/student/ecen330/platforms/emulator/include
+C_INCLUDES = -I/home/student/ecen330_p9/. -I/home/student/ecen330_p9/include -I/home/student/ecen330_p9/drivers -I/home/student/ecen330_p9/platforms/emulator/include
 
 C_FLAGS = -g   -include emulator.h
 

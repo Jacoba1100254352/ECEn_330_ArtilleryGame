@@ -57,10 +57,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build_emu
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build_emu
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build_emu/CMakeFiles /home/student/ecen330/build_emu/drivers//CMakeFiles/progress.marks
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build_emu/CMakeFiles 0
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build_emu/CMakeFiles /home/student/ecen330_p9/build_emu/drivers//CMakeFiles/progress.marks
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build_emu/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/clean
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/preinstall
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/preinstall
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 drivers/CMakeFiles/buttons_switches.dir/rule:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/buttons_switches.dir/rule
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/buttons_switches.dir/rule
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ buttons_switches: drivers/CMakeFiles/buttons_switches.dir/rule
 
 # fast build rule for target.
 buttons_switches/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/build
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/build
 .PHONY : buttons_switches/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/intervalTimer.dir/rule:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/intervalTimer.dir/rule
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/intervalTimer.dir/rule
 .PHONY : drivers/CMakeFiles/intervalTimer.dir/rule
 
 # Convenience name for target.
@@ -141,12 +141,12 @@ intervalTimer: drivers/CMakeFiles/intervalTimer.dir/rule
 
 # fast build rule for target.
 intervalTimer/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/build
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/build
 .PHONY : intervalTimer/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/interrupts.dir/rule:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/interrupts.dir/rule
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/interrupts.dir/rule
 .PHONY : drivers/CMakeFiles/interrupts.dir/rule
 
 # Convenience name for target.
@@ -155,12 +155,12 @@ interrupts: drivers/CMakeFiles/interrupts.dir/rule
 
 # fast build rule for target.
 interrupts/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/build
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/build
 .PHONY : interrupts/fast
 
 # Convenience name for target.
 drivers/CMakeFiles/touchscreen.dir/rule:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/touchscreen.dir/rule
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/touchscreen.dir/rule
 .PHONY : drivers/CMakeFiles/touchscreen.dir/rule
 
 # Convenience name for target.
@@ -169,7 +169,7 @@ touchscreen: drivers/CMakeFiles/touchscreen.dir/rule
 
 # fast build rule for target.
 touchscreen/fast:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/build
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/build
 .PHONY : touchscreen/fast
 
 buttons.o: buttons.c.o
@@ -177,7 +177,7 @@ buttons.o: buttons.c.o
 
 # target to build an object file
 buttons.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.o
 .PHONY : buttons.c.o
 
 buttons.i: buttons.c.i
@@ -185,7 +185,7 @@ buttons.i: buttons.c.i
 
 # target to preprocess a source file
 buttons.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.i
 .PHONY : buttons.c.i
 
 buttons.s: buttons.c.s
@@ -193,7 +193,7 @@ buttons.s: buttons.c.s
 
 # target to generate assembly for a file
 buttons.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/buttons.c.s
 .PHONY : buttons.c.s
 
 interrupts.o: interrupts.c.o
@@ -201,7 +201,7 @@ interrupts.o: interrupts.c.o
 
 # target to build an object file
 interrupts.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.o
 .PHONY : interrupts.c.o
 
 interrupts.i: interrupts.c.i
@@ -209,7 +209,7 @@ interrupts.i: interrupts.c.i
 
 # target to preprocess a source file
 interrupts.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.i
 .PHONY : interrupts.c.i
 
 interrupts.s: interrupts.c.s
@@ -217,7 +217,7 @@ interrupts.s: interrupts.c.s
 
 # target to generate assembly for a file
 interrupts.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/interrupts.c.s
 .PHONY : interrupts.c.s
 
 intervalTimer.o: intervalTimer.c.o
@@ -225,7 +225,7 @@ intervalTimer.o: intervalTimer.c.o
 
 # target to build an object file
 intervalTimer.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.o
 .PHONY : intervalTimer.c.o
 
 intervalTimer.i: intervalTimer.c.i
@@ -233,7 +233,7 @@ intervalTimer.i: intervalTimer.c.i
 
 # target to preprocess a source file
 intervalTimer.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.i
 .PHONY : intervalTimer.c.i
 
 intervalTimer.s: intervalTimer.c.s
@@ -241,7 +241,7 @@ intervalTimer.s: intervalTimer.c.s
 
 # target to generate assembly for a file
 intervalTimer.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.s
 .PHONY : intervalTimer.c.s
 
 switches.o: switches.c.o
@@ -249,7 +249,7 @@ switches.o: switches.c.o
 
 # target to build an object file
 switches.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.o
 .PHONY : switches.c.o
 
 switches.i: switches.c.i
@@ -257,7 +257,7 @@ switches.i: switches.c.i
 
 # target to preprocess a source file
 switches.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.i
 .PHONY : switches.c.i
 
 switches.s: switches.c.s
@@ -265,7 +265,7 @@ switches.s: switches.c.s
 
 # target to generate assembly for a file
 switches.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/switches.c.s
 .PHONY : switches.c.s
 
 touchscreen.o: touchscreen.c.o
@@ -273,7 +273,7 @@ touchscreen.o: touchscreen.c.o
 
 # target to build an object file
 touchscreen.c.o:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o
 .PHONY : touchscreen.c.o
 
 touchscreen.i: touchscreen.c.i
@@ -281,7 +281,7 @@ touchscreen.i: touchscreen.c.i
 
 # target to preprocess a source file
 touchscreen.c.i:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.i
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.i
 .PHONY : touchscreen.c.i
 
 touchscreen.s: touchscreen.c.s
@@ -289,7 +289,7 @@ touchscreen.s: touchscreen.c.s
 
 # target to generate assembly for a file
 touchscreen.c.s:
-	cd /home/student/ecen330/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.s
+	cd /home/student/ecen330_p9/build_emu && $(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/touchscreen.c.s
 .PHONY : touchscreen.c.s
 
 # Help Target
@@ -330,6 +330,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

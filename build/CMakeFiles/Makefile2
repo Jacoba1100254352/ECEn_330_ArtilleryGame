@@ -54,51 +54,27 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
 all: drivers/all
-all: lab1_helloworld/all
-all: lab2_gpio/all
-all: lab3_timer/all
-all: lab4_interrupts/all
-all: lab5_touchscreen/all
-all: lab6_clock/all
-all: lab7_tictactoe/all
-all: lab8_missilecommand/all
 all: lab9_project/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: drivers/preinstall
-preinstall: lab1_helloworld/preinstall
-preinstall: lab2_gpio/preinstall
-preinstall: lab3_timer/preinstall
-preinstall: lab4_interrupts/preinstall
-preinstall: lab5_touchscreen/preinstall
-preinstall: lab6_clock/preinstall
-preinstall: lab7_tictactoe/preinstall
-preinstall: lab8_missilecommand/preinstall
 preinstall: lab9_project/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/BOOT.bin.dir/clean
 clean: drivers/clean
-clean: lab1_helloworld/clean
-clean: lab2_gpio/clean
-clean: lab3_timer/clean
-clean: lab4_interrupts/clean
-clean: lab5_touchscreen/clean
-clean: lab6_clock/clean
-clean: lab7_tictactoe/clean
-clean: lab8_missilecommand/clean
 clean: lab9_project/clean
 .PHONY : clean
 
@@ -124,134 +100,6 @@ drivers/clean: drivers/CMakeFiles/touchscreen.dir/clean
 .PHONY : drivers/clean
 
 #=============================================================================
-# Directory level rules for directory lab1_helloworld
-
-# Recursive "all" directory target.
-lab1_helloworld/all: lab1_helloworld/CMakeFiles/lab1.elf.dir/all
-.PHONY : lab1_helloworld/all
-
-# Recursive "preinstall" directory target.
-lab1_helloworld/preinstall:
-.PHONY : lab1_helloworld/preinstall
-
-# Recursive "clean" directory target.
-lab1_helloworld/clean: lab1_helloworld/CMakeFiles/lab1.elf.dir/clean
-.PHONY : lab1_helloworld/clean
-
-#=============================================================================
-# Directory level rules for directory lab2_gpio
-
-# Recursive "all" directory target.
-lab2_gpio/all: lab2_gpio/CMakeFiles/lab2.elf.dir/all
-.PHONY : lab2_gpio/all
-
-# Recursive "preinstall" directory target.
-lab2_gpio/preinstall:
-.PHONY : lab2_gpio/preinstall
-
-# Recursive "clean" directory target.
-lab2_gpio/clean: lab2_gpio/CMakeFiles/lab2.elf.dir/clean
-.PHONY : lab2_gpio/clean
-
-#=============================================================================
-# Directory level rules for directory lab3_timer
-
-# Recursive "all" directory target.
-lab3_timer/all: lab3_timer/CMakeFiles/lab3_m1.elf.dir/all
-lab3_timer/all: lab3_timer/CMakeFiles/lab3_m2.elf.dir/all
-.PHONY : lab3_timer/all
-
-# Recursive "preinstall" directory target.
-lab3_timer/preinstall:
-.PHONY : lab3_timer/preinstall
-
-# Recursive "clean" directory target.
-lab3_timer/clean: lab3_timer/CMakeFiles/lab3_m1.elf.dir/clean
-lab3_timer/clean: lab3_timer/CMakeFiles/lab3_m2.elf.dir/clean
-.PHONY : lab3_timer/clean
-
-#=============================================================================
-# Directory level rules for directory lab4_interrupts
-
-# Recursive "all" directory target.
-lab4_interrupts/all: lab4_interrupts/CMakeFiles/lab4.elf.dir/all
-.PHONY : lab4_interrupts/all
-
-# Recursive "preinstall" directory target.
-lab4_interrupts/preinstall:
-.PHONY : lab4_interrupts/preinstall
-
-# Recursive "clean" directory target.
-lab4_interrupts/clean: lab4_interrupts/CMakeFiles/lab4.elf.dir/clean
-.PHONY : lab4_interrupts/clean
-
-#=============================================================================
-# Directory level rules for directory lab5_touchscreen
-
-# Recursive "all" directory target.
-lab5_touchscreen/all: lab5_touchscreen/CMakeFiles/lab5.elf.dir/all
-.PHONY : lab5_touchscreen/all
-
-# Recursive "preinstall" directory target.
-lab5_touchscreen/preinstall:
-.PHONY : lab5_touchscreen/preinstall
-
-# Recursive "clean" directory target.
-lab5_touchscreen/clean: lab5_touchscreen/CMakeFiles/lab5.elf.dir/clean
-.PHONY : lab5_touchscreen/clean
-
-#=============================================================================
-# Directory level rules for directory lab6_clock
-
-# Recursive "all" directory target.
-lab6_clock/all: lab6_clock/CMakeFiles/lab6.elf.dir/all
-.PHONY : lab6_clock/all
-
-# Recursive "preinstall" directory target.
-lab6_clock/preinstall:
-.PHONY : lab6_clock/preinstall
-
-# Recursive "clean" directory target.
-lab6_clock/clean: lab6_clock/CMakeFiles/lab6.elf.dir/clean
-.PHONY : lab6_clock/clean
-
-#=============================================================================
-# Directory level rules for directory lab7_tictactoe
-
-# Recursive "all" directory target.
-lab7_tictactoe/all: lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all
-lab7_tictactoe/all: lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all
-.PHONY : lab7_tictactoe/all
-
-# Recursive "preinstall" directory target.
-lab7_tictactoe/preinstall:
-.PHONY : lab7_tictactoe/preinstall
-
-# Recursive "clean" directory target.
-lab7_tictactoe/clean: lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/clean
-lab7_tictactoe/clean: lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/clean
-.PHONY : lab7_tictactoe/clean
-
-#=============================================================================
-# Directory level rules for directory lab8_missilecommand
-
-# Recursive "all" directory target.
-lab8_missilecommand/all: lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all
-lab8_missilecommand/all: lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all
-lab8_missilecommand/all: lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all
-.PHONY : lab8_missilecommand/all
-
-# Recursive "preinstall" directory target.
-lab8_missilecommand/preinstall:
-.PHONY : lab8_missilecommand/preinstall
-
-# Recursive "clean" directory target.
-lab8_missilecommand/clean: lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/clean
-lab8_missilecommand/clean: lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/clean
-lab8_missilecommand/clean: lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/clean
-.PHONY : lab8_missilecommand/clean
-
-#=============================================================================
 # Directory level rules for directory lab9_project
 
 # Recursive "all" directory target.
@@ -273,14 +121,14 @@ lab9_project/clean: lab9_project/CMakeFiles/lab9.elf.dir/clean
 CMakeFiles/BOOT.bin.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BOOT.bin.dir/build.make CMakeFiles/BOOT.bin.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BOOT.bin.dir/build.make CMakeFiles/BOOT.bin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num= "Built target BOOT.bin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num= "Built target BOOT.bin"
 .PHONY : CMakeFiles/BOOT.bin.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BOOT.bin.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BOOT.bin.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : CMakeFiles/BOOT.bin.dir/rule
 
 # Convenience name for target.
@@ -299,14 +147,14 @@ CMakeFiles/BOOT.bin.dir/clean:
 drivers/CMakeFiles/buttons_switches.dir/all:
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/depend
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/buttons_switches.dir/build.make drivers/CMakeFiles/buttons_switches.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=1,2,3 "Built target buttons_switches"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num=1,2,3 "Built target buttons_switches"
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/buttons_switches.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/buttons_switches.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/rule
 
 # Convenience name for target.
@@ -325,14 +173,14 @@ drivers/CMakeFiles/buttons_switches.dir/clean:
 drivers/CMakeFiles/intervalTimer.dir/all:
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/depend
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/intervalTimer.dir/build.make drivers/CMakeFiles/intervalTimer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=6,7 "Built target intervalTimer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num=6,7 "Built target intervalTimer"
 .PHONY : drivers/CMakeFiles/intervalTimer.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/intervalTimer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/intervalTimer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/intervalTimer.dir/rule
 
 # Convenience name for target.
@@ -351,14 +199,14 @@ drivers/CMakeFiles/intervalTimer.dir/clean:
 drivers/CMakeFiles/interrupts.dir/all:
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/depend
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/interrupts.dir/build.make drivers/CMakeFiles/interrupts.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=4,5 "Built target interrupts"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num=4,5 "Built target interrupts"
 .PHONY : drivers/CMakeFiles/interrupts.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/interrupts.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/interrupts.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/interrupts.dir/rule
 
 # Convenience name for target.
@@ -377,14 +225,14 @@ drivers/CMakeFiles/interrupts.dir/clean:
 drivers/CMakeFiles/touchscreen.dir/all:
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/depend
 	$(MAKE) $(MAKESILENT) -f drivers/CMakeFiles/touchscreen.dir/build.make drivers/CMakeFiles/touchscreen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=51,52 "Built target touchscreen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num=12,13 "Built target touchscreen"
 .PHONY : drivers/CMakeFiles/touchscreen.dir/all
 
 # Build rule for subdir invocation for target.
 drivers/CMakeFiles/touchscreen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drivers/CMakeFiles/touchscreen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : drivers/CMakeFiles/touchscreen.dir/rule
 
 # Convenience name for target.
@@ -397,343 +245,6 @@ drivers/CMakeFiles/touchscreen.dir/clean:
 .PHONY : drivers/CMakeFiles/touchscreen.dir/clean
 
 #=============================================================================
-# Target rules for target lab1_helloworld/CMakeFiles/lab1.elf.dir
-
-# All Build rule for target.
-lab1_helloworld/CMakeFiles/lab1.elf.dir/all:
-	$(MAKE) $(MAKESILENT) -f lab1_helloworld/CMakeFiles/lab1.elf.dir/build.make lab1_helloworld/CMakeFiles/lab1.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab1_helloworld/CMakeFiles/lab1.elf.dir/build.make lab1_helloworld/CMakeFiles/lab1.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=8,9 "Built target lab1.elf"
-.PHONY : lab1_helloworld/CMakeFiles/lab1.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab1_helloworld/CMakeFiles/lab1.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab1_helloworld/CMakeFiles/lab1.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab1_helloworld/CMakeFiles/lab1.elf.dir/rule
-
-# Convenience name for target.
-lab1.elf: lab1_helloworld/CMakeFiles/lab1.elf.dir/rule
-.PHONY : lab1.elf
-
-# clean rule for target.
-lab1_helloworld/CMakeFiles/lab1.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab1_helloworld/CMakeFiles/lab1.elf.dir/build.make lab1_helloworld/CMakeFiles/lab1.elf.dir/clean
-.PHONY : lab1_helloworld/CMakeFiles/lab1.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab2_gpio/CMakeFiles/lab2.elf.dir
-
-# All Build rule for target.
-lab2_gpio/CMakeFiles/lab2.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-	$(MAKE) $(MAKESILENT) -f lab2_gpio/CMakeFiles/lab2.elf.dir/build.make lab2_gpio/CMakeFiles/lab2.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab2_gpio/CMakeFiles/lab2.elf.dir/build.make lab2_gpio/CMakeFiles/lab2.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=10,11,12 "Built target lab2.elf"
-.PHONY : lab2_gpio/CMakeFiles/lab2.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab2_gpio/CMakeFiles/lab2.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab2_gpio/CMakeFiles/lab2.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab2_gpio/CMakeFiles/lab2.elf.dir/rule
-
-# Convenience name for target.
-lab2.elf: lab2_gpio/CMakeFiles/lab2.elf.dir/rule
-.PHONY : lab2.elf
-
-# clean rule for target.
-lab2_gpio/CMakeFiles/lab2.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab2_gpio/CMakeFiles/lab2.elf.dir/build.make lab2_gpio/CMakeFiles/lab2.elf.dir/clean
-.PHONY : lab2_gpio/CMakeFiles/lab2.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab3_timer/CMakeFiles/lab3_m1.elf.dir
-
-# All Build rule for target.
-lab3_timer/CMakeFiles/lab3_m1.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab3_timer/CMakeFiles/lab3_m1.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m1.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m1.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m1.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m1.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=13,14 "Built target lab3_m1.elf"
-.PHONY : lab3_timer/CMakeFiles/lab3_m1.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab3_timer/CMakeFiles/lab3_m1.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3_timer/CMakeFiles/lab3_m1.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab3_timer/CMakeFiles/lab3_m1.elf.dir/rule
-
-# Convenience name for target.
-lab3_m1.elf: lab3_timer/CMakeFiles/lab3_m1.elf.dir/rule
-.PHONY : lab3_m1.elf
-
-# clean rule for target.
-lab3_timer/CMakeFiles/lab3_m1.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m1.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m1.elf.dir/clean
-.PHONY : lab3_timer/CMakeFiles/lab3_m1.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab3_timer/CMakeFiles/lab3_m2.elf.dir
-
-# All Build rule for target.
-lab3_timer/CMakeFiles/lab3_m2.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab3_timer/CMakeFiles/lab3_m2.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m2.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m2.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m2.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m2.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=15,16 "Built target lab3_m2.elf"
-.PHONY : lab3_timer/CMakeFiles/lab3_m2.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab3_timer/CMakeFiles/lab3_m2.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3_timer/CMakeFiles/lab3_m2.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab3_timer/CMakeFiles/lab3_m2.elf.dir/rule
-
-# Convenience name for target.
-lab3_m2.elf: lab3_timer/CMakeFiles/lab3_m2.elf.dir/rule
-.PHONY : lab3_m2.elf
-
-# clean rule for target.
-lab3_timer/CMakeFiles/lab3_m2.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m2.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m2.elf.dir/clean
-.PHONY : lab3_timer/CMakeFiles/lab3_m2.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab4_interrupts/CMakeFiles/lab4.elf.dir
-
-# All Build rule for target.
-lab4_interrupts/CMakeFiles/lab4.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab4_interrupts/CMakeFiles/lab4.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab4_interrupts/CMakeFiles/lab4.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-	$(MAKE) $(MAKESILENT) -f lab4_interrupts/CMakeFiles/lab4.elf.dir/build.make lab4_interrupts/CMakeFiles/lab4.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab4_interrupts/CMakeFiles/lab4.elf.dir/build.make lab4_interrupts/CMakeFiles/lab4.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=17,18,19 "Built target lab4.elf"
-.PHONY : lab4_interrupts/CMakeFiles/lab4.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab4_interrupts/CMakeFiles/lab4.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 10
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab4_interrupts/CMakeFiles/lab4.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab4_interrupts/CMakeFiles/lab4.elf.dir/rule
-
-# Convenience name for target.
-lab4.elf: lab4_interrupts/CMakeFiles/lab4.elf.dir/rule
-.PHONY : lab4.elf
-
-# clean rule for target.
-lab4_interrupts/CMakeFiles/lab4.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab4_interrupts/CMakeFiles/lab4.elf.dir/build.make lab4_interrupts/CMakeFiles/lab4.elf.dir/clean
-.PHONY : lab4_interrupts/CMakeFiles/lab4.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab5_touchscreen/CMakeFiles/lab5.elf.dir
-
-# All Build rule for target.
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab5_touchscreen/CMakeFiles/lab5.elf.dir/build.make lab5_touchscreen/CMakeFiles/lab5.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab5_touchscreen/CMakeFiles/lab5.elf.dir/build.make lab5_touchscreen/CMakeFiles/lab5.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=20,21 "Built target lab5.elf"
-.PHONY : lab5_touchscreen/CMakeFiles/lab5.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 11
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab5_touchscreen/CMakeFiles/lab5.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab5_touchscreen/CMakeFiles/lab5.elf.dir/rule
-
-# Convenience name for target.
-lab5.elf: lab5_touchscreen/CMakeFiles/lab5.elf.dir/rule
-.PHONY : lab5.elf
-
-# clean rule for target.
-lab5_touchscreen/CMakeFiles/lab5.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab5_touchscreen/CMakeFiles/lab5.elf.dir/build.make lab5_touchscreen/CMakeFiles/lab5.elf.dir/clean
-.PHONY : lab5_touchscreen/CMakeFiles/lab5.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab6_clock/CMakeFiles/lab6.elf.dir
-
-# All Build rule for target.
-lab6_clock/CMakeFiles/lab6.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab6_clock/CMakeFiles/lab6.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab6_clock/CMakeFiles/lab6.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab6_clock/CMakeFiles/lab6.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab6_clock/CMakeFiles/lab6.elf.dir/build.make lab6_clock/CMakeFiles/lab6.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab6_clock/CMakeFiles/lab6.elf.dir/build.make lab6_clock/CMakeFiles/lab6.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=22,23,24,25 "Built target lab6.elf"
-.PHONY : lab6_clock/CMakeFiles/lab6.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab6_clock/CMakeFiles/lab6.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 13
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab6_clock/CMakeFiles/lab6.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab6_clock/CMakeFiles/lab6.elf.dir/rule
-
-# Convenience name for target.
-lab6.elf: lab6_clock/CMakeFiles/lab6.elf.dir/rule
-.PHONY : lab6.elf
-
-# clean rule for target.
-lab6_clock/CMakeFiles/lab6.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab6_clock/CMakeFiles/lab6.elf.dir/build.make lab6_clock/CMakeFiles/lab6.elf.dir/clean
-.PHONY : lab6_clock/CMakeFiles/lab6.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir
-
-# All Build rule for target.
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=26,27,28,29 "Built target lab7_m1.elf"
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 13
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/rule
-
-# Convenience name for target.
-lab7_m1.elf: lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/rule
-.PHONY : lab7_m1.elf
-
-# clean rule for target.
-lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/clean
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir
-
-# All Build rule for target.
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=30,31,32,33,34 "Built target lab7_m2.elf"
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 14
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/rule
-
-# Convenience name for target.
-lab7_m2.elf: lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/rule
-.PHONY : lab7_m2.elf
-
-# clean rule for target.
-lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/clean
-.PHONY : lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir
-
-# All Build rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=35,36,37 "Built target lab8_m1.elf"
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 12
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/rule
-
-# Convenience name for target.
-lab8_m1.elf: lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/rule
-.PHONY : lab8_m1.elf
-
-# clean rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/clean
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir
-
-# All Build rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=38,39,40,41,42 "Built target lab8_m2.elf"
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 14
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/rule
-
-# Convenience name for target.
-lab8_m2.elf: lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/rule
-.PHONY : lab8_m2.elf
-
-# clean rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/clean
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/clean
-
-#=============================================================================
-# Target rules for target lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir
-
-# All Build rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all: drivers/CMakeFiles/buttons_switches.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all: drivers/CMakeFiles/intervalTimer.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/depend
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=43,44,45,46,47 "Built target lab8_m3.elf"
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all
-
-# Build rule for subdir invocation for target.
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 14
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/rule
-
-# Convenience name for target.
-lab8_m3.elf: lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/rule
-.PHONY : lab8_m3.elf
-
-# clean rule for target.
-lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/clean:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/clean
-.PHONY : lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/clean
-
-#=============================================================================
 # Target rules for target lab9_project/CMakeFiles/lab9.elf.dir
 
 # All Build rule for target.
@@ -743,14 +254,14 @@ lab9_project/CMakeFiles/lab9.elf.dir/all: drivers/CMakeFiles/interrupts.dir/all
 lab9_project/CMakeFiles/lab9.elf.dir/all: drivers/CMakeFiles/touchscreen.dir/all
 	$(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/depend
 	$(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330/build/CMakeFiles --progress-num=48,49,50 "Built target lab9.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/ecen330_p9/build/CMakeFiles --progress-num=8,9,10,11 "Built target lab9.elf"
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/all
 
 # Build rule for subdir invocation for target.
 lab9_project/CMakeFiles/lab9.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/CMakeFiles/lab9.elf.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/rule
 
 # Convenience name for target.

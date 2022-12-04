@@ -53,10 +53,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build_emu
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build_emu
 
 # Include any dependencies generated for this target.
 include lab9_project/CMakeFiles/lab9.elf.dir/depend.make
@@ -70,67 +70,52 @@ include lab9_project/CMakeFiles/lab9.elf.dir/progress.make
 include lab9_project/CMakeFiles/lab9.elf.dir/flags.make
 
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: lab9_project/CMakeFiles/lab9.elf.dir/flags.make
-lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: /home/student/ecen330/lab9_project/main.c
+lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: /home/student/ecen330_p9/lab9_project/main.c
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: lab9_project/CMakeFiles/lab9.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/main.c.o"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/main.c.o -MF CMakeFiles/lab9.elf.dir/main.c.o.d -o CMakeFiles/lab9.elf.dir/main.c.o -c /home/student/ecen330/lab9_project/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/main.c.o"
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/main.c.o -MF CMakeFiles/lab9.elf.dir/main.c.o.d -o CMakeFiles/lab9.elf.dir/main.c.o -c /home/student/ecen330_p9/lab9_project/main.c
 
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab9.elf.dir/main.c.i"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/lab9_project/main.c > CMakeFiles/lab9.elf.dir/main.c.i
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330_p9/lab9_project/main.c > CMakeFiles/lab9.elf.dir/main.c.i
 
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab9.elf.dir/main.c.s"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/lab9_project/main.c -o CMakeFiles/lab9.elf.dir/main.c.s
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330_p9/lab9_project/main.c -o CMakeFiles/lab9.elf.dir/main.c.s
 
 lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o: lab9_project/CMakeFiles/lab9.elf.dir/flags.make
-lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o: /home/student/ecen330/lab9_project/gameControl.c
+lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o: /home/student/ecen330_p9/lab9_project/gameControl.c
 lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o: lab9_project/CMakeFiles/lab9.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o -MF CMakeFiles/lab9.elf.dir/gameControl.c.o.d -o CMakeFiles/lab9.elf.dir/gameControl.c.o -c /home/student/ecen330/lab9_project/gameControl.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o"
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o -MF CMakeFiles/lab9.elf.dir/gameControl.c.o.d -o CMakeFiles/lab9.elf.dir/gameControl.c.o -c /home/student/ecen330_p9/lab9_project/gameControl.c
 
 lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab9.elf.dir/gameControl.c.i"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/lab9_project/gameControl.c > CMakeFiles/lab9.elf.dir/gameControl.c.i
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330_p9/lab9_project/gameControl.c > CMakeFiles/lab9.elf.dir/gameControl.c.i
 
 lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab9.elf.dir/gameControl.c.s"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/lab9_project/gameControl.c -o CMakeFiles/lab9.elf.dir/gameControl.c.s
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330_p9/lab9_project/gameControl.c -o CMakeFiles/lab9.elf.dir/gameControl.c.s
 
 lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o: lab9_project/CMakeFiles/lab9.elf.dir/flags.make
-lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o: /home/student/ecen330/lab9_project/bullet.c
+lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o: /home/student/ecen330_p9/lab9_project/bullet.c
 lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o: lab9_project/CMakeFiles/lab9.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o -MF CMakeFiles/lab9.elf.dir/bullet.c.o.d -o CMakeFiles/lab9.elf.dir/bullet.c.o -c /home/student/ecen330/lab9_project/bullet.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o"
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o -MF CMakeFiles/lab9.elf.dir/bullet.c.o.d -o CMakeFiles/lab9.elf.dir/bullet.c.o -c /home/student/ecen330_p9/lab9_project/bullet.c
 
 lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab9.elf.dir/bullet.c.i"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/lab9_project/bullet.c > CMakeFiles/lab9.elf.dir/bullet.c.i
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330_p9/lab9_project/bullet.c > CMakeFiles/lab9.elf.dir/bullet.c.i
 
 lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab9.elf.dir/bullet.c.s"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/lab9_project/bullet.c -o CMakeFiles/lab9.elf.dir/bullet.c.s
-
-lab9_project/CMakeFiles/lab9.elf.dir/player.c.o: lab9_project/CMakeFiles/lab9.elf.dir/flags.make
-lab9_project/CMakeFiles/lab9.elf.dir/player.c.o: /home/student/ecen330/lab9_project/player.c
-lab9_project/CMakeFiles/lab9.elf.dir/player.c.o: lab9_project/CMakeFiles/lab9.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object lab9_project/CMakeFiles/lab9.elf.dir/player.c.o"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lab9_project/CMakeFiles/lab9.elf.dir/player.c.o -MF CMakeFiles/lab9.elf.dir/player.c.o.d -o CMakeFiles/lab9.elf.dir/player.c.o -c /home/student/ecen330/lab9_project/player.c
-
-lab9_project/CMakeFiles/lab9.elf.dir/player.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab9.elf.dir/player.c.i"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/lab9_project/player.c > CMakeFiles/lab9.elf.dir/player.c.i
-
-lab9_project/CMakeFiles/lab9.elf.dir/player.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab9.elf.dir/player.c.s"
-	cd /home/student/ecen330/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/lab9_project/player.c -o CMakeFiles/lab9.elf.dir/player.c.s
+	cd /home/student/ecen330_p9/build_emu/lab9_project && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330_p9/lab9_project/bullet.c -o CMakeFiles/lab9.elf.dir/bullet.c.s
 
 # Object files for target lab9.elf
 lab9_elf_OBJECTS = \
 "CMakeFiles/lab9.elf.dir/main.c.o" \
 "CMakeFiles/lab9.elf.dir/gameControl.c.o" \
-"CMakeFiles/lab9.elf.dir/bullet.c.o" \
-"CMakeFiles/lab9.elf.dir/player.c.o"
+"CMakeFiles/lab9.elf.dir/bullet.c.o"
 
 # External object files for target lab9.elf
 lab9_elf_EXTERNAL_OBJECTS =
@@ -138,25 +123,24 @@ lab9_elf_EXTERNAL_OBJECTS =
 lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
 lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
 lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o
-lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/player.c.o
 lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/build.make
 lab9_project/lab9.elf: drivers/libtouchscreen.a
 lab9_project/lab9.elf: drivers/libinterrupts.a
 lab9_project/lab9.elf: drivers/libintervalTimer.a
 lab9_project/lab9.elf: drivers/libbuttons_switches.a
 lab9_project/lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable lab9.elf"
-	cd /home/student/ecen330/build_emu/lab9_project && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab9.elf.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lab9.elf"
+	cd /home/student/ecen330_p9/build_emu/lab9_project && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab9.elf.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 lab9_project/CMakeFiles/lab9.elf.dir/build: lab9_project/lab9.elf
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/build
 
 lab9_project/CMakeFiles/lab9.elf.dir/clean:
-	cd /home/student/ecen330/build_emu/lab9_project && $(CMAKE_COMMAND) -P CMakeFiles/lab9.elf.dir/cmake_clean.cmake
+	cd /home/student/ecen330_p9/build_emu/lab9_project && $(CMAKE_COMMAND) -P CMakeFiles/lab9.elf.dir/cmake_clean.cmake
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/clean
 
 lab9_project/CMakeFiles/lab9.elf.dir/depend:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330 /home/student/ecen330/lab9_project /home/student/ecen330/build_emu /home/student/ecen330/build_emu/lab9_project /home/student/ecen330/build_emu/lab9_project/CMakeFiles/lab9.elf.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330_p9 /home/student/ecen330_p9/lab9_project /home/student/ecen330_p9/build_emu /home/student/ecen330_p9/build_emu/lab9_project /home/student/ecen330_p9/build_emu/lab9_project/CMakeFiles/lab9.elf.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/depend
 

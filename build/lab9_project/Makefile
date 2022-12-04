@@ -57,10 +57,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/student/ecen330/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles /home/student/ecen330/build/lab9_project//CMakeFiles/progress.marks
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	cd /home/student/ecen330_p9/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles /home/student/ecen330_p9/build/lab9_project//CMakeFiles/progress.marks
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/clean
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/student/ecen330/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/student/ecen330_p9/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 lab9_project/CMakeFiles/lab9.elf.dir/rule:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/CMakeFiles/lab9.elf.dir/rule
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab9_project/CMakeFiles/lab9.elf.dir/rule
 .PHONY : lab9_project/CMakeFiles/lab9.elf.dir/rule
 
 # Convenience name for target.
@@ -127,15 +127,63 @@ lab9.elf: lab9_project/CMakeFiles/lab9.elf.dir/rule
 
 # fast build rule for target.
 lab9.elf/fast:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/build
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/build
 .PHONY : lab9.elf/fast
+
+bullet.o: bullet.c.o
+.PHONY : bullet.o
+
+# target to build an object file
+bullet.c.o:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o
+.PHONY : bullet.c.o
+
+bullet.i: bullet.c.i
+.PHONY : bullet.i
+
+# target to preprocess a source file
+bullet.c.i:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.i
+.PHONY : bullet.c.i
+
+bullet.s: bullet.c.s
+.PHONY : bullet.s
+
+# target to generate assembly for a file
+bullet.c.s:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.s
+.PHONY : bullet.c.s
+
+gameControl.o: gameControl.c.o
+.PHONY : gameControl.o
+
+# target to build an object file
+gameControl.c.o:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
+.PHONY : gameControl.c.o
+
+gameControl.i: gameControl.c.i
+.PHONY : gameControl.i
+
+# target to preprocess a source file
+gameControl.c.i:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.i
+.PHONY : gameControl.c.i
+
+gameControl.s: gameControl.c.s
+.PHONY : gameControl.s
+
+# target to generate assembly for a file
+gameControl.c.s:
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.s
+.PHONY : gameControl.c.s
 
 main.o: main.c.o
 .PHONY : main.o
 
 # target to build an object file
 main.c.o:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -143,7 +191,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.i
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -151,32 +199,8 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.s
+	cd /home/student/ecen330_p9/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/main.c.s
 .PHONY : main.c.s
-
-tetris.o: tetris.c.o
-.PHONY : tetris.o
-
-# target to build an object file
-tetris.c.o:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/tetris.c.o
-.PHONY : tetris.c.o
-
-tetris.i: tetris.c.i
-.PHONY : tetris.i
-
-# target to preprocess a source file
-tetris.c.i:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/tetris.c.i
-.PHONY : tetris.c.i
-
-tetris.s: tetris.c.s
-.PHONY : tetris.s
-
-# target to generate assembly for a file
-tetris.c.s:
-	cd /home/student/ecen330/build && $(MAKE) $(MAKESILENT) -f lab9_project/CMakeFiles/lab9.elf.dir/build.make lab9_project/CMakeFiles/lab9.elf.dir/tetris.c.s
-.PHONY : tetris.c.s
 
 # Help Target
 help:
@@ -187,12 +211,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab9.elf"
+	@echo "... bullet.o"
+	@echo "... bullet.i"
+	@echo "... bullet.s"
+	@echo "... gameControl.o"
+	@echo "... gameControl.i"
+	@echo "... gameControl.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... tetris.o"
-	@echo "... tetris.i"
-	@echo "... tetris.s"
 .PHONY : help
 
 
@@ -204,6 +231,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/student/ecen330/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/student/ecen330_p9/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

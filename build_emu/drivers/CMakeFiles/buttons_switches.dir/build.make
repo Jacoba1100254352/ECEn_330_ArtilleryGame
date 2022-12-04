@@ -53,10 +53,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build_emu
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build_emu
 
 # Include any dependencies generated for this target.
 include drivers/CMakeFiles/buttons_switches.dir/depend.make
@@ -70,32 +70,32 @@ include drivers/CMakeFiles/buttons_switches.dir/progress.make
 include drivers/CMakeFiles/buttons_switches.dir/flags.make
 
 drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: drivers/CMakeFiles/buttons_switches.dir/flags.make
-drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: /home/student/ecen330/drivers/buttons.c
+drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: /home/student/ecen330_p9/drivers/buttons.c
 drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: drivers/CMakeFiles/buttons_switches.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object drivers/CMakeFiles/buttons_switches.dir/buttons.c.o"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT drivers/CMakeFiles/buttons_switches.dir/buttons.c.o -MF CMakeFiles/buttons_switches.dir/buttons.c.o.d -o CMakeFiles/buttons_switches.dir/buttons.c.o -c /home/student/ecen330/drivers/buttons.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object drivers/CMakeFiles/buttons_switches.dir/buttons.c.o"
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT drivers/CMakeFiles/buttons_switches.dir/buttons.c.o -MF CMakeFiles/buttons_switches.dir/buttons.c.o.d -o CMakeFiles/buttons_switches.dir/buttons.c.o -c /home/student/ecen330_p9/drivers/buttons.c
 
 drivers/CMakeFiles/buttons_switches.dir/buttons.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buttons_switches.dir/buttons.c.i"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/drivers/buttons.c > CMakeFiles/buttons_switches.dir/buttons.c.i
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330_p9/drivers/buttons.c > CMakeFiles/buttons_switches.dir/buttons.c.i
 
 drivers/CMakeFiles/buttons_switches.dir/buttons.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buttons_switches.dir/buttons.c.s"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/drivers/buttons.c -o CMakeFiles/buttons_switches.dir/buttons.c.s
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330_p9/drivers/buttons.c -o CMakeFiles/buttons_switches.dir/buttons.c.s
 
 drivers/CMakeFiles/buttons_switches.dir/switches.c.o: drivers/CMakeFiles/buttons_switches.dir/flags.make
-drivers/CMakeFiles/buttons_switches.dir/switches.c.o: /home/student/ecen330/drivers/switches.c
+drivers/CMakeFiles/buttons_switches.dir/switches.c.o: /home/student/ecen330_p9/drivers/switches.c
 drivers/CMakeFiles/buttons_switches.dir/switches.c.o: drivers/CMakeFiles/buttons_switches.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object drivers/CMakeFiles/buttons_switches.dir/switches.c.o"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT drivers/CMakeFiles/buttons_switches.dir/switches.c.o -MF CMakeFiles/buttons_switches.dir/switches.c.o.d -o CMakeFiles/buttons_switches.dir/switches.c.o -c /home/student/ecen330/drivers/switches.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object drivers/CMakeFiles/buttons_switches.dir/switches.c.o"
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT drivers/CMakeFiles/buttons_switches.dir/switches.c.o -MF CMakeFiles/buttons_switches.dir/switches.c.o.d -o CMakeFiles/buttons_switches.dir/switches.c.o -c /home/student/ecen330_p9/drivers/switches.c
 
 drivers/CMakeFiles/buttons_switches.dir/switches.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buttons_switches.dir/switches.c.i"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330/drivers/switches.c > CMakeFiles/buttons_switches.dir/switches.c.i
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/student/ecen330_p9/drivers/switches.c > CMakeFiles/buttons_switches.dir/switches.c.i
 
 drivers/CMakeFiles/buttons_switches.dir/switches.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buttons_switches.dir/switches.c.s"
-	cd /home/student/ecen330/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330/drivers/switches.c -o CMakeFiles/buttons_switches.dir/switches.c.s
+	cd /home/student/ecen330_p9/build_emu/drivers && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/student/ecen330_p9/drivers/switches.c -o CMakeFiles/buttons_switches.dir/switches.c.s
 
 # Object files for target buttons_switches
 buttons_switches_OBJECTS = \
@@ -109,19 +109,19 @@ drivers/libbuttons_switches.a: drivers/CMakeFiles/buttons_switches.dir/buttons.c
 drivers/libbuttons_switches.a: drivers/CMakeFiles/buttons_switches.dir/switches.c.o
 drivers/libbuttons_switches.a: drivers/CMakeFiles/buttons_switches.dir/build.make
 drivers/libbuttons_switches.a: drivers/CMakeFiles/buttons_switches.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/ecen330/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libbuttons_switches.a"
-	cd /home/student/ecen330/build_emu/drivers && $(CMAKE_COMMAND) -P CMakeFiles/buttons_switches.dir/cmake_clean_target.cmake
-	cd /home/student/ecen330/build_emu/drivers && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/buttons_switches.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/ecen330_p9/build_emu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libbuttons_switches.a"
+	cd /home/student/ecen330_p9/build_emu/drivers && $(CMAKE_COMMAND) -P CMakeFiles/buttons_switches.dir/cmake_clean_target.cmake
+	cd /home/student/ecen330_p9/build_emu/drivers && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/buttons_switches.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 drivers/CMakeFiles/buttons_switches.dir/build: drivers/libbuttons_switches.a
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/build
 
 drivers/CMakeFiles/buttons_switches.dir/clean:
-	cd /home/student/ecen330/build_emu/drivers && $(CMAKE_COMMAND) -P CMakeFiles/buttons_switches.dir/cmake_clean.cmake
+	cd /home/student/ecen330_p9/build_emu/drivers && $(CMAKE_COMMAND) -P CMakeFiles/buttons_switches.dir/cmake_clean.cmake
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/clean
 
 drivers/CMakeFiles/buttons_switches.dir/depend:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330 /home/student/ecen330/drivers /home/student/ecen330/build_emu /home/student/ecen330/build_emu/drivers /home/student/ecen330/build_emu/drivers/CMakeFiles/buttons_switches.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330_p9 /home/student/ecen330_p9/drivers /home/student/ecen330_p9/build_emu /home/student/ecen330_p9/build_emu/drivers /home/student/ecen330_p9/build_emu/drivers/CMakeFiles/buttons_switches.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : drivers/CMakeFiles/buttons_switches.dir/depend
 

@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/ecen330/drivers/buttons.c" "drivers/CMakeFiles/buttons_switches.dir/buttons.c.o" "gcc" "drivers/CMakeFiles/buttons_switches.dir/buttons.c.o.d"
-  "/home/student/ecen330/drivers/switches.c" "drivers/CMakeFiles/buttons_switches.dir/switches.c.o" "gcc" "drivers/CMakeFiles/buttons_switches.dir/switches.c.o.d"
+  "/home/student/ecen330_p9/drivers/buttons.c" "drivers/CMakeFiles/buttons_switches.dir/buttons.c.o" "gcc" "drivers/CMakeFiles/buttons_switches.dir/buttons.c.o.d"
+  "/home/student/ecen330_p9/drivers/switches.c" "drivers/CMakeFiles/buttons_switches.dir/switches.c.o" "gcc" "drivers/CMakeFiles/buttons_switches.dir/switches.c.o.d"
   )
 
 # Targets to which this target links.

@@ -1,7 +1,7 @@
 drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o: \
- /home/student/ecen330/drivers/touchscreen.c \
- /home/student/ecen330/drivers/touchscreen.h \
- /home/student/ecen330/include/display.h \
+ /home/student/ecen330_p9/drivers/touchscreen.c \
+ /home/student/ecen330_p9/drivers/touchscreen.h \
+ /home/student/ecen330_p9/include/display.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdbool.h \
  /usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h \
  /usr/include/newlib/stdlib.h /usr/include/newlib/machine/ieeefp.h \
