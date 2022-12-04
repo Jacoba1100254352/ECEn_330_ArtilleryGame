@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/ecen330_p9/lab9_project
+# Install script for directory: /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

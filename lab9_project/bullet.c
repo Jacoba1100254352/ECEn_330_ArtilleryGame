@@ -9,7 +9,7 @@ bullet_st_t currentState;
 
 double x_vel(uint16_t power, double angle) { return power * sin(angle); }
 
-double y_vel(uint16_t power, double angle) { return power * cos(angle); }
+double y_vel(uint16_t power, double angle) { return -1*power * cos(angle); }
 
 static void drawBullet(bullet_t *bullet, bool erase)
 {
@@ -19,7 +19,7 @@ static void drawBullet(bullet_t *bullet, bool erase)
   else
     color = DISPLAY_WHITE;
 
-  display_fillRect(bullet->x_current, bullet->y_current, 20, 20, color);
+  display_fillRect(bullet->x_current, bullet->y_current, 10, 10, color);
 }
 
 // Print the given state passed in by the state variable
@@ -98,6 +98,7 @@ void bullet_tick(bullet_t *bullet)
     else
       currentState = MOVING;
 
+    drawBullet(bullet, true);
     bullet->y_vel -= CONFIG_GRAVITY_ACCELERATION;
     bullet->x_vel += bullet->wind;
 

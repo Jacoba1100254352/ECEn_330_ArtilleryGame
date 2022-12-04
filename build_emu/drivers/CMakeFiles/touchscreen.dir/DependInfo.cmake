@@ -1,14 +1,24 @@
-
-# Consider dependencies only in project.
-set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
-
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
+  "C"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_C
+  "/fsg/bbower/ECEn_330_ArtilleryGame/drivers/touchscreen.c" "/fsg/bbower/ECEn_330_ArtilleryGame/build_emu/drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o"
+  )
+set(CMAKE_C_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_C
+  "QT_NO_VERSION_TAGGING"
   )
 
-# The set of dependency files which are needed:
-set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/student/ecen330_p9/drivers/touchscreen.c" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o" "gcc" "drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o.d"
+# The include file search paths:
+set(CMAKE_C_TARGET_INCLUDE_PATH
+  "../."
+  "../include"
+  "../drivers"
+  "../platforms/emulator/include"
   )
 
 # Targets to which this target links.

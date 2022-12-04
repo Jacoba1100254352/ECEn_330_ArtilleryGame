@@ -2,7 +2,6 @@
 #define BULLET
 
 #include "display.h"
-#include "artillery.h"
 
 ////////// State Machine INIT Functions //////////
 

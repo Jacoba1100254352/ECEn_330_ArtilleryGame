@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/touchscreen.dir/touchscreen.c.o"
-  "CMakeFiles/touchscreen.dir/touchscreen.c.o.d"
   "libtouchscreen.a"
   "libtouchscreen.pdb"
 )

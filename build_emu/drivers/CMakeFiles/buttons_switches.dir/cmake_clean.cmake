@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/buttons_switches.dir/buttons.c.o"
-  "CMakeFiles/buttons_switches.dir/buttons.c.o.d"
   "CMakeFiles/buttons_switches.dir/switches.c.o"
-  "CMakeFiles/buttons_switches.dir/switches.c.o.d"
   "libbuttons_switches.a"
   "libbuttons_switches.pdb"
 )
