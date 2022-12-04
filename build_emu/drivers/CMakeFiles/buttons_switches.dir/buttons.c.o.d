@@ -1,7 +1,7 @@
 drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: \
- /home/student/ecen330/drivers/buttons.c /usr/include/stdc-predef.h \
- /home/student/ecen330/platforms/emulator/include/emulator.h \
- /home/student/ecen330/drivers/buttons.h \
+ /home/student/ecen330_p9/drivers/buttons.c /usr/include/stdc-predef.h \
+ /home/student/ecen330_p9/platforms/emulator/include/emulator.h \
+ /home/student/ecen330_p9/drivers/buttons.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -17,7 +17,7 @@ drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/student/ecen330/include/display.h \
+ /home/student/ecen330_p9/include/display.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h /usr/include/stdlib.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -54,6 +54,6 @@ drivers/CMakeFiles/buttons_switches.dir/buttons.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /home/student/ecen330/platforms/emulator/include/xil_io.h \
- /home/student/ecen330/platforms/emulator/include/xparameters.h \
- /home/student/ecen330/platforms/emulator/include/xparameters_ps.h
+ /home/student/ecen330_p9/platforms/emulator/include/xil_io.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters_ps.h

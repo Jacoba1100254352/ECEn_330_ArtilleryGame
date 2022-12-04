@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/ecen330/drivers
+# Install script for directory: /home/student/ecen330_p9/drivers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

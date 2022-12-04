@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/lab1.elf.dir/main.c.o -o lab1.elf   -L/home/student/ecen330/platforms/emulator  -Wl,-rpath,/home/student/ecen330/platforms/emulator -lemu -lQt5Widgets -lQt5Gui -lQt5Core -lpthread 

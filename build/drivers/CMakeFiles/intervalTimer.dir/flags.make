@@ -4,7 +4,7 @@
 # compile C with arm-none-eabi-gcc
 C_DEFINES = -DZYBO_BOARD=1
 
-C_INCLUDES = -I/home/student/ecen330/. -I/home/student/ecen330/include -I/home/student/ecen330/drivers -I/home/student/ecen330/platforms/zybo/xil_arm_toolchain/bsp/ps7_cortexa9_0/include
+C_INCLUDES = -I/home/student/ecen330_p9/. -I/home/student/ecen330_p9/include -I/home/student/ecen330_p9/drivers -I/home/student/ecen330_p9/platforms/zybo/xil_arm_toolchain/bsp/ps7_cortexa9_0/include
 
 C_FLAGS = -g -march=armv7-a -mfpu=vfpv3 -mfloat-abi=hard -O2
 

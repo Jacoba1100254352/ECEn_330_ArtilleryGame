@@ -57,10 +57,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles /home/student/ecen330/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles /home/student/ecen330_p9/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/ecen330_p9/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -182,162 +182,6 @@ touchscreen/fast:
 .PHONY : touchscreen/fast
 
 #=============================================================================
-# Target rules for targets named lab1.elf
-
-# Build rule for target.
-lab1.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab1.elf
-.PHONY : lab1.elf
-
-# fast build rule for target.
-lab1.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab1_helloworld/CMakeFiles/lab1.elf.dir/build.make lab1_helloworld/CMakeFiles/lab1.elf.dir/build
-.PHONY : lab1.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab2.elf
-
-# Build rule for target.
-lab2.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab2.elf
-.PHONY : lab2.elf
-
-# fast build rule for target.
-lab2.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab2_gpio/CMakeFiles/lab2.elf.dir/build.make lab2_gpio/CMakeFiles/lab2.elf.dir/build
-.PHONY : lab2.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab3_m1.elf
-
-# Build rule for target.
-lab3_m1.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3_m1.elf
-.PHONY : lab3_m1.elf
-
-# fast build rule for target.
-lab3_m1.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m1.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m1.elf.dir/build
-.PHONY : lab3_m1.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab3_m2.elf
-
-# Build rule for target.
-lab3_m2.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab3_m2.elf
-.PHONY : lab3_m2.elf
-
-# fast build rule for target.
-lab3_m2.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab3_timer/CMakeFiles/lab3_m2.elf.dir/build.make lab3_timer/CMakeFiles/lab3_m2.elf.dir/build
-.PHONY : lab3_m2.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab4.elf
-
-# Build rule for target.
-lab4.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab4.elf
-.PHONY : lab4.elf
-
-# fast build rule for target.
-lab4.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab4_interrupts/CMakeFiles/lab4.elf.dir/build.make lab4_interrupts/CMakeFiles/lab4.elf.dir/build
-.PHONY : lab4.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab5.elf
-
-# Build rule for target.
-lab5.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab5.elf
-.PHONY : lab5.elf
-
-# fast build rule for target.
-lab5.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab5_touchscreen/CMakeFiles/lab5.elf.dir/build.make lab5_touchscreen/CMakeFiles/lab5.elf.dir/build
-.PHONY : lab5.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab6.elf
-
-# Build rule for target.
-lab6.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab6.elf
-.PHONY : lab6.elf
-
-# fast build rule for target.
-lab6.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab6_clock/CMakeFiles/lab6.elf.dir/build.make lab6_clock/CMakeFiles/lab6.elf.dir/build
-.PHONY : lab6.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab7_m1.elf
-
-# Build rule for target.
-lab7_m1.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7_m1.elf
-.PHONY : lab7_m1.elf
-
-# fast build rule for target.
-lab7_m1.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m1.elf.dir/build
-.PHONY : lab7_m1.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab7_m2.elf
-
-# Build rule for target.
-lab7_m2.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab7_m2.elf
-.PHONY : lab7_m2.elf
-
-# fast build rule for target.
-lab7_m2.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build.make lab7_tictactoe/CMakeFiles/lab7_m2.elf.dir/build
-.PHONY : lab7_m2.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab8_m1.elf
-
-# Build rule for target.
-lab8_m1.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_m1.elf
-.PHONY : lab8_m1.elf
-
-# fast build rule for target.
-lab8_m1.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m1.elf.dir/build
-.PHONY : lab8_m1.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab8_m2.elf
-
-# Build rule for target.
-lab8_m2.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_m2.elf
-.PHONY : lab8_m2.elf
-
-# fast build rule for target.
-lab8_m2.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m2.elf.dir/build
-.PHONY : lab8_m2.elf/fast
-
-#=============================================================================
-# Target rules for targets named lab8_m3.elf
-
-# Build rule for target.
-lab8_m3.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lab8_m3.elf
-.PHONY : lab8_m3.elf
-
-# fast build rule for target.
-lab8_m3.elf/fast:
-	$(MAKE) $(MAKESILENT) -f lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build.make lab8_missilecommand/CMakeFiles/lab8_m3.elf.dir/build
-.PHONY : lab8_m3.elf/fast
-
-#=============================================================================
 # Target rules for targets named lab9.elf
 
 # Build rule for target.
@@ -362,18 +206,6 @@ help:
 	@echo "... buttons_switches"
 	@echo "... interrupts"
 	@echo "... intervalTimer"
-	@echo "... lab1.elf"
-	@echo "... lab2.elf"
-	@echo "... lab3_m1.elf"
-	@echo "... lab3_m2.elf"
-	@echo "... lab4.elf"
-	@echo "... lab5.elf"
-	@echo "... lab6.elf"
-	@echo "... lab7_m1.elf"
-	@echo "... lab7_m2.elf"
-	@echo "... lab8_m1.elf"
-	@echo "... lab8_m2.elf"
-	@echo "... lab8_m3.elf"
 	@echo "... lab9.elf"
 	@echo "... touchscreen"
 .PHONY : help

@@ -1,7 +1,7 @@
 drivers/CMakeFiles/buttons_switches.dir/switches.c.o: \
- /home/student/ecen330/drivers/switches.c /usr/include/stdc-predef.h \
- /home/student/ecen330/platforms/emulator/include/emulator.h \
- /home/student/ecen330/drivers/switches.h \
+ /home/student/ecen330_p9/drivers/switches.c /usr/include/stdc-predef.h \
+ /home/student/ecen330_p9/platforms/emulator/include/emulator.h \
+ /home/student/ecen330_p9/drivers/switches.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -28,6 +28,6 @@ drivers/CMakeFiles/buttons_switches.dir/switches.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/student/ecen330/platforms/emulator/include/xil_io.h \
- /home/student/ecen330/platforms/emulator/include/xparameters.h \
- /home/student/ecen330/platforms/emulator/include/xparameters_ps.h
+ /home/student/ecen330_p9/platforms/emulator/include/xil_io.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters_ps.h

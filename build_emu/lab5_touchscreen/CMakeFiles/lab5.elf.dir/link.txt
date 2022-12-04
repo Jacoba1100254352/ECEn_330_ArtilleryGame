@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/lab5.elf.dir/main.c.o -o lab5.elf   -L/home/student/ecen330/platforms/emulator  -Wl,-rpath,/home/student/ecen330/platforms/emulator -lemu -lQt5Widgets -lQt5Gui -lQt5Core -lpthread ../drivers/libtouchscreen.a ../drivers/libinterrupts.a ../drivers/libintervalTimer.a ../drivers/libbuttons_switches.a -lemu -lQt5Widgets -lQt5Gui -lQt5Core -lpthread 

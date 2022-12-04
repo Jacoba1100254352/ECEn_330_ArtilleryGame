@@ -1,6 +1,6 @@
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: \
- /home/student/ecen330/lab9_project/main.c /usr/include/stdc-predef.h \
- /home/student/ecen330/platforms/emulator/include/emulator.h \
+ /home/student/ecen330_p9/lab9_project/main.c /usr/include/stdc-predef.h \
+ /home/student/ecen330_p9/platforms/emulator/include/emulator.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -24,17 +24,17 @@ lab9_project/CMakeFiles/lab9.elf.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/student/ecen330/lab9_project/config.h \
- /home/student/ecen330/lab9_project/gameControl.h \
+ /home/student/ecen330_p9/lab9_project/config.h \
+ /home/student/ecen330_p9/lab9_project/gameControl.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
- /home/student/ecen330/drivers/interrupts.h \
+ /home/student/ecen330_p9/drivers/interrupts.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/student/ecen330/drivers/intervalTimer.h \
- /home/student/ecen330/drivers/touchscreen.h \
- /home/student/ecen330/include/display.h /usr/include/stdlib.h \
+ /home/student/ecen330_p9/drivers/intervalTimer.h \
+ /home/student/ecen330_p9/drivers/touchscreen.h \
+ /home/student/ecen330_p9/include/display.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/sys/types.h \

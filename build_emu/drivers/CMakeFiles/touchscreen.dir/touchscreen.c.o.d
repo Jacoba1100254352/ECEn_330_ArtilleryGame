@@ -1,8 +1,9 @@
 drivers/CMakeFiles/touchscreen.dir/touchscreen.c.o: \
- /home/student/ecen330/drivers/touchscreen.c /usr/include/stdc-predef.h \
- /home/student/ecen330/platforms/emulator/include/emulator.h \
- /home/student/ecen330/drivers/touchscreen.h \
- /home/student/ecen330/include/display.h \
+ /home/student/ecen330_p9/drivers/touchscreen.c \
+ /usr/include/stdc-predef.h \
+ /home/student/ecen330_p9/platforms/emulator/include/emulator.h \
+ /home/student/ecen330_p9/drivers/touchscreen.h \
+ /home/student/ecen330_p9/include/display.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \

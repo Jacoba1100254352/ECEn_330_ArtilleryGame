@@ -1,7 +1,8 @@
 drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.o: \
- /home/student/ecen330/drivers/intervalTimer.c /usr/include/stdc-predef.h \
- /home/student/ecen330/platforms/emulator/include/emulator.h \
- /home/student/ecen330/drivers/intervalTimer.h \
+ /home/student/ecen330_p9/drivers/intervalTimer.c \
+ /usr/include/stdc-predef.h \
+ /home/student/ecen330_p9/platforms/emulator/include/emulator.h \
+ /home/student/ecen330_p9/drivers/intervalTimer.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
@@ -18,9 +19,9 @@ drivers/CMakeFiles/intervalTimer.dir/intervalTimer.c.o: \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /home/student/ecen330/platforms/emulator/include/xil_io.h \
- /home/student/ecen330/platforms/emulator/include/xparameters.h \
- /home/student/ecen330/platforms/emulator/include/xparameters_ps.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xil_io.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters.h \
+ /home/student/ecen330_p9/platforms/emulator/include/xparameters_ps.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \

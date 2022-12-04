@@ -53,10 +53,10 @@ RM = /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/ecen330
+CMAKE_SOURCE_DIR = /home/student/ecen330_p9
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/ecen330/build_emu
+CMAKE_BINARY_DIR = /home/student/ecen330_p9/build_emu
 
 # Utility rule file for BOOT.bin.
 
@@ -79,6 +79,6 @@ CMakeFiles/BOOT.bin.dir/clean:
 .PHONY : CMakeFiles/BOOT.bin.dir/clean
 
 CMakeFiles/BOOT.bin.dir/depend:
-	cd /home/student/ecen330/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330 /home/student/ecen330 /home/student/ecen330/build_emu /home/student/ecen330/build_emu /home/student/ecen330/build_emu/CMakeFiles/BOOT.bin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/student/ecen330_p9/build_emu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/ecen330_p9 /home/student/ecen330_p9 /home/student/ecen330_p9/build_emu /home/student/ecen330_p9/build_emu /home/student/ecen330_p9/build_emu/CMakeFiles/BOOT.bin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/BOOT.bin.dir/depend
 
