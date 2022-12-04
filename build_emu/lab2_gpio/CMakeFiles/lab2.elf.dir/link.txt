@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/lab2.elf.dir/main.c.o CMakeFiles/lab2.elf.dir/gpioTest.c.o -o lab2.elf   -L/home/student/ecen330/platforms/emulator  -Wl,-rpath,/home/student/ecen330/platforms/emulator -lemu -lQt5Widgets -lQt5Gui -lQt5Core -lpthread ../drivers/libbuttons_switches.a -lemu -lQt5Widgets -lQt5Gui -lQt5Core -lpthread 

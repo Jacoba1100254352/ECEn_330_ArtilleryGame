@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbuttons_switches.a CMakeFiles/buttons_switches.dir/buttons.c.o CMakeFiles/buttons_switches.dir/switches.c.o
+/usr/bin/ranlib libbuttons_switches.a

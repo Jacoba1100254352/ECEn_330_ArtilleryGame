@@ -1,0 +1,2 @@
+/usr/bin/ar qc libintervalTimer.a CMakeFiles/intervalTimer.dir/intervalTimer.c.o
+/usr/bin/ranlib libintervalTimer.a

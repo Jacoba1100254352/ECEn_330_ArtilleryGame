@@ -1,7 +1,7 @@
 #include "gameControl.h"
 #include "bullet.h"
 #include "config.h"
-#include "touchscreen.h"
+#include "display.h"
 
 bullet_t bullet;
 
@@ -10,6 +10,9 @@ bullet_t bullet;
 void gameControl_init() { // Clear the screen
   display_fillScreen(DISPLAY_BLUE);
   bullet_init(&bullet, 40, 280, 15, 1.5, 0);
+  display_fillScreen(DISPLAY_BLACK);
+  display_drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap, int16_t w, int16_t h, uint16_t color);
+
 }
 
 // Tick the game control logic
