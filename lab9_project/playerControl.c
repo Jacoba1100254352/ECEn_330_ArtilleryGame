@@ -39,18 +39,31 @@ void playerControl_init(player_t *player, bool player_num)
 
 static void incVal(player_t *player, uint8_t buttons)
 {
+
   if (player->changeAngle)
   {
     if (buttons & BUTTONS_BTN2_MASK)
-      player->angle++;
+    {
+      if (player->angle < 180 && player->angle > 0)
+        player->angle++;
+      }
     else if (buttons & BUTTONS_BTN3_MASK)
-      player->angle--;
+    {
+      if (player->angle <= 180 && player->angle > 0)
+        player->angle--;
+    }
     printf("New angle: %d\n", player->angle);
   } else {
     if (buttons & BUTTONS_BTN2_MASK)
-      player->power++;
+    {
+      if (player->power < 60 && player->power > 30)
+        player->power++;
+    }
     else if (buttons & BUTTONS_BTN3_MASK)
-      player->power--;
+    {
+      if (player->power < 60 && player->power > 30)
+        player->power--;
+    }
     printf("New power: %d\n", player->power);
   }
 }
