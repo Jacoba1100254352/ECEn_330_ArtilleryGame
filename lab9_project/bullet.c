@@ -120,7 +120,6 @@ void bullet_tick(bullet_t *bullet)
     printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
   case DEAD:
-    printf("DEAD");
     bullet->dead = true;
     // bullet_init(bullet, DISPLAY_WIDTH / 4, 100, power, 90+45, 0);
     break;

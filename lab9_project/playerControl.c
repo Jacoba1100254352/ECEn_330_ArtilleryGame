@@ -4,6 +4,8 @@
 #include "buttons.h"
 #include "config.h"
 #include "display.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 #define WAIT_TIME_ONE_SHOT_S 0.5
 #define WAIT_TIME_RAPID_S 0.1
@@ -14,32 +16,41 @@
 typedef enum { INIT, WAIT, SLOW_PRESSED, FAST_PRESSED } playerControl_st_t;
 static playerControl_st_t currentState;
 
+
 void playerControl_init(player_t *player, bool player_num)
 {
   player->player_num = player_num;
 
-  if (player_num)
+  if (!player_num) 
   {
-    player->x_location = 50 + (rand() % (DISPLAY_WIDTH / 4));
-    player->y_location = DISPLAY_HEIGHT / 4;
-    display_drawCircle(player->x_location, player->y_location, 25, DISPLAY_WHITE);
+    player->x_location = 25 + (rand() % (DISPLAY_WIDTH / 6));
+    player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
+    display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
   } else {
-    player->x_location = DISPLAY_WIDTH - 50 - (rand() % (DISPLAY_WIDTH / 4));
-    player->y_location = DISPLAY_HEIGHT / 4;
-    display_drawCircle(player->x_location, player->y_location, 25, DISPLAY_RED);
+    player->x_location = DISPLAY_WIDTH - 25 - (rand() % (DISPLAY_WIDTH / 6));
+    player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
+    display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
   }
   player->angle = 90;
   player->power = 45;
+
+  player->changeAngle = true;
 }
 
 static void incVal(player_t *player, uint8_t buttons)
 {
   if (player->changeAngle)
   {
-    player->angle++;
+    if (buttons & BUTTONS_BTN2_MASK)
+      player->angle++;
+    else if (buttons & BUTTONS_BTN3_MASK)
+      player->angle--;
     printf("New angle: %d\n", player->angle);
   } else {
-    player->power++;
+    if (buttons & BUTTONS_BTN2_MASK)
+      player->power++;
+    else if (buttons & BUTTONS_BTN3_MASK)
+      player->power--;
     printf("New power: %d\n", player->power);
   }
 }
@@ -78,7 +89,10 @@ void playerControl_tick(player_t *player) {
           break;
     case (FAST_PRESSED):
         if (buttons && (ticks_waited <= WAIT_TIME_RAPID_TICKS))
+        {
           incVal(player, buttons);
+          ticks_waited = 0;
+        } 
         else if (!buttons)
           currentState = WAIT;
         ticks_waited++;

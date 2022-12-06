@@ -38,4 +38,4 @@ uint16_t playerPower(player_t *player);
 //Can be used with display to display angle.
 uint16_t playerAngle(player_t *player);
 
-#endif /* GAMECONTROL */
+#endif /* PLAYERCONTROL */
