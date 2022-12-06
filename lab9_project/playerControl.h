@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 typedef struct {
   uint16_t x_location; //The player's x and y locations, to be randomly generated at beginning of round

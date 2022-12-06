@@ -12,7 +12,7 @@
 #define WAIT_TIME_RAPID_TICKS WAIT_TIME_RAPID_S / CONFIG_GAME_TIMER_PERIOD
 
 typedef enum { INIT, WAIT, SLOW_PRESSED, FAST_PRESSED } playerControl_st_t;
-playerControl_st_t currentState;
+static playerControl_st_t currentState;
 
 void playerControl_init(player_t *player, bool player_num)
 {
@@ -22,11 +22,11 @@ void playerControl_init(player_t *player, bool player_num)
   {
     player->x_location = 50 + (rand() % (DISPLAY_WIDTH / 4));
     player->y_location = DISPLAY_HEIGHT / 4;
-  }
-  else
-  {
+    display_drawCircle(player->x_location, player->y_location, 25, DISPLAY_WHITE);
+  } else {
     player->x_location = DISPLAY_WIDTH - 50 - (rand() % (DISPLAY_WIDTH / 4));
     player->y_location = DISPLAY_HEIGHT / 4;
+    display_drawCircle(player->x_location, player->y_location, 25, DISPLAY_RED);
   }
   player->angle = 90;
   player->power = 45;
@@ -34,8 +34,16 @@ void playerControl_init(player_t *player, bool player_num)
 
 static void incVal(player_t *player, uint8_t buttons)
 {
-
+  if (player->changeAngle)
+  {
+    player->angle++;
+    printf("New angle: %d\n", player->angle);
+  } else {
+    player->power++;
+    printf("New power: %d\n", player->power);
+  }
 }
+
 
 // Tick the game control logic
 //

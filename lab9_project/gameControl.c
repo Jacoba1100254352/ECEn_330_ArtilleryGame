@@ -1,4 +1,5 @@
 #include "gameControl.h"
+#include "playerControl.h"
 #include "display_artillery.h"
 #include "bullet.h"
 #include "config.h"
@@ -6,7 +7,7 @@
 #include "display.h"
 #include "buttons.h"
 #include <stdio.h>
-#include "playerControl.h"
+
 bullet_t bullet;
 
 player_t player1;
@@ -18,7 +19,10 @@ player_t player2;
 void gameControl_init() { // Clear the screen
   buttons_init();
   display_artillery_init();
-  bullet_init(&bullet, 1, 235, 30, 90+45, 0);
+  playerControl_init(&player1, false);
+  playerControl_init(&player2, true);
+
+  bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
 // Tick the game control logic

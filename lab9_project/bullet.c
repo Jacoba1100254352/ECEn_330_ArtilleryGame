@@ -5,7 +5,7 @@
 #include "display.h"
 
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
-bullet_st_t currentState;
+static bullet_st_t currentState;
 
 double x_vel(double power, double angle) { return power / 10 * sin(angle*M_PI/((double)180)); }
 
