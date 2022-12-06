@@ -10,7 +10,7 @@ bullet_t bullet;
 // This function will initialize all missiles, stats, plane, etc.
 void gameControl_init() { // Clear the screen
   display_artillery_init();
-  bullet_init(&bullet, 100, 100, 5, 1, 0);
+  //bullet_init(&bullet, 100, 100, 5, 1, 0);
 
 }
 
@@ -18,4 +18,7 @@ void gameControl_init() { // Clear the screen
 //
 // This function should tick the missiles, handle screen touches, collisions,
 // and updating statistics.
-void gameControl_tick() { bullet_tick(&bullet); }
+void gameControl_tick()
+{
+  //bullet_tick(&bullet);
+}
