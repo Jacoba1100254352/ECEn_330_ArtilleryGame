@@ -1,5 +1,5 @@
 #include "display_artillery.h"
-#include "bitmaps.h"
+
 #include "display.h"
 
 #define CLOUD_COLOR display_color565(0xFA, 0xDC, 0x5E)

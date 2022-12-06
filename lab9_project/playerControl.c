@@ -1,10 +1,11 @@
 
 #include "playerControl.h"
+
 #include "bullet.h"
 #include "buttons.h"
 #include "config.h"
 #include "display.h"
-#include "bitmaps.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -27,12 +28,12 @@ void playerControl_init(player_t *player, bool player_num)
     player->x_location = 25 + (rand() % (DISPLAY_WIDTH / 6));
     player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
     //display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
-    //display_drawBitmap(0, 80, player_left_bitmap, 16, 16, DISPLAY_YELLOW);
+    display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, 16, 16, DISPLAY_YELLOW);
   } else {
     player->x_location = DISPLAY_WIDTH - 25 - (rand() % (DISPLAY_WIDTH / 6));
     player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
     //display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
-    //display_drawBitmap(0, 80, player_right_bitmap, 16, 16, DISPLAY_YELLOW);
+    display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, 16, 16, DISPLAY_YELLOW);
   }
   player->angle = 90;
   player->power = 45;

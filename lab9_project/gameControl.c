@@ -14,6 +14,7 @@ player_t player1;
 player_t player2;
 
 static bool oneshot = true;
+static bool player1_turn = true;
 // const uint8_t *bitmap = Background.bmp;
 
 // Initialize the game control logic
@@ -35,17 +36,26 @@ void gameControl_tick()
 {
   uint8_t buttons = buttons_read();
 
+
   if (oneshot && buttons & BUTTONS_BTN1_MASK)
   {
-    player1.changeAngle = !player1.changeAngle;
+    if (player1_turn)
+      player1.changeAngle = !player1.changeAngle;
+    else
+      player2.changeAngle = !player2.changeAngle;
     oneshot = false;
   }
   if (!buttons)
     oneshot = true;
 
   if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK)
-    bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, player1.angle, 0);
-
+  {
+    if(player1_turn)
+      bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, 0);
+    else
+      bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, 0);
+    player1_turn = !player1_turn;
+  }
   playerControl_tick(&player1);
   if(!bullet_is_dead(&bullet))
     bullet_tick(&bullet);

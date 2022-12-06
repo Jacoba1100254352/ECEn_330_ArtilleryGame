@@ -1,6 +1,7 @@
 #ifndef PLAYERCONTROL
 #define PLAYERCONTROL
 
+#include "bitmaps.h"
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
