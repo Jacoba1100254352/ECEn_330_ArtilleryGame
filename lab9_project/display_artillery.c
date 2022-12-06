@@ -16,10 +16,12 @@ void display_artillery_init() { // Clear the screen
   // BITMAPINFOHEADER bitmapInfoHeader;
   // uint8_t *bitmap = LoadBitmapFile("Clouds.bmp", &bitmapInfoHeader);
   //  display_drawBitmap(int16_t x, int16_t y, const uint8_t *bitmap, int16_t w, int16_t h, uint16_t color);
-  display_drawBitmap(0, 0, clouds_bitmap, 96, 20, CLOUD_COLOR);
+  display_drawBitmap(0, 0, line_bitmap, DISPLAY_WIDTH, 3, TOP_LINE_COLOR);
+  display_drawBitmap(0, 3, top_segment_bitmap, DISPLAY_WIDTH, 30, DISPLAY_BLACK);
+  display_drawBitmap(0, 33, line_bitmap, DISPLAY_WIDTH, 3, TOP_LINE_COLOR);
+  display_drawBitmap(100, 45, clouds_bitmap, 32, 11, CLOUD_COLOR);
+  display_drawBitmap(0, 64, mountain_top_bitmap, DISPLAY_WIDTH, 16, MOUNTAIN_TOP_COLOR);
   display_drawBitmap(0, 80, mountain_body_bitmap, DISPLAY_WIDTH, 160, MOUNTAIN_BODY_COLOR);
-  display_drawBitmap(0, 56, mountain_top_bitmap, DISPLAY_WIDTH, 24, MOUNTAIN_TOP_COLOR);
-  //display_drawBitmap(0, 0, top_line_bitmap, DISPLAY_WIDTH, 5, TOP_LINE_COLOR);
 }
 
 // Tick the game control logic
