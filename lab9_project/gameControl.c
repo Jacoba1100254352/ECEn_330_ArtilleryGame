@@ -10,10 +10,10 @@ bullet_t bullet;
 //const uint8_t *bitmap = Background.bmp;
 
 // Initialize the game control logic
-// This function will initialize all missiles, stats, plane, etc.
+// This function will initialize the screen and players
 void gameControl_init() { // Clear the screen
   display_artillery_init();
-  bullet_init(&bullet, DISPLAY_WIDTH / 4, 100, 5, 90+45, 0);
+  bullet_init(&bullet, 1, 235, 30, 90+45, 0);
 
 }
 
@@ -27,7 +27,7 @@ void gameControl_tick()
   if (bullet_is_dead(&bullet))
   {
     printf("I am but a phantom\n");
-    display_artillery_init();
-    bullet_init(&bullet, DISPLAY_WIDTH / 4, 100, -5, 90+45, 0);
+    //display_artillery_init();
+    bullet_init(&bullet, 1, 235, 45, 90+45, 0);
   }
 }

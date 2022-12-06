@@ -7,9 +7,9 @@
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 bullet_st_t currentState;
 
-double x_vel(double power, double angle) { return power * sin(angle*M_PI/((double)180)); }
+double x_vel(double power, double angle) { return power / 10 * sin(angle*M_PI/((double)180)); }
 
-double y_vel(double power, double angle) { return power * cos(angle*M_PI/((double)180)); }
+double y_vel(double power, double angle) { return power / 10 * cos(angle*M_PI/((double)180)); }
 
 static void drawBullet(bullet_t *bullet, bool erase)
 {

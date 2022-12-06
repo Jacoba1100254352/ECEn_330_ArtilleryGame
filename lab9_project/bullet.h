@@ -1,7 +1,9 @@
 #ifndef BULLET
 #define BULLET
 
-#include "display.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
 
 ////////// State Machine INIT Functions //////////
 
@@ -23,7 +25,7 @@ typedef struct {
 //Initialize the bullet as dead.
 void bullet_init_dead(bullet_t *bullet);
 
-// Initialize the bullet state machine
+// Initialize the bullet state machine. Takes values 30-60 for power and values 0-180 for angle (will be tuned)
 void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double power, double angle, double wind);
 
 
