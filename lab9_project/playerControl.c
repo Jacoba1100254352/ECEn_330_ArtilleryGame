@@ -5,7 +5,6 @@
 #include "config.h"
 #include "display.h"
 #include "bitmaps.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 #define WAIT_TIME_ONE_SHOT_S 0.5
