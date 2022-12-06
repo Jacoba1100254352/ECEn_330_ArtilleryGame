@@ -7,9 +7,9 @@
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 bullet_st_t currentState;
 
-double x_vel(uint16_t power, double angle) { return power * sin(angle); }
+double x_vel(double power, double angle) { return power * sin(angle*M_PI/((double)180)); }
 
-double y_vel(uint16_t power, double angle) { return -1*power * cos(angle); }
+double y_vel(double power, double angle) { return power * cos(angle*M_PI/((double)180)); }
 
 static void drawBullet(bullet_t *bullet, bool erase)
 {
@@ -19,7 +19,17 @@ static void drawBullet(bullet_t *bullet, bool erase)
   else
     color = DISPLAY_WHITE;
 
-  display_fillRect(bullet->x_current, bullet->y_current, 10, 10, color);
+  display_fillRect(bullet->x_current, bullet->y_current, 5, 5, color);
+}
+
+static bool checkOutOfBounds(bullet_t *bullet)
+{
+  if (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0)
+    return true;
+  else if (bullet->y_current > DISPLAY_HEIGHT)
+    return true;
+  else
+    return false;
 }
 
 // Print the given state passed in by the state variable
@@ -62,7 +72,7 @@ static void debug() {
 void bullet_init_dead(bullet_t *bullet) { bullet->dead = true; }
 
 // Initialize the bullet state machine
-void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_t power, double angle, int16_t wind) {
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double power, double angle, double wind) {
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
@@ -86,6 +96,7 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_
 // State machine tick function
 void bullet_tick(bullet_t *bullet)
 {
+  //static double power = 0;
   switch (currentState) {
   case INIT:
     printf("INIT");
@@ -93,7 +104,7 @@ void bullet_tick(bullet_t *bullet)
     break;
   case MOVING:
     printf("MOVING");
-    if (bullet->dead)
+    if (bullet->dead || checkOutOfBounds(bullet))
       currentState = DEAD;
     else
       currentState = MOVING;
@@ -106,10 +117,12 @@ void bullet_tick(bullet_t *bullet)
     bullet->y_current += bullet->y_vel;
     drawBullet(bullet, false);
 
-    printf("x: %d y: %d\n", bullet->x_current, bullet->y_current);
+    printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
   case DEAD:
     printf("DEAD");
+    bullet->dead = true;
+    // bullet_init(bullet, DISPLAY_WIDTH / 4, 100, power, 90+45, 0);
     break;
   default:
     printf("UNKNOWN_ST");
