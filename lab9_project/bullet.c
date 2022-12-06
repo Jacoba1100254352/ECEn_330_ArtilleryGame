@@ -15,7 +15,7 @@ static void drawBullet(bullet_t *bullet, bool erase)
 {
   int16_t color;
   if (erase)
-    color = DISPLAY_BLACK;
+    color = DISPLAY_GRAY;
   else
     color = DISPLAY_WHITE;
 

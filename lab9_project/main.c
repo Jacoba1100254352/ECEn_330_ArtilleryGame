@@ -35,23 +35,17 @@ int main() {
   isr_handled_count = 0;
 
   display_init();
-  touchscreen_init(CONFIG_TOUCHSCREEN_TIMER_PERIOD);
   gameControl_init();
 
   // Initialize timer interrupts
   interrupts_init();
   interrupts_register(INTERVAL_TIMER_0_INTERRUPT_IRQ, game_isr);
-  interrupts_register(INTERVAL_TIMER_1_INTERRUPT_IRQ, touchscreen_isr);
   interrupts_irq_enable(INTERVAL_TIMER_0_INTERRUPT_IRQ);
-  interrupts_irq_enable(INTERVAL_TIMER_1_INTERRUPT_IRQ);
+
 
   intervalTimer_initCountDown(INTERVAL_TIMER_0, CONFIG_GAME_TIMER_PERIOD);
-  intervalTimer_initCountDown(INTERVAL_TIMER_1,
-                              CONFIG_TOUCHSCREEN_TIMER_PERIOD);
   intervalTimer_enableInterrupt(INTERVAL_TIMER_0);
-  intervalTimer_enableInterrupt(INTERVAL_TIMER_1);
   intervalTimer_start(INTERVAL_TIMER_0);
-  intervalTimer_start(INTERVAL_TIMER_1);
 
   // Main game loop
   while (isr_triggered_count < RUNTIME_TICKS) {
