@@ -48,14 +48,14 @@ int main() {
   intervalTimer_start(INTERVAL_TIMER_0);
 
   // Main game loop
-  while (isr_triggered_count < RUNTIME_TICKS) {
+  //while (isr_triggered_count < RUNTIME_TICKS) {
     while (!interrupt_flag)
       ;
     interrupt_flag = false;
     isr_handled_count++;
 
     gameControl_tick();
-  }
+  //}
   printf("Handled %d of %d interrupts\n", isr_handled_count,
          isr_triggered_count);
 }
