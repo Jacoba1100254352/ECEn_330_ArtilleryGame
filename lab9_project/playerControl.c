@@ -1,6 +1,6 @@
 
 #include "playerControl.h"
-
+#include "display_artillery.h"
 #include "bullet.h"
 #include "buttons.h"
 #include "config.h"
@@ -22,19 +22,9 @@ static playerControl_st_t currentState;
 void playerControl_init(player_t *player, bool player_num)
 {
   player->player_num = player_num;
+  display_artillery_assign_player_location(player);
+  
 
-  if (!player_num) 
-  {
-    player->x_location = 25 + (rand() % (DISPLAY_WIDTH / 6));
-    player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
-    //display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
-    display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, 16, 16, DISPLAY_YELLOW);
-  } else {
-    player->x_location = DISPLAY_WIDTH - 25 - (rand() % (DISPLAY_WIDTH / 6));
-    player->y_location = DISPLAY_HEIGHT - DISPLAY_HEIGHT / 4;
-    //display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
-    display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, 16, 16, DISPLAY_YELLOW);
-  }
   player->angle = 90;
   player->power = 45;
 

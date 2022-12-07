@@ -16,6 +16,9 @@
 #define BOTTOM_ROW_DIGITS_Y 217
 #define TERRAIN_RECT_WIDTH (DISPLAY_WIDTH / 40)
 
+static uint16_t player_one_ylocation = DISPLAY_HEIGHT;
+static uint16_t player_two_ylocation = DISPLAY_HEIGHT;
+
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
 void display_artillery_init() { // Clear the screen
@@ -36,6 +39,11 @@ void display_artillery_init() { // Clear the screen
   // Draw Terrain
   for (uint16_t rect = 0; rect < 40; rect++) {
     uint8_t y_placement = rand() % (DISPLAY_HEIGHT / 2) + (DISPLAY_HEIGHT / 2);
+    // If x location is between rect positions for player 1
+    if ((rect == 4 || rect == 5) && y_placement < player_one_ylocation)
+      player_one_ylocation = y_placement;
+    else if ((rect == 35 || rect == 36) && y_placement < player_two_ylocation)
+      player_two_ylocation = y_placement;
     display_fillRect(TERRAIN_RECT_WIDTH * rect, y_placement, TERRAIN_RECT_WIDTH, DISPLAY_HEIGHT - y_placement,
                      TERRAIN_GREEN_COLOR);
   }
@@ -59,8 +67,23 @@ void display_artillery_init() { // Clear the screen
   display_drawBitmap(206, TOP_ROW_DIGITS_Y, zero_s_bitmap, 16, 10, SOFT_YELLOW_COLOR);
 
   // Bottom Numbers
-  display_drawBitmap(154, BOTTOM_ROW_DIGITS_Y, one_bitmap, 16, 22, GREEN_NUMBERS_COLOR);
-  display_drawBitmap(174, BOTTOM_ROW_DIGITS_Y, two_bitmap, 16, 22, GREEN_NUMBERS_COLOR);
+  display_drawBitmap(154, BOTTOM_ROW_DIGITS_Y, three_bitmap, 16, 22, GREEN_NUMBERS_COLOR);
+  display_drawBitmap(174, BOTTOM_ROW_DIGITS_Y, zero_bitmap, 16, 22, GREEN_NUMBERS_COLOR);
+}
+
+void display_artillery_assign_player_location(player_t *player) {
+    if (!player->player_num) 
+  {
+    player->x_location = DISPLAY_WIDTH/8-8;
+    player->y_location = player_one_ylocation-16; // minus player height offset
+    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
+    display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, 16, 16, DISPLAY_YELLOW);
+  } else {
+    player->x_location = DISPLAY_WIDTH * 9 / 10 - 8;
+    player->y_location = player_two_ylocation-16; // minus player height offset
+    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
+    display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, 16, 16, DISPLAY_YELLOW);
+  }
 }
 
 // Tick the game control logic
