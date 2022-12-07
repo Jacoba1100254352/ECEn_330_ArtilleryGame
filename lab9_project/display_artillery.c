@@ -93,13 +93,11 @@ void display_artillery_assign_player_location(player_t *player) {
   if (!player->player_num) {
     player->x_location = DISPLAY_WIDTH / 8 - 8;
     player->y_location = player_one_ylocation - PLAYER_DIMENSION; // minus player height offset
-    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
     display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
                        DISPLAY_YELLOW);
   } else {
     player->x_location = DISPLAY_WIDTH * 9 / 10 - 8;
     player->y_location = player_two_ylocation - PLAYER_DIMENSION; // minus player height offset
-    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
     display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
                        DISPLAY_YELLOW);
   }
