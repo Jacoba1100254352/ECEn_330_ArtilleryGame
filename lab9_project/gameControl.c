@@ -45,7 +45,7 @@ void gameControl_tick()
       player2.changeAngle = !player2.changeAngle;
     oneshot = false;
   }
-  if (!buttons && bullet_is_dead(&bullet))
+  if (!buttons)
     oneshot = true;
   if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK)
   {
@@ -55,7 +55,10 @@ void gameControl_tick()
       bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, 0);
     player1_turn = !player1_turn;
   }
-  playerControl_tick(&player1);
-  if(!bullet_is_dead(&bullet))
+  if (player1_turn)
+    playerControl_tick(&player1);
+  else
+    playerControl_tick(&player2);
+  if (!bullet_is_dead(&bullet))
     bullet_tick(&bullet);
 }

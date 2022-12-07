@@ -38,7 +38,7 @@ static void incVal(player_t *player, uint8_t buttons)
   {
     if (buttons & BUTTONS_BTN2_MASK)
     {
-      if (player->angle < 180 && player->angle > 0)
+      if (player->angle < 180 && player->angle >= 0)
         player->angle++;
       }
     else if (buttons & BUTTONS_BTN3_MASK)
@@ -50,12 +50,12 @@ static void incVal(player_t *player, uint8_t buttons)
   } else {
     if (buttons & BUTTONS_BTN2_MASK)
     {
-      if (player->power < 60 && player->power > 30)
+      if (player->power < 60 && player->power >= 30)
         player->power++;
     }
     else if (buttons & BUTTONS_BTN3_MASK)
     {
-      if (player->power < 60 && player->power > 30)
+      if (player->power <= 60 && player->power > 30)
         player->power--;
     }
     printf("New power: %d\n", player->power);
