@@ -17,6 +17,8 @@ typedef struct {
   uint16_t power; //the power value displayed. 10x the actual value?
 
   bool changeAngle; //
+
+  uint8_t score;
 } player_t;
 
 // Initialize the player control logic

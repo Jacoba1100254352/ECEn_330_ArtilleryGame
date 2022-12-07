@@ -29,6 +29,8 @@ void playerControl_init(player_t *player, bool player_num)
   player->power = 45;
 
   player->changeAngle = true;
+
+  player->score = 0;
 }
 
 static void incVal(player_t *player, uint8_t buttons)
