@@ -64,14 +64,9 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player1, false);
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
-<<<<<<< HEAD
-  generateWind();
-
-=======
   wind = -5 + rand() % 10;
   display_artillery_update_W_counter_display(abs(wind));
   timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
->>>>>>> 0129e78 (Timer implementation)
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
@@ -97,7 +92,7 @@ void gameControl_tick()
   }
   if (!buttons)
     oneshot = true;
-  if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK)
+  if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK || timer_isexpired())
   {
     if(player1_turn)
       bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, 0);
