@@ -4,6 +4,9 @@
 
 void display_artillery_init();
 
+void display_artillery_angle();
+
+void display_artillery_power();
 
 void display_artillery_assign_player_location(player_t *player);
 

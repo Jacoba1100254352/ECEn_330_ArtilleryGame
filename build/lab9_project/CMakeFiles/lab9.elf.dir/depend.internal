@@ -3,22 +3,46 @@
 
 lab9_project/CMakeFiles/lab9.elf.dir/bullet.c.o
  ../include/display.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/artillery.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/bullet.c
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/bullet.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/config.h
-lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+lab9_project/CMakeFiles/lab9.elf.dir/display_artillery.c.o
  ../include/display.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/artillery.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/bullet.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/config.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/gameControl.c
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+lab9_project/CMakeFiles/lab9.elf.dir/gameControl.c.o
+ ../drivers/buttons.h
+ ../include/display.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/timer.h
 lab9_project/CMakeFiles/lab9.elf.dir/main.c.o
  ../drivers/interrupts.h
  ../drivers/intervalTimer.h
  ../drivers/touchscreen.h
  ../include/display.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/config.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
- /fsf/ap577/ECEn_330_ArtilleryGame/lab9_project/main.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/main.c
+lab9_project/CMakeFiles/lab9.elf.dir/playerControl.c.o
+ ../drivers/buttons.h
+ ../include/display.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+lab9_project/CMakeFiles/lab9.elf.dir/timer.c.o
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/timer.c
+ /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/timer.h

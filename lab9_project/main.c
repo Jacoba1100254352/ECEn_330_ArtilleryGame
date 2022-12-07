@@ -48,7 +48,7 @@ int main() {
   intervalTimer_start(INTERVAL_TIMER_0);
 
 
-  while (isr_triggered_count < RUNTIME_TICKS) {
+  while(1){
     while (!interrupt_flag)
       ;
     interrupt_flag = false;

@@ -38,14 +38,11 @@ static void incVal(player_t *player, uint8_t buttons)
 
   if (player->changeAngle)
   {
-    if (buttons & BUTTONS_BTN2_MASK)
-    {
+    if (buttons & BUTTONS_BTN2_MASK) {
       if (player->angle < 90 && player->angle >= 0)
         player->angle++;
       display_artillery_update_B_counter_display(player->angle);
-      }
-    else if (buttons & BUTTONS_BTN3_MASK)
-    {
+    } else if (buttons & BUTTONS_BTN3_MASK) {
       if (player->angle <= 90 && player->angle > 0)
         player->angle--;
       display_artillery_update_B_counter_display(player->angle);

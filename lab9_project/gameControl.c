@@ -89,10 +89,10 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player1, false);
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
-  wind = -5 + rand() % 10;
-  display_artillery_update_W_counter_display(abs(wind));
-  //timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
+  generateWind();
+  // timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
   playerDraw();
+  display_artillery_angle();
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
@@ -109,8 +109,18 @@ void gameControl_tick()
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
+    {
+      if (player1.changeAngle)
+        display_artillery_power();
+      else
+        display_artillery_angle();
       player1.changeAngle = !player1.changeAngle;
+    }
     else
+    if (player2.changeAngle)
+        display_artillery_power();
+      else
+        display_artillery_angle();
       player2.changeAngle = !player2.changeAngle;
     oneshot = false;
   }
@@ -142,10 +152,20 @@ void gameControl_tick()
   if (bullet_is_dead(&bullet) && oneshot2)
   {
     //Reset artwork
+    if (player1_turn)
+    {
+      display_artillery_update_B_counter_display(player1.angle);
+      display_artillery_update_P_counter_display(player2.power);
+    }
+    else
+    {
+      display_artillery_update_B_counter_display(player2.angle);
+      display_artillery_update_P_counter_display(player2.power);
+    }
     srand((int)bullet.x_vel);
     generateWind();
     oneshot2 = false;
     player1_turn = !player1_turn;
-    playerDraw();
+    //playerDraw();
   }
 }

@@ -14,13 +14,13 @@ stdint.h
 stdlib.h
 -
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/touchscreen.c
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/touchscreen.c
 touchscreen.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/touchscreen.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/touchscreen.h
 stdio.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/stdio.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/stdio.h
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/touchscreen.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/touchscreen.h
 display.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/display.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/display.h
 

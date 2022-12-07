@@ -76,21 +76,34 @@ void display_artillery_init() { // Clear the screen
 
   // B and values
   display_drawBitmap(60, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
   display_artillery_update_B_counter_display(45);
 
   // P and values
   display_drawBitmap(124, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
   display_artillery_update_P_counter_display(45);
 
   // W and values
   display_drawBitmap(188, TOP_ROW_LETTERS_Y, W_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
+  //display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
   display_artillery_update_W_counter_display(0);
+
 
   // Bottom Numbers
   //display_artillery_timer_display(30);
+}
+
+void display_artillery_angle()
+{
+  display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
+}
+
+void display_artillery_power()
+{
+  display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
+  display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
 }
 
 void display_artillery_assign_player_location(player_t *player) {
