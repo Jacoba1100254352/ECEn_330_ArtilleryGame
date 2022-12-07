@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/interrupts.dir/interrupts.c.o"
-  "CMakeFiles/interrupts.dir/interrupts.c.o.d"
   "libinterrupts.a"
   "libinterrupts.pdb"
 )

@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/ecen330_p9
+# Install script for directory: /fsf/ap577/ECEn_330_ArtilleryGame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,12 +44,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/student/ecen330_p9/build/drivers/cmake_install.cmake")
+  include("/fsf/ap577/ECEn_330_ArtilleryGame/build/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/student/ecen330_p9/build/lab9_project/cmake_install.cmake")
+  include("/fsf/ap577/ECEn_330_ArtilleryGame/build/lab9_project/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/student/ecen330_p9/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/fsf/ap577/ECEn_330_ArtilleryGame/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,10 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab9.elf.dir/bullet.c.o"
-  "CMakeFiles/lab9.elf.dir/bullet.c.o.d"
   "CMakeFiles/lab9.elf.dir/gameControl.c.o"
-  "CMakeFiles/lab9.elf.dir/gameControl.c.o.d"
   "CMakeFiles/lab9.elf.dir/main.c.o"
-  "CMakeFiles/lab9.elf.dir/main.c.o.d"
   "lab9.elf"
   "lab9.elf.pdb"
 )

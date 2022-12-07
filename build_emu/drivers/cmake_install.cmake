@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/ecen330_p9/drivers
+# Install script for directory: /fsf/ap577/ECEn_330_ArtilleryGame/drivers
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
