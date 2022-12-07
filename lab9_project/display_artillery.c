@@ -16,8 +16,8 @@
 #define BOTTOM_ROW_DIGITS_Y 217
 #define TERRAIN_RECT_WIDTH (DISPLAY_WIDTH / 40)
 
-static uint16_t player_one_ylocation = DISPLAY_HEIGHT;
-static uint16_t player_two_ylocation = DISPLAY_HEIGHT;
+static uint8_t player_one_ylocation = DISPLAY_HEIGHT;
+static uint8_t player_two_ylocation = DISPLAY_HEIGHT;
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
@@ -37,8 +37,8 @@ void display_artillery_init() { // Clear the screen
   display_drawBitmap(0, 80, mountain_body_bitmap, DISPLAY_WIDTH, 160, PURPLE_MOUNTAIN_COLOR);
 
   // Draw Terrain
-  for (uint16_t rect = 0; rect < 40; rect++) {
-    uint8_t y_placement = rand() % (DISPLAY_HEIGHT / 2) + (DISPLAY_HEIGHT / 2);
+  for (uint8_t rect = 0; rect < 40; rect++) {
+    uint8_t y_placement = rand() % (DISPLAY_HEIGHT / 3) - (DISPLAY_HEIGHT / 2);
     // If x location is between rect positions for player 1
     if ((rect == 4 || rect == 5) && y_placement < player_one_ylocation)
       player_one_ylocation = y_placement;
