@@ -180,9 +180,8 @@ void display_artillery_update_W_counter_display(uint8_t count) {
   prevOnesPlace = onesPlace;
 }
 
-void display_artillery_flip_flag() {
-  static bool direction = true;
-  if (direction)
+void display_artillery_flip_flag(bool direction) {
+  if (!direction)
   {
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, DISPLAY_BLACK);
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_L_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
@@ -192,7 +191,6 @@ void display_artillery_flip_flag() {
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_L_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, DISPLAY_BLACK);
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
   }
-  direction = !direction;
 }
 
 // Tick the game control logic

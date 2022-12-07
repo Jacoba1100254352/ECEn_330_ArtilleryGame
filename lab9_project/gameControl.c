@@ -15,6 +15,7 @@ player_t player2;
 
 static bool oneshot = true;
 static bool player1_turn = true;
+static bool flag_right = true;
 
 static int8_t wind = 0;
 // const uint8_t *bitmap = Background.bmp;
@@ -28,6 +29,11 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
   wind = -5 + rand() % 10;
+  if (wind > 0)
+    flag_right = true;
+  else
+    flag_right = false;
+  display_artillery_flip_flag(wind);
   display_artillery_update_W_counter_display(abs(wind));
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
