@@ -16,20 +16,6 @@ void display_artillery_update_W_counter_display(uint8_t count);
 
 void display_artillery_flip_flag(bool direction);
 
-<<<<<<< HEAD
-void display_player_1(player_t *player);
-=======
-<<<<<<< HEAD
-void display_player_1(player_t *player)
->>>>>>> 60bba2b (score display)
-
-void display_player_2(player_t *player);
-
-void display_player_1_turn(player_t *player);
-
-void display_player_2_turn(player_t *player);
-=======
 void display_artillery_score(uint8_t timer, uint8_t p1Score, uint8_t p2Score);
->>>>>>> a90d319 (score display)
 
 #endif /* DISPLAY_ARTILLERY */
