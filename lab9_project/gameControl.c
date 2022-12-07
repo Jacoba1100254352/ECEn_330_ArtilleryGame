@@ -26,10 +26,12 @@ static void playerDraw()
 {
   if (player1_turn)
   {
+    display_player_2(&player2);
     display_player_1_turn(&player1);
   }
   else
   {
+    display_player_1(&player1);
     display_player_2_turn(&player2);
   }
 }
