@@ -8,10 +8,10 @@ void display_artillery_assign_player_location(player_t *player);
 
 void display_artillery_timer_display(uint8_t count);
 
-void display_artillery_B_counter_display(uint8_t count);
+void display_artillery_update_B_counter_display(uint8_t count);
 
-void display_artillery_P_counter_display(uint8_t count);
+void display_artillery_update_P_counter_display(uint8_t count);
 
-void display_artillery_W_counter_display(uint8_t count);
+void display_artillery_update_W_counter_display(uint8_t count);
 
 #endif /* DISPLAY_ARTILLERY */

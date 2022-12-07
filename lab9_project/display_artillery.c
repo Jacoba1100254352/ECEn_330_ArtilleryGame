@@ -115,32 +115,67 @@ void display_artillery_timer_display(uint8_t count) {
   display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT, GREEN_NUMBERS_COLOR);
 }
 
-void display_artillery_B_counter_display(uint8_t count) {
-  static uint8_t previousCount = 0;
-  uint8_t onesPlace = count % 10;
-  uint8_t tensPlace = (count - onesPlace) / 10;
+void display_artillery_update_B_counter_display(uint8_t count) {
+  static uint8_t prevTensPlace = 0;
+  static uint8_t prevOnesPlace = 0;
 
-  display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(78, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-}
-
-void display_artillery_P_counter_display(uint8_t count) {
-  static uint8_t previousCount = 0;
+  // Calculate the digits
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
   
-  display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(142, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  // Clear previous value
+  display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(78, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+
+  // Draw current value
+  display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(78, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+
+  // Update previous value
+  prevTensPlace = tensPlace;
+  prevOnesPlace = onesPlace;
 }
 
-void display_artillery_W_counter_display(uint8_t count) {
-  static uint8_t previousCount = 0;
+void display_artillery_update_P_counter_display(uint8_t count) {
+  static uint8_t prevTensPlace = 0;
+  static uint8_t prevOnesPlace = 0;
+
+  // Calculate the digits
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
+  
+  // Clear previous value
+  display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(142, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
 
+  // Draw current value
+  display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(142, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+
+  // Update previous value
+  prevTensPlace = tensPlace;
+  prevOnesPlace = onesPlace;
+}
+
+void display_artillery_update_W_counter_display(uint8_t count) {
+  static uint8_t prevTensPlace = 0;
+  static uint8_t prevOnesPlace = 0;
+
+  // Calculate the digits
+  uint8_t onesPlace = count % 10;
+  uint8_t tensPlace = (count - onesPlace) / 10;
+  
+  // Clear previous value
+  display_drawBitmap(188, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(206, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+
+  // Draw current value
   display_drawBitmap(188, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
   display_drawBitmap(206, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
 
+  // Update previous value
+  prevTensPlace = tensPlace;
+  prevOnesPlace = onesPlace;
 }
 
 // Tick the game control logic
