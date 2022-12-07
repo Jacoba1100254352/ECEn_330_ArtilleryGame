@@ -1,13 +1,13 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-#define CONFIG_TOUCHSCREEN_TIMER_PERIOD 10.0E-3
-#define CONFIG_GAME_TIMER_PERIOD 45.0E-2
+
+#define CONFIG_GAME_TIMER_PERIOD 50.0E-3
 
 #define CONFIG_MAX_PLAYERS 2
 
 // Speed of bullet
-#define CONFIG_GRAVITY_ACCELERATION 30
+#define CONFIG_GRAVITY_ACCELERATION -.1
 
 // How fast explosion radius increases/decreases per second
 #define CONFIG_EXPLOSION_RADIUS_CHANGE_PER_SECOND 30

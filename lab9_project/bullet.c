@@ -1,24 +1,35 @@
+#include <stdio.h>
 #include "bullet.h"
 #include "config.h"
 #include <math.h>
 #include "display.h"
 
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
-bullet_st_t currentState;
+static bullet_st_t currentState;
 
-double x_vel(uint16_t power, double angle) { return power * sine(angle); }
+double x_vel(double power, double angle) { return power / 10 * sin(angle*M_PI/((double)180)); }
 
-double y_vel(uint16_t power, double angle) { return power * cos(angle); }
+double y_vel(double power, double angle) { return power / 10 * cos(angle*M_PI/((double)180)); }
 
-static void drawBullet(bullet_t bullet, bool erase)
+static void drawBullet(bullet_t *bullet, bool erase)
 {
   int16_t color;
   if (erase)
-    color = DISPLAY_BLUE;
+    color = DISPLAY_RED;
   else
-    color = CONFIG_COLOR_BULLET;
+    color = DISPLAY_WHITE;
 
-  display_drawRect(bullet.x_current, bullet.y_current, 25, 25, color);
+  display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
+}
+
+static bool checkOutOfBounds(bullet_t *bullet)
+{
+  if (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0)
+    return true;
+  else if (bullet->y_current > DISPLAY_HEIGHT)
+    return true;
+  else
+    return false;
 }
 
 // Print the given state passed in by the state variable
@@ -61,21 +72,23 @@ static void debug() {
 void bullet_init_dead(bullet_t *bullet) { bullet->dead = true; }
 
 // Initialize the bullet state machine
-void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_t power, double angle, int16_t wind) {
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double power, double angle, double wind) {
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
-  drawBullet(*bullet, true);
+  drawBullet(bullet, true);
   bullet->x_vel = x_vel(power, angle);
   bullet->y_vel = y_vel(power, angle);
 
   bullet->x_current += bullet->x_vel;
   bullet->y_current += bullet->y_vel;
-  drawBullet(*bullet, false);
+  drawBullet(bullet, false);
 
   currentState = INIT;
 
-  bullet->wind = wind;
+  bullet->wind = wind / 100;
+
+  bullet->dead = false;
 }
 
 ////////// State Machine TICK Function //////////
@@ -83,21 +96,31 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, uint16_
 // State machine tick function
 void bullet_tick(bullet_t *bullet)
 {
+  //static double power = 0;
   switch (currentState) {
   case INIT:
+    //printf("INIT");
     currentState = MOVING;
     break;
   case MOVING:
-    if (bullet->dead)
+    if (bullet->dead || checkOutOfBounds(bullet))
       currentState = DEAD;
     else
       currentState = MOVING;
 
-    bullet->y_vel += CONFIG_GRAVITY_ACCELERATION;
+    drawBullet(bullet, true);
+    bullet->y_vel -= CONFIG_GRAVITY_ACCELERATION;
     bullet->x_vel += bullet->wind;
+
+    bullet->x_current += bullet->x_vel;
+    bullet->y_current += bullet->y_vel;
+    drawBullet(bullet, false);
+
+    //printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
   case DEAD:
-    printf("DEAD");
+    bullet->dead = true;
+    // bullet_init(bullet, DISPLAY_WIDTH / 4, 100, power, 90+45, 0);
     break;
   default:
     printf("UNKNOWN_ST");
