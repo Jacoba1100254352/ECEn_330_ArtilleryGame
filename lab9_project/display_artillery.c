@@ -78,17 +78,17 @@ void display_artillery_init() { // Clear the screen
   // B and values
   display_drawBitmap(60, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
   display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
-  display_artillery_B_counter_display(60);
+  display_artillery_update_B_counter_display(60);
 
   // P and values
   display_drawBitmap(124, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
   display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, SOFT_YELLOW_COLOR);
-  display_artillery_P_counter_display(70);
+  display_artillery_update_P_counter_display(70);
 
   // W and values
   display_drawBitmap(188, TOP_ROW_LETTERS_Y, W_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
   display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
-  display_artillery_W_counter_display(0);
+  display_artillery_update_W_counter_display(0);
 
   // Bottom Numbers
   display_artillery_timer_display(30);
