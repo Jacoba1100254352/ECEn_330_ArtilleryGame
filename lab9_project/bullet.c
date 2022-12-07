@@ -15,11 +15,11 @@ static void drawBullet(bullet_t *bullet, bool erase)
 {
   int16_t color;
   if (erase)
-    color = DISPLAY_GRAY;
+    color = DISPLAY_RED;
   else
     color = DISPLAY_WHITE;
 
-  display_fillRect(bullet->x_current, bullet->y_current, 5, 5, color);
+  display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
 }
 
 static bool checkOutOfBounds(bullet_t *bullet)

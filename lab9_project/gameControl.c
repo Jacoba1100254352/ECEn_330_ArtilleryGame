@@ -45,9 +45,8 @@ void gameControl_tick()
       player2.changeAngle = !player2.changeAngle;
     oneshot = false;
   }
-  if (!buttons)
+  if (!buttons && bullet_is_dead(&bullet))
     oneshot = true;
-
   if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK)
   {
     if(player1_turn)
