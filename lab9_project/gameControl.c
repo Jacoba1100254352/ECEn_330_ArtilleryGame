@@ -38,12 +38,13 @@ void gameControl_init() { // Clear the screen
 // and updating statistics.
 void gameControl_tick()
 {
-  static int8_t count = 0;
+  //static uint8_t count = 0;
   uint8_t buttons = buttons_read();
 
   //display_artillery_update_B_counter_display(count);
   //display_artillery_update_P_counter_display(count);
   //display_artillery_update_W_counter_display(count);
+  //count++;
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)

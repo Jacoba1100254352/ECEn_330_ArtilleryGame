@@ -115,7 +115,7 @@ void display_artillery_timer_display(uint8_t count) {
   display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT, GREEN_NUMBERS_COLOR);
 }
 
-void display_artillery_update_B_counter_display(int16_t count) {
+void display_artillery_update_B_counter_display(uint8_t count) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
 
@@ -136,7 +136,7 @@ void display_artillery_update_B_counter_display(int16_t count) {
   prevOnesPlace = onesPlace;
 }
 
-void display_artillery_update_P_counter_display(uint16_t count) {
+void display_artillery_update_P_counter_display(uint8_t count) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
 
