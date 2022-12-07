@@ -40,6 +40,7 @@ void timer_tick() {
         } else
           timer--;
         secCounter = 0;
+        display_artillery_timer_display(timer);
     }
     break;
     case timer_done_st:

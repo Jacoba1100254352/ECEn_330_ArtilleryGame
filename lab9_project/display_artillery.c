@@ -32,7 +32,6 @@ static uint8_t player_two_ylocation;
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
 void display_artillery_init() { // Clear the screen
-  srand(time(0));
   display_fillScreen(LIGHT_PURPLE_BG_COLOR);
 
   player_one_ylocation = DISPLAY_HEIGHT;
@@ -91,7 +90,7 @@ void display_artillery_init() { // Clear the screen
   display_artillery_update_W_counter_display(0);
 
   // Bottom Numbers
-  display_artillery_timer_display(30);
+  //display_artillery_timer_display(30);
 }
 
 void display_artillery_assign_player_location(player_t *player) {

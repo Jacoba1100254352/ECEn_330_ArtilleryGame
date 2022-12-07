@@ -9,6 +9,7 @@
 #include "buttons.h"
 #include <stdio.h>
 
+
 bullet_t bullet;
 
 player_t player1;
@@ -38,6 +39,7 @@ static void playerDraw()
 
 static void generateWind() {
   wind = -5 + rand() % 10;
+  printf("Wind val: %d", wind);
   if (wind > 0)
     flag_right = true;
   else
@@ -56,7 +58,12 @@ static bool checkCollision()
       player1.score++;
       printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
       bullet.dead = true;
-    }
+
+      display_artillery_init();
+
+      display_artillery_assign_player_location(&player1);
+      display_artillery_assign_player_location(&player2);
+        }
   }
   else
   {
@@ -66,6 +73,10 @@ static bool checkCollision()
       player2.score++;
       printf("Player 2 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
       bullet.dead = true;
+      display_artillery_init();
+
+      display_artillery_assign_player_location(&player1);
+      display_artillery_assign_player_location(&player2);
     }
   }
 }
@@ -80,7 +91,7 @@ void gameControl_init() { // Clear the screen
   bullet_init_dead(&bullet);
   wind = -5 + rand() % 10;
   display_artillery_update_W_counter_display(abs(wind));
-  timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
+  //timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
   playerDraw();
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
@@ -93,7 +104,7 @@ void gameControl_tick()
 {
   uint8_t buttons = buttons_read();
 
-  timer_tick();
+  //timer_tick();
 
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
@@ -108,9 +119,9 @@ void gameControl_tick()
   if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK || timer_isexpired())
   {
     if(player1_turn)
-      bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, 0);
+      bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, wind);
     else
-      bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, 0);
+      bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, wind);
     //player1_turn = !player1_turn;
   }
   if (player1_turn)

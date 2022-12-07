@@ -22,6 +22,7 @@ typedef struct {
 
 } player_t;
 
+
 // Initialize the player control logic
 // This function initializes the player, its x/y coordinates, and assigns it which player it is.
 

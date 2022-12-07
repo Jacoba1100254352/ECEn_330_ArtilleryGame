@@ -4,6 +4,7 @@
 
 void display_artillery_init();
 
+
 void display_artillery_assign_player_location(player_t *player);
 
 void display_artillery_timer_display(uint8_t count);
