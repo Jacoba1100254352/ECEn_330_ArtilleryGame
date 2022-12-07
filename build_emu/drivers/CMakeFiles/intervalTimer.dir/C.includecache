@@ -16,17 +16,17 @@ xparameters_ps.h
 
 ../platforms/emulator/include/xparameters_ps.h
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/intervalTimer.c
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/intervalTimer.c
 intervalTimer.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/intervalTimer.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/intervalTimer.h
 xil_io.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xil_io.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xil_io.h
 xparameters.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xparameters.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xparameters.h
 stdio.h
 -
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/intervalTimer.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/intervalTimer.h
 stdbool.h
 -
 stdint.h

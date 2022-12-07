@@ -24,33 +24,33 @@ xparameters_ps.h
 
 ../platforms/emulator/include/xparameters_ps.h
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/buttons.c
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/buttons.c
 buttons.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/buttons.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/buttons.h
 display.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/display.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/display.h
 stdio.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/stdio.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/stdio.h
 xil_io.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xil_io.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xil_io.h
 xparameters.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xparameters.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xparameters.h
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/buttons.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/buttons.h
 stdint.h
 -
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/switches.c
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/switches.c
 switches.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/switches.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/switches.h
 stdio.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/stdio.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/stdio.h
 xil_io.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xil_io.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xil_io.h
 xparameters.h
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/xparameters.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/xparameters.h
 
-/fsf/ap577/ECEn_330_ArtilleryGame/drivers/switches.h
+/fsg/bbower/ECEn_330_ArtilleryGame/drivers/switches.h
 stdint.h
 -
 
