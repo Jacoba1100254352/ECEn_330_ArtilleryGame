@@ -4,6 +4,7 @@
 #include "bullet.h"
 #include "config.h"
 #include "math.h"
+#include "timer.h"
 #include "display.h"
 #include "buttons.h"
 #include <stdio.h>
@@ -63,8 +64,14 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player1, false);
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
+<<<<<<< HEAD
   generateWind();
 
+=======
+  wind = -5 + rand() % 10;
+  display_artillery_update_W_counter_display(abs(wind));
+  timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
+>>>>>>> 0129e78 (Timer implementation)
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
@@ -74,9 +81,12 @@ void gameControl_init() { // Clear the screen
 // and updating statistics.
 void gameControl_tick()
 {
-  //static uint8_t count = 0;
   uint8_t buttons = buttons_read();
 
+<<<<<<< HEAD
+=======
+  timer_tick();
+>>>>>>> 9889c7819806e592e6a1dbc9f0599cba7d31ec74
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)

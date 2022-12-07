@@ -17,7 +17,7 @@
 
 typedef enum { INIT, WAIT, SLOW_PRESSED, FAST_PRESSED } playerControl_st_t;
 static playerControl_st_t currentState;
-
+static uint8_t timer;
 
 void playerControl_init(player_t *player, bool player_num)
 {
@@ -68,7 +68,6 @@ static void incVal(player_t *player, uint8_t buttons)
     printf("New power: %d\n", player->power);
   }
 }
-
 
 // Tick the game control logic
 //
