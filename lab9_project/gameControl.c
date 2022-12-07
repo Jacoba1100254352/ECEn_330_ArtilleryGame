@@ -16,7 +16,7 @@ player_t player2;
 static bool oneshot = true;
 static bool player1_turn = true;
 
-static uint8_t wind = 0;
+static int8_t wind = 0;
 // const uint8_t *bitmap = Background.bmp;
 
 // Initialize the game control logic
@@ -27,7 +27,8 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player1, false);
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
-  wind = rand() % 100;
+  wind = -10 + rand() % 10;
+  display_artillery_update_W_counter_display(abs(wind));
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
@@ -56,9 +57,9 @@ void gameControl_tick()
   if (bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK)
   {
     if(player1_turn)
-      bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, 0);
+      bullet_init(&bullet, player1.x_location, player1.y_location, player1.power, 90 + player1.angle, wind);
     else
-      bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, 0);
+      bullet_init(&bullet, player2.x_location, player2.y_location, player2.power, -90 - player1.angle, wind);
     player1_turn = !player1_turn;
   }
   if (player1_turn)

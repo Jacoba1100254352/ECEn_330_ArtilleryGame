@@ -86,7 +86,7 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double 
 
   currentState = INIT;
 
-  bullet->wind = wind;
+  bullet->wind = wind / 100;
 
   bullet->dead = false;
 }

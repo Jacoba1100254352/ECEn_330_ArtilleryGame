@@ -25,7 +25,7 @@ void playerControl_init(player_t *player, bool player_num)
   display_artillery_assign_player_location(player);
   
 
-  player->angle = 0;
+  player->angle = 45;
   player->power = 45;
 
   player->changeAngle = true;
