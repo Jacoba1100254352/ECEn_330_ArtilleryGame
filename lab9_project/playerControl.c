@@ -46,6 +46,7 @@ static void incVal(player_t *player, uint8_t buttons)
       if (player->angle <= 180 && player->angle > 0)
         player->angle--;
     }
+    display_artillery_update_B_counter_display(player->angle);
     printf("New angle: %d\n", player->angle);
   } else {
     if (buttons & BUTTONS_BTN2_MASK)
