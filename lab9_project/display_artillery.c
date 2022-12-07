@@ -11,19 +11,23 @@
 #define SOFT_YELLOW_COLOR display_color565(0xFF, 0xF9, 0xF0)
 #define SOFT_GREEN_COLOR display_color565(0xEB, 0xEA, 0x6A)
 #define TERRAIN_GREEN_COLOR display_color565(0x90, 0xDF, 0x24)
+#define PLAYER_DIMENSION 16
 #define TOP_ROW_DIGITS_Y 7
 #define TOP_ROW_LETTERS_Y 20
 #define BOTTOM_ROW_DIGITS_Y 217
 #define TERRAIN_RECT_WIDTH (DISPLAY_WIDTH / 40)
 
-static uint8_t player_one_ylocation = DISPLAY_HEIGHT;
-static uint8_t player_two_ylocation = DISPLAY_HEIGHT;
+static uint8_t player_one_ylocation;
+static uint8_t player_two_ylocation;
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
 void display_artillery_init() { // Clear the screen
   srand(time(0));
   display_fillScreen(LIGHT_PURPLE_BG_COLOR);
+
+  player_one_ylocation = DISPLAY_HEIGHT;
+  player_two_ylocation = DISPLAY_HEIGHT;
 
   // BITMAPINFOHEADER bitmapInfoHeader;
   // uint8_t *bitmap = LoadBitmapFile("Clouds.bmp", &bitmapInfoHeader);
@@ -36,15 +40,29 @@ void display_artillery_init() { // Clear the screen
   display_drawBitmap(0, 64, mountain_top_bitmap, DISPLAY_WIDTH, 16, SOFT_YELLOW_COLOR);
   display_drawBitmap(0, 80, mountain_body_bitmap, DISPLAY_WIDTH, 160, PURPLE_MOUNTAIN_COLOR);
 
-  // Draw Terrain
-  for (uint8_t rect = 0; rect < 40; rect++) {
+  // Randomly Generate Terrain
+  for (uint8_t i = 0; i < 10; i++) {
+    uint8_t y_placement[40];
+    for (uint8_t rectIndex = 0; rectIndex < 40; rectIndex++) {
+      y_placement[rectIndex] = rand() % (DISPLAY_HEIGHT / 3) - (DISPLAY_HEIGHT / 2);
+      display_fillRect(TERRAIN_RECT_WIDTH * rectIndex, y_placement[rectIndex], TERRAIN_RECT_WIDTH,
+                       DISPLAY_HEIGHT - y_placement[rectIndex], TERRAIN_GREEN_COLOR);
+    }
+    for (uint8_t rectIndex = 0; rectIndex < 40; rectIndex++) {
+      display_fillRect(TERRAIN_RECT_WIDTH * rectIndex, y_placement[rectIndex], TERRAIN_RECT_WIDTH,
+                       DISPLAY_HEIGHT - y_placement[rectIndex], PURPLE_MOUNTAIN_COLOR);
+    }
+  }
+
+  // Draw Final Terrain
+  for (uint8_t rectIndex = 0; rectIndex < 40; rectIndex++) {
     uint8_t y_placement = rand() % (DISPLAY_HEIGHT / 3) - (DISPLAY_HEIGHT / 2);
     // If x location is between rect positions for player 1
-    if ((rect == 4 || rect == 5) && y_placement < player_one_ylocation)
+    if ((rectIndex == 4 || rectIndex == 5) && y_placement < player_one_ylocation)
       player_one_ylocation = y_placement;
-    else if ((rect == 35 || rect == 36) && y_placement < player_two_ylocation)
+    else if ((rectIndex == 35 || rectIndex == 36) && y_placement < player_two_ylocation)
       player_two_ylocation = y_placement;
-    display_fillRect(TERRAIN_RECT_WIDTH * rect, y_placement, TERRAIN_RECT_WIDTH, DISPLAY_HEIGHT - y_placement,
+    display_fillRect(TERRAIN_RECT_WIDTH * rectIndex, y_placement, TERRAIN_RECT_WIDTH, DISPLAY_HEIGHT - y_placement,
                      TERRAIN_GREEN_COLOR);
   }
 
@@ -72,17 +90,16 @@ void display_artillery_init() { // Clear the screen
 }
 
 void display_artillery_assign_player_location(player_t *player) {
-    if (!player->player_num) 
-  {
-    player->x_location = DISPLAY_WIDTH/8-8;
-    player->y_location = player_one_ylocation-16; // minus player height offset
-    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_WHITE);
-    display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, 16, 16, DISPLAY_YELLOW);
+  if (!player->player_num) {
+    player->x_location = DISPLAY_WIDTH / 8 - 8;
+    player->y_location = player_one_ylocation - PLAYER_DIMENSION; // minus player height offset
+    display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       DISPLAY_YELLOW);
   } else {
     player->x_location = DISPLAY_WIDTH * 9 / 10 - 8;
-    player->y_location = player_two_ylocation-16; // minus player height offset
-    // display_fillCircle(player->x_location, player->y_location, 10, DISPLAY_GREEN);
-    display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, 16, 16, DISPLAY_YELLOW);
+    player->y_location = player_two_ylocation - PLAYER_DIMENSION; // minus player height offset
+    display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       DISPLAY_YELLOW);
   }
 }
 
