@@ -99,7 +99,7 @@ void bullet_tick(bullet_t *bullet)
   //static double power = 0;
   switch (currentState) {
   case INIT:
-    printf("asdfINIT");
+    //printf("INIT");
     currentState = MOVING;
     break;
   case MOVING:
