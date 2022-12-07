@@ -78,10 +78,7 @@ void gameControl_tick()
 {
   uint8_t buttons = buttons_read();
 
-<<<<<<< HEAD
-=======
   timer_tick();
->>>>>>> 9889c7819806e592e6a1dbc9f0599cba7d31ec74
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
