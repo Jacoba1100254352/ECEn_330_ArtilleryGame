@@ -23,6 +23,8 @@
 #define SIDE_IMG_WIDTH 13
 #define CHAR_WIDTH 16
 #define CHAR_HEIGHT 10
+#define PLAYER_1_SCORE_X 106
+#define PLAYER_2_SCORE_X 244
 
 #define TERRAIN_RECT_WIDTH (DISPLAY_WIDTH / 40)
 
@@ -108,13 +110,30 @@ void display_artillery_assign_player_location(player_t *player) {
   }
 }
 
-void display_artillery_timer_display(uint8_t count) {
-  uint8_t onesPlace = count % 10;
-  uint8_t tensPlace = (count - onesPlace) / 10;
+void display_artillery_timer_display(uint8_t timer) {
+
+  static uint8_t prevTensPlace = 0;
+  static uint8_t prevOnesPlace = 0;
+
+  // Calculate the digits
+  uint8_t onesPlace = timer % 10;
+  uint8_t tensPlace = (timer - onesPlace) / 10;
+
+  // Clear previous value
+  display_drawBitmap(BOTTOM_DIGIT_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[prevTensPlace]), CHAR_WIDTH,
+                     BOTTOM_DIGIT_HEIGHT, TERRAIN_GREEN_COLOR);
+  display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[prevOnesPlace]), CHAR_WIDTH,
+                     BOTTOM_DIGIT_HEIGHT, TERRAIN_GREEN_COLOR);
+
+  // Draw current value
   display_drawBitmap(BOTTOM_DIGIT_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[tensPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
-                     GREEN_NUMBERS_COLOR);
+                     SOFT_YELLOW_COLOR);
   display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
-                     GREEN_NUMBERS_COLOR);
+                     SOFT_YELLOW_COLOR);
+
+  // Update previous value
+  prevTensPlace = tensPlace;
+  prevOnesPlace = onesPlace;
 }
 
 void display_artillery_update_B_counter_display(uint8_t count) {
@@ -181,44 +200,31 @@ void display_artillery_update_W_counter_display(uint8_t count) {
 }
 
 void display_artillery_flip_flag(bool direction) {
-  if (!direction)
-  {
+  if (!direction) {
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, DISPLAY_BLACK);
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_L_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
-  }
-  else
-  {
+  } else {
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_L_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, DISPLAY_BLACK);
     display_drawBitmap(208, TOP_ROW_LETTERS_Y, flag_R_bitmap, SIDE_IMG_WIDTH, FLAG_HEIGHT, SOFT_YELLOW_COLOR);
   }
 }
 
-void display_player_1(player_t *player)
-{
-  display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       SOFT_YELLOW_COLOR);
-}
+void display_artillery_score(uint8_t timer, uint8_t p1Score, uint8_t p2Score) {
+  // Calculate the digits
+  uint8_t onesPlace = timer % 10;
+  uint8_t tensPlace = (timer - onesPlace) / 10;
 
-void display_player_2(player_t *player)
-{
-  display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       SOFT_YELLOW_COLOR);
-}
-
-void display_player_1_turn(player_t *player)
-{
-  display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       DISPLAY_BLACK);
-  display_drawBitmap(player->x_location, player->y_location, player_left_turn_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       SOFT_YELLOW_COLOR);
-}
-
-void display_player_2_turn(player_t *player)
-{
-  display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       DISPLAY_BLACK);
-  display_drawBitmap(player->x_location, player->y_location, player_right_turn_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
-                       SOFT_YELLOW_COLOR);
+  // Clear previous value
+  display_drawBitmap(BOTTOM_DIGIT_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[tensPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
+  display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
+  
+  // Display Scores
+  display_drawBitmap(PLAYER_1_SCORE_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[p1Score]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     GREEN_NUMBERS_COLOR);
+  display_drawBitmap(PLAYER_2_SCORE_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[p2Score]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     GREEN_NUMBERS_COLOR);
 }
 
 // Tick the game control logic
