@@ -124,8 +124,8 @@ void display_artillery_update_B_counter_display(int16_t count) {
   uint8_t tensPlace = (count - onesPlace) / 10;
   
   // Clear previous value
-  display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(78, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
+  display_drawBitmap(78, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
 
   // Draw current value
   display_drawBitmap(60, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
@@ -145,8 +145,8 @@ void display_artillery_update_P_counter_display(uint16_t count) {
   uint8_t tensPlace = (count - onesPlace) / 10;
   
   // Clear previous value
-  display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(142, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
+  display_drawBitmap(142, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
 
   // Draw current value
   display_drawBitmap(124, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
@@ -166,8 +166,8 @@ void display_artillery_update_W_counter_display(uint8_t count) {
   uint8_t tensPlace = (count - onesPlace) / 10;
   
   // Clear previous value
-  display_drawBitmap(188, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(206, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(188, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
+  display_drawBitmap(206, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT, DISPLAY_BLACK);
 
   // Draw current value
   display_drawBitmap(188, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT, SOFT_YELLOW_COLOR);

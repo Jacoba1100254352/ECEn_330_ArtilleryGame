@@ -15,6 +15,8 @@ player_t player2;
 
 static bool oneshot = true;
 static bool player1_turn = true;
+
+static uint8_t wind = 0;
 // const uint8_t *bitmap = Background.bmp;
 
 // Initialize the game control logic
@@ -25,7 +27,8 @@ void gameControl_init() { // Clear the screen
   playerControl_init(&player1, false);
   playerControl_init(&player2, true);
   bullet_init_dead(&bullet);
-  //bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
+  wind = rand() % 100;
+  // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
 // Tick the game control logic
@@ -34,13 +37,12 @@ void gameControl_init() { // Clear the screen
 // and updating statistics.
 void gameControl_tick()
 {
-  static count = 0;
+  static int8_t count = 0;
   uint8_t buttons = buttons_read();
 
-  display_artillery_update_B_counter_display(count);
-  display_artillery_update_P_counter_display(count);
-  display_artillery_update_W_counter_display(count);
-  count++;
+  //display_artillery_update_B_counter_display(count);
+  //display_artillery_update_P_counter_display(count);
+  //display_artillery_update_W_counter_display(count);
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
