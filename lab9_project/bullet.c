@@ -99,11 +99,10 @@ void bullet_tick(bullet_t *bullet)
   //static double power = 0;
   switch (currentState) {
   case INIT:
-    printf("INIT");
+    printf("asdfINIT");
     currentState = MOVING;
     break;
   case MOVING:
-    printf("MOVING");
     if (bullet->dead || checkOutOfBounds(bullet))
       currentState = DEAD;
     else
@@ -117,7 +116,7 @@ void bullet_tick(bullet_t *bullet)
     bullet->y_current += bullet->y_vel;
     drawBullet(bullet, false);
 
-    printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
+    //printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
   case DEAD:
     bullet->dead = true;

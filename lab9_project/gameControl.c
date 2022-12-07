@@ -36,12 +36,22 @@ static bool checkCollision()
   if (player1_turn)
   {
     if (abs(bullet.x_current - (player2.x_location+8)) < 8 && abs(bullet.y_current - (player2.y_location+8)) < 8)
-      printf("A hit! A fine hit!\n"); // do scoring
+    {
+      // do scoring and reset artwork
+      player1.score++;
+      printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
+      bullet.dead = true;
+    }
   }
   else
   {
     if ((abs(bullet.x_current - (player1.x_location+8)) < 8) && (abs(bullet.y_current - (player1.y_location+8)) < 8))
-      printf("Forth Eorlingas!\n"); //do scoring
+    {
+       //do scoring
+      player2.score++;
+      printf("Player 2 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
+      bullet.dead = true;
+    }
   }
 }
 
@@ -67,10 +77,6 @@ void gameControl_tick()
   //static uint8_t count = 0;
   uint8_t buttons = buttons_read();
 
-  //display_artillery_update_B_counter_display(count);
-  //display_artillery_update_P_counter_display(count);
-  //display_artillery_update_W_counter_display(count);
-  //count++;
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
