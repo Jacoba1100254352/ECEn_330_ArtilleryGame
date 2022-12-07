@@ -142,6 +142,7 @@ void gameControl_tick()
   if (bullet_is_dead(&bullet) && oneshot2)
   {
     //Reset artwork
+    srand((int)bullet.x_vel);
     generateWind();
     oneshot2 = false;
     player1_turn = !player1_turn;
