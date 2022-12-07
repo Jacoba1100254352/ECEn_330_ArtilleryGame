@@ -22,6 +22,18 @@ static bool flag_right = true;
 static int8_t wind = 0;
 // const uint8_t *bitmap = Background.bmp;
 
+static void playerDraw()
+{
+  if (player1_turn)
+  {
+    display_player_1_turn(&player1);
+  }
+  else
+  {
+    display_player_2_turn(&player2);
+  }
+}
+
 static void generateWind() {
   wind = -5 + rand() % 10;
   if (wind > 0)
@@ -79,6 +91,7 @@ void gameControl_tick()
   uint8_t buttons = buttons_read();
 
   timer_tick();
+  playerDraw();
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
@@ -98,9 +111,13 @@ void gameControl_tick()
     //player1_turn = !player1_turn;
   }
   if (player1_turn)
+  {
     playerControl_tick(&player1);
+  }
   else
+  {
     playerControl_tick(&player2);
+  }
   if (!bullet_is_dead(&bullet))
   {
     bullet_tick(&bullet);

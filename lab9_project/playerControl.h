@@ -19,6 +19,7 @@ typedef struct {
   bool changeAngle; //
 
   uint8_t score;
+
 } player_t;
 
 // Initialize the player control logic

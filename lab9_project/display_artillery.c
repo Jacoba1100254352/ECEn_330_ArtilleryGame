@@ -193,6 +193,22 @@ void display_artillery_flip_flag(bool direction) {
   }
 }
 
+void display_player_1_turn(player_t *player)
+{
+  display_drawBitmap(player->x_location, player->y_location, player_left_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       DISPLAY_BLACK);
+  display_drawBitmap(player->x_location, player->y_location, player_left_turn_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       SOFT_YELLOW_COLOR);
+}
+
+void display_player_2_turn(player_t *player)
+{
+  display_drawBitmap(player->x_location, player->y_location, player_right_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       DISPLAY_BLACK);
+  display_drawBitmap(player->x_location, player->y_location, player_right_turn_bitmap, PLAYER_DIMENSION, PLAYER_DIMENSION,
+                       SOFT_YELLOW_COLOR);
+}
+
 // Tick the game control logic
 //
 // This function should tick the missiles, handle screen touches, collisions,
