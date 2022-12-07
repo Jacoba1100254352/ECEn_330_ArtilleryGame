@@ -81,6 +81,7 @@ void gameControl_init() { // Clear the screen
   wind = -5 + rand() % 10;
   display_artillery_update_W_counter_display(abs(wind));
   timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
+  playerDraw();
   // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
@@ -93,7 +94,7 @@ void gameControl_tick()
   uint8_t buttons = buttons_read();
 
   timer_tick();
-  playerDraw();
+
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn)
@@ -133,5 +134,6 @@ void gameControl_tick()
     generateWind();
     oneshot2 = false;
     player1_turn = !player1_turn;
+    playerDraw();
   }
 }
