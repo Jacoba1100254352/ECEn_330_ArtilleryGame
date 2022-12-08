@@ -155,7 +155,7 @@ void gameControl_tick()
     if (player1_turn)
     {
       display_artillery_update_B_counter_display(player1.angle);
-      display_artillery_update_P_counter_display(player2.power);
+      display_artillery_update_P_counter_display(player1.power);
     }
     else
     {

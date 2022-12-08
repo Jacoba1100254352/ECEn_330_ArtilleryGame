@@ -60,26 +60,6 @@ stdio.h
 
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
 
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.c
-playerControl.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
-display_artillery.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
-bullet.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
-buttons.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/buttons.h
-config.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
-display.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display.h
-bitmaps.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
-stdio.h
--
-stdlib.h
--
-
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
 bitmaps.h
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
