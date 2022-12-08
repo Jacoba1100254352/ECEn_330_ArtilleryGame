@@ -31,12 +31,14 @@ static uint8_t player_two_ylocation;
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
-void displayArtillery_init() { // Clear the screen
+void displayArtillery_init() {
+  // Draw background color
   display_fillScreen(LIGHT_PURPLE_BG_COLOR);
 
   player_one_ylocation = DISPLAY_HEIGHT;
   player_two_ylocation = DISPLAY_HEIGHT;
 
+  // Draw background
   display_drawBitmap(0, 0, line_bitmap, DISPLAY_WIDTH, 3, LINE_COLOR);
   display_drawBitmap(0, 3, top_segment_bitmap, DISPLAY_WIDTH, 30, DISPLAY_BLACK);
   display_drawBitmap(0, 33, line_bitmap, DISPLAY_WIDTH, 3, LINE_COLOR);
@@ -73,12 +75,10 @@ void displayArtillery_init() { // Clear the screen
 
   // B and values
   display_drawBitmap(60, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  display_drawBitmap(80, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
   displayArtillery_update_B_counter_display(45);
 
   // P and values
   display_drawBitmap(124, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  display_drawBitmap(144, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT, DISPLAY_BLACK);
   displayArtillery_update_P_counter_display(45);
 
   // W and values
@@ -87,7 +87,10 @@ void displayArtillery_init() { // Clear the screen
   displayArtillery_update_W_counter_display(0);
 
   // Bottom Numbers
-  // displayArtillery_timer_display(30);
+  displayArtillery_timer_display(30);
+
+  // Initialize to start with the angle being displayed
+  displayArtillery_angle();
 }
 
 void displayArtillery_angle() {

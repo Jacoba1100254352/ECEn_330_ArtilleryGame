@@ -61,9 +61,6 @@ void gameControl_init() { // Clear the screen
 
   generateWind();
   displayArtillery_playerDraw(player1_turn, player1, player2);
-  displayArtillery_timer_display(30);
-  displayArtillery_angle();
-  // bullet_init(&bullet, 1, 235, 30, 90 + 45, 0);
 }
 
 // Tick the game control logic
