@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../drivers/buttons.h
+stdint.h
+-
+
 ../include/display.h
 stdbool.h
 -
@@ -18,19 +22,63 @@ stdlib.h
 stdint.h
 -
 
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.c
-display_artillery.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
-bitmaps.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
-display.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display.h
-time.h
-/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/time.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+stdio.h
+-
+stdbool.h
+-
+stdint.h
+-
+
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
 
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
 playerControl.h
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.c
+gameControl.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
+playerControl.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+display_artillery.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+bullet.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+config.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+math.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/math.h
+timer.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/timer.h
+display.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display.h
+buttons.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/buttons.h
+stdio.h
+-
+
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/gameControl.h
+
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.c
+playerControl.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
+display_artillery.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display_artillery.h
+bullet.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bullet.h
+buttons.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/buttons.h
+config.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/config.h
+display.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/display.h
+bitmaps.h
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/bitmaps.h
+stdio.h
+-
+stdlib.h
+-
 
 /fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/playerControl.h
 bitmaps.h
@@ -40,5 +88,11 @@ stdio.h
 stdbool.h
 -
 stdint.h
+-
+
+/fsg/bbower/ECEn_330_ArtilleryGame/lab9_project/timer.h
+stdint.h
+-
+stdbool.h
 -
 
