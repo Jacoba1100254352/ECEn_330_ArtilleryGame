@@ -1,8 +1,9 @@
-#include <stdio.h>
 #include "bullet.h"
 #include "config.h"
-#include <math.h>
 #include "display.h"
+#include "timer.h"
+#include <stdio.h>
+#include <math.h>
 
 typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 static bullet_st_t currentState;
@@ -103,6 +104,7 @@ void bullet_tick(bullet_t *bullet)
     currentState = MOVING;
     break;
   case MOVING:
+    stop_turn_timer(); // Stop the timer once you are moving
     if (bullet->dead || checkOutOfBounds(bullet))
       currentState = DEAD;
     else

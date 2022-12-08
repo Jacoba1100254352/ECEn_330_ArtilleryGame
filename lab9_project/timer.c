@@ -14,12 +14,12 @@ enum timer_st_t {
 static enum timer_st_t currentState;
 
 static uint8_t timer;
-static double tick_period;
+static uint8_t tick_period;
 static bool timer_expired;
 
 void timer_init(float period_seconds) {
   currentState = init_st;
-  tick_period = period_seconds;
+  tick_period = (uint8_t)1/period_seconds;
   timer = 30;
 }
 
