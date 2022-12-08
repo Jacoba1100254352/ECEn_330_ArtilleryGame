@@ -68,6 +68,7 @@ void gameControl_init() { // Clear the screen
 // This function should tick the missiles, handle screen touches, collisions,
 // and updating statistics.
 void gameControl_tick() {
+  static bool triggered = false;
   uint8_t buttons = buttons_read();
 
   timer_tick();
@@ -90,9 +91,10 @@ void gameControl_tick() {
   } else if (!buttons) // If problem caused, change this
     oneshot = true;
 
-  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || timer_isexpired()) {
+  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || (timer_isexpired() && !triggered)) {
     double angle = (currentPlayer == &player1) ? 90 + player1.angle : -90 - player1.angle;
     bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location, currentPlayer->power, angle, wind);
+    triggered = true;
   }
 
   playerControl_tick(currentPlayer);
@@ -113,5 +115,6 @@ void gameControl_tick() {
     timer_init(CONFIG_GAME_TIMER_PERIOD);
     oneshot2 = false;
     player1_turn = !player1_turn;
+    triggered = false;
   }
 }

@@ -20,8 +20,6 @@ static bool timer_expired;
 void timer_init(float period_seconds) {
   currentState = init_st;
   tick_period = (uint8_t)1/period_seconds;
-  timer = 30;
-  displayArtillery_timer_display(timer);
 }
 
 void timer_tick() {
@@ -32,6 +30,8 @@ void timer_tick() {
   case init_st:
     secCounter = 0;
     timer_expired = false;
+    timer = 30;
+    displayArtillery_timer_display(timer);
     currentState = waiting_st;
     break;
   case waiting_st:
