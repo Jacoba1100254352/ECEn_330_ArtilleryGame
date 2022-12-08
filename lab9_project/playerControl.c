@@ -1,6 +1,6 @@
 
 #include "playerControl.h"
-#include "display_artillery.h"
+#include "displayArtillery.h"
 #include "bullet.h"
 #include "buttons.h"
 #include "config.h"
@@ -22,7 +22,7 @@ static uint8_t timer;
 void playerControl_init(player_t *player, bool player_num)
 {
   player->player_num = player_num;
-  display_artillery_assign_player_location(player);
+  displayArtillery_assign_player_location(player);
   
 
   player->angle = 45;
@@ -41,26 +41,26 @@ static void incVal(player_t *player, uint8_t buttons)
     if (buttons & BUTTONS_BTN2_MASK) {
       if (player->angle < 90 && player->angle >= 0)
         player->angle++;
-      display_artillery_update_B_counter_display(player->angle);
+      displayArtillery_update_B_counter_display(player->angle);
     } else if (buttons & BUTTONS_BTN3_MASK) {
       if (player->angle <= 90 && player->angle > 0)
         player->angle--;
-      display_artillery_update_B_counter_display(player->angle);
+      displayArtillery_update_B_counter_display(player->angle);
     }
-    //display_artillery_update_B_counter_display(player->angle);
+    //displayArtillery_update_B_counter_display(player->angle);
     printf("New angle: %d\n", player->angle);
   } else {
     if (buttons & BUTTONS_BTN2_MASK)
     {
       if (player->power < 60 && player->power >= 30)
         player->power++;
-      display_artillery_update_P_counter_display(player->power);
+      displayArtillery_update_P_counter_display(player->power);
     }
     else if (buttons & BUTTONS_BTN3_MASK)
     {
       if (player->power <= 60 && player->power > 30)
         player->power--;
-      display_artillery_update_P_counter_display(player->power);
+      displayArtillery_update_P_counter_display(player->power);
     }
     printf("New power: %d\n", player->power);
   }

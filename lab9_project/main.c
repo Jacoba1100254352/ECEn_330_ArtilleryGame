@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "config.h"
 #include "gameControl.h"
 #include "interrupts.h"
@@ -34,6 +33,7 @@ int main() {
   isr_triggered_count = 0;
   isr_handled_count = 0;
 
+  buttons_init();
   display_init();
   gameControl_init();
 

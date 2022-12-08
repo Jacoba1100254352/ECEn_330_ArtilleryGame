@@ -1,5 +1,5 @@
 #include "timer.h"
-#include "display_artillery.h"
+#include "displayArtillery.h"
 
 #define ADC_COUNTER_MAX 1
 #define AUTO_COUNTER_MAX 10
@@ -21,6 +21,7 @@ void timer_init(float period_seconds) {
   currentState = init_st;
   tick_period = (uint8_t)1/period_seconds;
   timer = 30;
+  displayArtillery_timer_display(timer);
 }
 
 void timer_tick() {
@@ -29,6 +30,7 @@ void timer_tick() {
   // Transition and Moore output
   switch (currentState) {
   case init_st:
+    secCounter = 0;
     timer_expired = false;
     currentState = waiting_st;
     break;
@@ -40,7 +42,7 @@ void timer_tick() {
         } else
           timer--;
         secCounter = 0;
-        display_artillery_timer_display(timer);
+        displayArtillery_timer_display(timer);
     }
     break;
     case timer_done_st:
