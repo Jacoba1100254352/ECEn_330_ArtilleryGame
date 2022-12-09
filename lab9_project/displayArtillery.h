@@ -20,7 +20,8 @@ void displayArtillery_update_W_counter_display(uint8_t count);
 
 void displayArtillery_flip_flag(bool direction);
 
-void displayArtillery_playerDraw(bool player1_turn, player_t player1,
-                                 player_t player2);
+void displayArtillery_playerDraw(bool player1_turn, player_t player1, player_t player2);
+
+void displayArtillery_score(uint8_t score1, uint8_t score2);
 
 #endif /* DISPLAY_ARTILLERY */

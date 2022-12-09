@@ -9,6 +9,8 @@
 #include "timer.h"
 #include <stdio.h>
 
+#define PLAYER_SIZE 8
+
 bullet_t bullet;
 
 static player_t *currentPlayer;
@@ -32,12 +34,12 @@ static void generateWind() {
 }
 
 static bool checkCollision() {
-  if (abs(bullet.x_current - (otherPlayer->x_location + 8)) < 8 &&
-      abs(bullet.y_current - (otherPlayer->y_location + 8)) < 8) {
+  if (abs(bullet.x_current - (otherPlayer->x_location + PLAYER_SIZE)) < PLAYER_SIZE &&
+      abs(bullet.y_current - (otherPlayer->y_location + PLAYER_SIZE)) < PLAYER_SIZE) {
     // do scoring and reset artwork
     currentPlayer->score++;
-    printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n",
-           player1.score, player2.score);
+    printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
+    displayArtillery_score(player1.score, player2.score);
     bullet.dead = true;
 
     displayArtillery_init();
