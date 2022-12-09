@@ -1,8 +1,8 @@
 #ifndef TIMER
 #define TIMER
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 void timer_init(float period);
 

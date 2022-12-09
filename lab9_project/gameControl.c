@@ -37,7 +37,8 @@ static bool checkCollision() {
       abs(bullet.y_current - (otherPlayer->y_location + 8)) < 8) {
     // do scoring and reset artwork
     currentPlayer->score++;
-    printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
+    printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n",
+           player1.score, player2.score);
     bullet.dead = true;
 
     displayArtillery_init();
@@ -71,8 +72,8 @@ void gameControl_tick() {
   uint8_t buttons = buttons_read();
 
   timer_tick();
-    currentPlayer = (player1_turn) ? &player1 : &player2;
-    otherPlayer = (player1_turn) ? &player2 : &player1;
+  currentPlayer = (player1_turn) ? &player1 : &player2;
+  otherPlayer = (player1_turn) ? &player2 : &player1;
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn) {
@@ -90,9 +91,12 @@ void gameControl_tick() {
   } else if (!buttons) // If problem caused, change this
     oneshot = true;
 
-  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || timer_isexpired()) {
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -90 - player1.angle;
-    bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location, currentPlayer->power, angle, wind);
+  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) ||
+      timer_isexpired()) {
+    double angle =
+        (currentPlayer == &player1) ? 90 + player1.angle : -90 - player1.angle;
+    bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location,
+                currentPlayer->power, angle, wind);
   }
 
   playerControl_tick(currentPlayer);

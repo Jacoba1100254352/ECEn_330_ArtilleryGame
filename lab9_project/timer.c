@@ -7,8 +7,8 @@
 
 // States for the controller state machine.
 enum timer_st_t {
-  init_st,    // Initialize to/start with this state
-  waiting_st, // Wait til turnover
+  init_st,      // Initialize to/start with this state
+  waiting_st,   // Wait til turnover
   timer_done_st // Wait until timer reset
 };
 static enum timer_st_t currentState;
@@ -19,7 +19,7 @@ static bool timer_expired;
 
 void timer_init(float period_seconds) {
   currentState = init_st;
-  tick_period = (uint8_t)1/period_seconds;
+  tick_period = (uint8_t)1 / period_seconds;
   timer = 30;
   displayArtillery_timer_display(timer);
 }
@@ -36,20 +36,20 @@ void timer_tick() {
     break;
   case waiting_st:
     if (secCounter == tick_period) {
-        if (timer == 0) {
-          timer_expired = true;
-          currentState = timer_done_st;
-        } else
-          timer--;
-        secCounter = 0;
-        displayArtillery_timer_display(timer);
+      if (timer == 0) {
+        timer_expired = true;
+        currentState = timer_done_st;
+      } else
+        timer--;
+      secCounter = 0;
+      displayArtillery_timer_display(timer);
     }
     break;
-    case timer_done_st:
-      break;
-    default:
-      printf("Error with {currentState:%d}", currentState);
-      break;
+  case timer_done_st:
+    break;
+  default:
+    printf("Error with {currentState:%d}", currentState);
+    break;
   }
 
   // Mealy Output

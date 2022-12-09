@@ -1,9 +1,10 @@
-#include <stdio.h>
+#include "buttons.h"
 #include "config.h"
 #include "gameControl.h"
 #include "interrupts.h"
 #include "intervalTimer.h"
 #include "touchscreen.h"
+#include <stdio.h>
 
 #define RUNTIME_S 120
 #define RUNTIME_TICKS ((int)(RUNTIME_S / CONFIG_GAME_TIMER_PERIOD))
@@ -42,13 +43,11 @@ int main() {
   interrupts_register(INTERVAL_TIMER_0_INTERRUPT_IRQ, game_isr);
   interrupts_irq_enable(INTERVAL_TIMER_0_INTERRUPT_IRQ);
 
-
   intervalTimer_initCountDown(INTERVAL_TIMER_0, CONFIG_GAME_TIMER_PERIOD);
   intervalTimer_enableInterrupt(INTERVAL_TIMER_0);
   intervalTimer_start(INTERVAL_TIMER_0);
 
-
-  while(1){
+  while (1) {
     while (!interrupt_flag)
       ;
     interrupt_flag = false;

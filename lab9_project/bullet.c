@@ -2,18 +2,21 @@
 #include "config.h"
 #include "display.h"
 #include "timer.h"
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-typedef enum {INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
+typedef enum { INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 static bullet_st_t currentState;
 
-double x_vel(double power, double angle) { return power / 10 * sin(angle*M_PI/((double)180)); }
+double x_vel(double power, double angle) {
+  return power / 10 * sin(angle * M_PI / ((double)180));
+}
 
-double y_vel(double power, double angle) { return power / 10 * cos(angle*M_PI/((double)180)); }
+double y_vel(double power, double angle) {
+  return power / 10 * cos(angle * M_PI / ((double)180));
+}
 
-static void drawBullet(bullet_t *bullet, bool erase)
-{
+static void drawBullet(bullet_t *bullet, bool erase) {
   int16_t color;
   if (erase)
     color = DISPLAY_RED;
@@ -23,8 +26,7 @@ static void drawBullet(bullet_t *bullet, bool erase)
   display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
 }
 
-static bool checkOutOfBounds(bullet_t *bullet)
-{
+static bool checkOutOfBounds(bullet_t *bullet) {
   if (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0)
     return true;
   else if (bullet->y_current > DISPLAY_HEIGHT)
@@ -34,8 +36,7 @@ static bool checkOutOfBounds(bullet_t *bullet)
 }
 
 // Print the given state passed in by the state variable
-static void
-printStateString() {
+static void printStateString() {
   // Print the given state
   switch (currentState) {
   case INIT:
@@ -73,7 +74,8 @@ static void debug() {
 void bullet_init_dead(bullet_t *bullet) { bullet->dead = true; }
 
 // Initialize the bullet state machine
-void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double power, double angle, double wind) {
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin,
+                 double power, double angle, double wind) {
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
@@ -95,12 +97,11 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double 
 ////////// State Machine TICK Function //////////
 
 // State machine tick function
-void bullet_tick(bullet_t *bullet)
-{
-  //static double power = 0;
+void bullet_tick(bullet_t *bullet) {
+  // static double power = 0;
   switch (currentState) {
   case INIT:
-    //printf("INIT");
+    // printf("INIT");
     currentState = MOVING;
     break;
   case MOVING:
@@ -118,7 +119,7 @@ void bullet_tick(bullet_t *bullet)
     bullet->y_current += bullet->y_vel;
     drawBullet(bullet, false);
 
-    //printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
+    // printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
   case DEAD:
     bullet->dead = true;
@@ -134,7 +135,7 @@ void bullet_tick(bullet_t *bullet)
 bool bullet_is_dead(bullet_t *bullet) { return bullet->dead; }
 
 // Return whether the given missile is flying.
-//bool bullet_is_flying();
+// bool bullet_is_flying();
 
 // Used to indicate that the flying bullet should be detonated. This occurs when
 // the bullet hits the ground or the player.
