@@ -92,7 +92,7 @@ void gameControl_tick() {
     oneshot = true;
 
   if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || (timer_isexpired() && !triggered)) {
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -90 - player1.angle;
+    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player1.angle);
     bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location, currentPlayer->power, angle, wind);
     triggered = true;
   }
@@ -101,8 +101,8 @@ void gameControl_tick() {
 
   if (!bullet_is_dead(&bullet)) {
     bullet_tick(&bullet);
-    oneshot2 = true;
     checkCollision();
+    oneshot2 = true;
   }
 
   if (bullet_is_dead(&bullet) && oneshot2) {
