@@ -112,8 +112,12 @@ void gameControl_tick() {
     srand((int)bullet.x_vel);
     generateWind();
     timer_init(CONFIG_GAME_TIMER_PERIOD);
+
     oneshot2 = false;
     player1_turn = !player1_turn;
     triggered = false;
+
+    // Swap player design to designate turn
+    displayArtillery_playerDraw(player1_turn, player1, player2);
   }
 }
