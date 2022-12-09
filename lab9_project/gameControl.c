@@ -72,8 +72,6 @@ void gameControl_tick() {
   uint8_t buttons = buttons_read();
 
   timer_tick();
-  currentPlayer = (player1_turn) ? &player1 : &player2;
-  otherPlayer = (player1_turn) ? &player2 : &player1;
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn) {
@@ -118,7 +116,13 @@ void gameControl_tick() {
     player1_turn = !player1_turn;
     triggered = false;
 
+    // Update the current player for counter display purposes
+    currentPlayer = (player1_turn) ? &player1 : &player2;
+    otherPlayer = (player1_turn) ? &player2 : &player1;
+
     // Swap player design to designate turn
     displayArtillery_playerDraw(player1_turn, player1, player2);
+    displayArtillery_update_B_counter_display(currentPlayer->angle);
+    displayArtillery_update_P_counter_display(currentPlayer->power);
   }
 }
