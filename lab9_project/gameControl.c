@@ -22,7 +22,6 @@ static bool player1_turn = true;
 static bool flag_right = true;
 
 static int8_t wind = 0;
-// const uint8_t *bitmap = Background.bmp;
 
 static void generateWind() {
   wind = -5 + rand() % 10;
