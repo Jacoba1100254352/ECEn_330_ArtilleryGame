@@ -16,23 +16,15 @@ double y_vel(double power, double angle) {
   return power / 10 * cos(angle * M_PI / ((double)180));
 }
 
-static void drawBullet(bullet_t *bullet, bool erase) {
-  int16_t color;
-  if (erase)
-    color = DISPLAY_RED;
-  else
-    color = DISPLAY_WHITE;
-
+static void drawBullet(bullet_t *bullet, bool erase)
+{
+  int16_t color = (erase) ? DISPLAY_RED : DISPLAY_WHITE;
   display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
 }
 
-static bool checkOutOfBounds(bullet_t *bullet) {
-  if (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0)
-    return true;
-  else if (bullet->y_current > DISPLAY_HEIGHT)
-    return true;
-  else
-    return false;
+static bool checkOutOfBounds(bullet_t *bullet)
+{
+  return (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0 || bullet->y_current > DISPLAY_HEIGHT);
 }
 
 // Print the given state passed in by the state variable
@@ -97,19 +89,16 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin,
 ////////// State Machine TICK Function //////////
 
 // State machine tick function
-void bullet_tick(bullet_t *bullet) {
-  // static double power = 0;
+void bullet_tick(bullet_t *bullet)
+{
   switch (currentState) {
   case INIT:
-    // printf("INIT");
     currentState = MOVING;
     break;
+
   case MOVING:
     stop_turn_timer(); // Stop the timer once you are moving
-    if (bullet->dead || checkOutOfBounds(bullet))
-      currentState = DEAD;
-    else
-      currentState = MOVING;
+    currentState = (bullet->dead || checkOutOfBounds(bullet)) ? DEAD : MOVING;
 
     drawBullet(bullet, true);
     bullet->y_vel -= CONFIG_GRAVITY_ACCELERATION;
@@ -118,13 +107,13 @@ void bullet_tick(bullet_t *bullet) {
     bullet->x_current += bullet->x_vel;
     bullet->y_current += bullet->y_vel;
     drawBullet(bullet, false);
-
-    // printf("x: %f y: %f\n", bullet->x_vel, bullet->y_vel);
     break;
+
   case DEAD:
     bullet->dead = true;
     // bullet_init(bullet, DISPLAY_WIDTH / 4, 100, power, 90+45, 0);
     break;
+
   default:
     printf("UNKNOWN_ST");
     break;
@@ -133,9 +122,6 @@ void bullet_tick(bullet_t *bullet) {
 
 // Return whether the bullet is dead.
 bool bullet_is_dead(bullet_t *bullet) { return bullet->dead; }
-
-// Return whether the given missile is flying.
-// bool bullet_is_flying();
 
 // Used to indicate that the flying bullet should be detonated. This occurs when
 // the bullet hits the ground or the player.
