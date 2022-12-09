@@ -89,9 +89,12 @@ void gameControl_tick() {
   } else if (!buttons) // If problem caused, change this
     oneshot = true;
 
-  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || (timer_isexpired() && !triggered)) {
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player1.angle);
-    bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location, currentPlayer->power, angle, wind);
+  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) ||
+      (timer_isexpired() && !triggered)) {
+    double angle = (currentPlayer == &player1) ? 90 + player1.angle
+                                               : -(90 + player1.angle);
+    bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location,
+                currentPlayer->power, angle, wind);
     triggered = true;
   }
 

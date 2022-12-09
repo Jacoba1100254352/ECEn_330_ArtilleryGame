@@ -16,15 +16,14 @@ double y_vel(double power, double angle) {
   return power / 10 * cos(angle * M_PI / ((double)180));
 }
 
-static void drawBullet(bullet_t *bullet, bool erase)
-{
+static void drawBullet(bullet_t *bullet, bool erase) {
   int16_t color = (erase) ? DISPLAY_RED : DISPLAY_WHITE;
   display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
 }
 
-static bool checkOutOfBounds(bullet_t *bullet)
-{
-  return (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0 || bullet->y_current > DISPLAY_HEIGHT);
+static bool checkOutOfBounds(bullet_t *bullet) {
+  return (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0 ||
+          bullet->y_current > DISPLAY_HEIGHT);
 }
 
 // Print the given state passed in by the state variable
@@ -89,8 +88,7 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin,
 ////////// State Machine TICK Function //////////
 
 // State machine tick function
-void bullet_tick(bullet_t *bullet)
-{
+void bullet_tick(bullet_t *bullet) {
   switch (currentState) {
   case INIT:
     currentState = MOVING;

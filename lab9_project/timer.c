@@ -19,7 +19,7 @@ static bool timer_expired;
 
 void timer_init(float period_seconds) {
   currentState = init_st;
-  tick_period = (uint8_t)1/period_seconds;
+  tick_period = (uint8_t)1 / period_seconds;
 }
 
 void timer_tick() {
