@@ -8,7 +8,10 @@
 #include "playerControl.h"
 #include "timer.h"
 #include <stdio.h>
+#include <time.h>
 
+#define PLAYER_WIDTH 16
+#define PLAYER_HEIGHT 12
 #define PLAYER_SIZE 8
 
 bullet_t bullet;
@@ -26,7 +29,7 @@ static bool flag_right = true;
 static int8_t wind = 0;
 
 static void generateWind() {
-  wind = -5 + rand() % 10;
+  wind = rand() % 10 - 5;
   printf("Wind val: %d", wind);
   flag_right = (wind > 0);
   displayArtillery_flip_flag(flag_right);
@@ -52,8 +55,17 @@ static bool checkCollision() {
 // Initialize the game control logic
 // This function will initialize the screen and players
 void gameControl_init() { // Clear the screen
+  srand(time(0));
+
   currentPlayer = &player1;
   otherPlayer = &player2;
+
+  oneshot = true;
+  oneshot2 = false;
+  player1_turn = true;
+  flag_right = true;
+
+  wind = 0;
 
   displayArtillery_init();
   playerControl_init(&player1, false);
@@ -62,7 +74,6 @@ void gameControl_init() { // Clear the screen
   timer_init(CONFIG_GAME_TIMER_PERIOD); // Starts the countdown timer
 
   generateWind();
-  displayArtillery_playerDraw(player1_turn, player1, player2);
 }
 
 // Tick the game control logic
@@ -71,42 +82,43 @@ void gameControl_init() { // Clear the screen
 // and updating statistics.
 void gameControl_tick() {
   static bool triggered = false;
+  static uint8_t delay = 0;
   uint8_t buttons = buttons_read();
 
-  timer_tick();
+  timer_tick(player1_turn);
 
   if (oneshot && buttons & BUTTONS_BTN1_MASK) {
     if (player1_turn) {
-      if (player1.changeAngle)
-        displayArtillery_power();
-      else
-        displayArtillery_angle();
+      (player1.changeAngle) ? timer_power_isActive() : timer_angle_isActive();
+      // Display immediately when changed to avoid confusion
+      (!player1.changeAngle) ? displayArtillery_angle() : displayArtillery_power();
       player1.changeAngle = !player1.changeAngle;
-    } else if (player2.changeAngle)
-      displayArtillery_power();
-    else
-      displayArtillery_angle();
-    player2.changeAngle = !player2.changeAngle;
+    } else {
+      (player2.changeAngle) ? timer_power_isActive() : timer_angle_isActive();
+      // Display immediately when changed to avoid confusion
+      (!player2.changeAngle) ? displayArtillery_angle() : displayArtillery_power();
+      player2.changeAngle = !player2.changeAngle;
+    }
     oneshot = false;
   } else if (!buttons) // If problem caused, change this
     oneshot = true;
 
-  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) ||
-      (timer_isexpired() && !triggered)) {
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle
-                                               : -(90 + player1.angle);
-    bullet_init(&bullet, currentPlayer->x_location, currentPlayer->y_location,
-                currentPlayer->power, angle, wind);
+  if ((bullet_is_dead(&bullet) && buttons & BUTTONS_BTN0_MASK) || (timer_isexpired() && !triggered)) {
+    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player1.angle);
+    uint16_t bullet_starting_x = currentPlayer->x_location + ((player1_turn) ? PLAYER_HEIGHT : 0);
+    bullet_init(&bullet, bullet_starting_x, currentPlayer->y_location, currentPlayer->power, angle, wind);
     triggered = true;
   }
 
   playerControl_tick(currentPlayer);
 
-  if (!bullet_is_dead(&bullet)) {
+  delay %= 2;
+  if (!bullet_is_dead(&bullet) && delay == 1) {
     bullet_tick(&bullet);
     checkCollision();
     oneshot2 = true;
   }
+  delay++;
 
   if (bullet_is_dead(&bullet) && oneshot2) {
     // Reset artwork
@@ -115,7 +127,7 @@ void gameControl_tick() {
 
     srand((int)bullet.x_vel);
     generateWind();
-    timer_init(CONFIG_GAME_TIMER_PERIOD);
+    start_turn_timer();
 
     oneshot2 = false;
     player1_turn = !player1_turn;
@@ -125,9 +137,11 @@ void gameControl_tick() {
     currentPlayer = (player1_turn) ? &player1 : &player2;
     otherPlayer = (player1_turn) ? &player2 : &player1;
 
-    // Swap player design to designate turn
-    displayArtillery_playerDraw(player1_turn, player1, player2);
+    // Update counters based on the current players previous settings
     displayArtillery_update_B_counter_display(currentPlayer->angle);
     displayArtillery_update_P_counter_display(currentPlayer->power);
+
+    // Reset players
+    displayArtillery_drawPlayers();
   }
 }

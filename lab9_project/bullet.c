@@ -2,71 +2,35 @@
 #include "config.h"
 #include "display.h"
 #include "timer.h"
+#include "displayArtillery.h"
 #include <math.h>
 #include <stdio.h>
+
+#define BULLET_WIDTH 5
+#define BULLET_HEIGHT 3
 
 typedef enum { INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 static bullet_st_t currentState;
 
-double x_vel(double power, double angle) {
-  return power / 10 * sin(angle * M_PI / ((double)180));
-}
+double x_vel(double power, double angle) { return power / 10 * sin(angle * M_PI / ((double)180)); }
 
-double y_vel(double power, double angle) {
-  return power / 10 * cos(angle * M_PI / ((double)180));
-}
+double y_vel(double power, double angle) { return power / 10 * cos(angle * M_PI / ((double)180)); }
 
 static void drawBullet(bullet_t *bullet, bool erase) {
   int16_t color = (erase) ? DISPLAY_RED : DISPLAY_WHITE;
-  display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
+  display_drawBitmap(bullet->x_current, bullet->y_current, bullet_bitmap, BULLET_WIDTH, BULLET_HEIGHT, color);
+  //display_fillRect(bullet->x_current, bullet->y_current, 3, 3, color);
+  //printf("%d\n", display_readPixel(0, 0));
 }
 
 static bool checkOutOfBounds(bullet_t *bullet) {
-  return (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0 ||
-          bullet->y_current > DISPLAY_HEIGHT);
-}
-
-// Print the given state passed in by the state variable
-static void printStateString() {
-  // Print the given state
-  switch (currentState) {
-  case INIT:
-    printf("INIT");
-    break;
-  case INACTIVE:
-    printf("INACTIVE");
-    break;
-  case MOVING:
-    printf("MOVING");
-    break;
-  case DEAD:
-    printf("DEAD");
-    break;
-  default:
-    printf("UNKNOWN_ST");
-    break;
-  }
-}
-
-// Debug function for printing state changes
-static void debug() {
-  static bullet_st_t previousState = INIT;
-  // Print state change when a change occurs
-  if (previousState != currentState) {
-    printf("\nDEBUG: ");
-    printStateString(previousState);
-    printf(" -> ");
-    printStateString(currentState);
-
-    previousState = currentState;
-  }
+  return (bullet->x_current > DISPLAY_WIDTH || bullet->x_current < 0 || bullet->y_current > DISPLAY_HEIGHT);
 }
 
 void bullet_init_dead(bullet_t *bullet) { bullet->dead = true; }
 
 // Initialize the bullet state machine
-void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin,
-                 double power, double angle, double wind) {
+void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double power, double angle, double wind) {
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
@@ -109,7 +73,6 @@ void bullet_tick(bullet_t *bullet) {
 
   case DEAD:
     bullet->dead = true;
-    // bullet_init(bullet, DISPLAY_WIDTH / 4, 100, power, 90+45, 0);
     break;
 
   default:
