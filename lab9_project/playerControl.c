@@ -8,6 +8,9 @@
 #include "displayArtillery.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+#define DRAW true
 
 #define WAIT_TIME_ONE_SHOT_S 0.5
 #define WAIT_TIME_RAPID_S 0.1
@@ -17,7 +20,6 @@
 
 typedef enum { INIT, WAIT, SLOW_PRESSED, FAST_PRESSED } playerControl_st_t;
 static playerControl_st_t currentState;
-static uint8_t timer;
 
 void playerControl_init(player_t *player, bool player_num) {
   player->player_num = player_num;
@@ -34,25 +36,27 @@ void playerControl_init(player_t *player, bool player_num) {
 static void incVal(player_t *player, uint8_t buttons) {
 
   if (player->changeAngle) {
-    if (buttons & BUTTONS_BTN2_MASK) {
-      if (player->angle < 90 && player->angle >= 0)
-        player->angle++;
-      displayArtillery_update_B_counter_display(player->angle);
-    } else if (buttons & BUTTONS_BTN3_MASK) {
-      if (player->angle <= 90 && player->angle > 0)
-        player->angle--;
-      displayArtillery_update_B_counter_display(player->angle);
-    }
+    // Increment or decrement the angle value
+    if (buttons & BUTTONS_BTN2_MASK)
+      player->angle = fmin(90, player->angle + 1);
+    else if (buttons & BUTTONS_BTN3_MASK)
+      player->angle = fmax(0, player->angle - 1);
+    else
+      return;
+
+    // Update the B counter display
+    displayArtillery_update_B_counter_display(player->angle, DRAW);
   } else {
-    if (buttons & BUTTONS_BTN2_MASK) {
-      if (player->power < 60 && player->power >= 30)
-        player->power++;
-      displayArtillery_update_P_counter_display(player->power);
-    } else if (buttons & BUTTONS_BTN3_MASK) {
-      if (player->power <= 60 && player->power > 30)
-        player->power--;
-      displayArtillery_update_P_counter_display(player->power);
-    }
+    // Increment or decrement the power value
+    if (buttons & BUTTONS_BTN2_MASK)
+      player->power = fmin(60, player->power + 1);
+    else if (buttons & BUTTONS_BTN3_MASK)
+      player->power = fmax(30, player->power - 1);
+    else
+      return;
+
+    // Update the P counter display
+    displayArtillery_update_P_counter_display(player->power, DRAW);
   }
 }
 
@@ -63,42 +67,38 @@ static void incVal(player_t *player, uint8_t buttons) {
 void playerControl_tick(player_t *player) {
   uint8_t buttons = buttons_read();
   static uint16_t ticks_waited = 0;
+
+  //
   switch (currentState) {
   case (INIT):
     currentState = WAIT;
     break;
+
   case (WAIT):
     if (buttons) {
       incVal(player, buttons);
       currentState = SLOW_PRESSED;
-    } else
-      currentState = WAIT;
+    }
     break;
+
   case (SLOW_PRESSED):
     if (buttons && (ticks_waited >= WAIT_TIME_ONE_SHOT_TICKS)) {
       ticks_waited = 0;
       currentState = FAST_PRESSED;
     } else if (!buttons)
       currentState = WAIT;
-    else
-      currentState = SLOW_PRESSED;
+
     ticks_waited++;
     break;
+
   case (FAST_PRESSED):
     if (buttons && (ticks_waited <= WAIT_TIME_RAPID_TICKS)) {
       incVal(player, buttons);
       ticks_waited = 0;
     } else if (!buttons)
       currentState = WAIT;
+
     ticks_waited++;
     break;
   }
 }
-
-// Returns the current selected power.
-// Can be used with display to display the power. Returns 10x the actual power
-uint16_t playerPower(player_t *player) { return player->power; }
-
-// Returns the current selected angle in degrees.
-// Can be used with display to display angle.
-uint16_t playerAngle(player_t *player) { return player->angle; }

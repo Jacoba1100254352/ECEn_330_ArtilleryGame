@@ -9,6 +9,9 @@
 #define BULLET_WIDTH 5
 #define BULLET_HEIGHT 3
 
+#define ERASE true
+#define DRAW false
+
 typedef enum { INIT, INACTIVE, MOVING, DEAD } bullet_st_t;
 static bullet_st_t currentState;
 
@@ -34,13 +37,13 @@ void bullet_init(bullet_t *bullet, uint16_t x_origin, uint16_t y_origin, double 
   bullet->x_current = x_origin;
   bullet->y_current = y_origin;
 
-  drawBullet(bullet, true);
+  drawBullet(bullet, ERASE);
   bullet->x_vel = x_vel(power, angle);
   bullet->y_vel = y_vel(power, angle);
 
   bullet->x_current += bullet->x_vel;
   bullet->y_current += bullet->y_vel;
-  drawBullet(bullet, false);
+  drawBullet(bullet, DRAW);
 
   currentState = INIT;
 
@@ -59,7 +62,6 @@ void bullet_tick(bullet_t *bullet) {
     break;
 
   case MOVING:
-    stop_turn_timer(); // Stop the timer once you are moving
     currentState = (bullet->dead || checkOutOfBounds(bullet)) ? DEAD : MOVING;
 
     drawBullet(bullet, true);

@@ -27,6 +27,8 @@
 #define PLAYER_1_X DISPLAY_WIDTH / 8 - 6
 #define PLAYER_2_X DISPLAY_WIDTH * 9 / 10 - 12
 #define POWER_BUTTON_X 144
+#define SCORE_1_X 96
+#define SCORE_2_X 222
 #define SCREEN_LEFT_EDGE 0
 #define SCREEN_TOP_EDGE 0
 #define TURN_INDICATOR_1_X PLAYER_1_X + 2
@@ -72,6 +74,7 @@
 
 // Other
 #define DISP_SOLID_PLAYER false
+#define DRAW true
 #define HEIGHT_RANGE (DISPLAY_HEIGHT / 3)
 #define MAX_HEIGHT (DISPLAY_HEIGHT / 2)
 #define NUM_TERRAIN_GENERATIONS 10
@@ -92,13 +95,7 @@ void displayArtillery_init() {
   player_two_ylocation = DISPLAY_HEIGHT;
 
   // Draw background
-  display_drawBitmap(SCREEN_LEFT_EDGE, SCREEN_TOP_EDGE, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LINE_COLOR);
-  display_drawBitmap(SCREEN_LEFT_EDGE, TOP_SEGMENT_Y, top_segment_bitmap, DISPLAY_WIDTH, TOP_SEGMENT_HEIGHT,
-                     DISPLAY_BLACK);
-  display_drawBitmap(SCREEN_LEFT_EDGE, LINE_2_Y, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LINE_COLOR);
-  display_drawBitmap(CLOUD_X, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(CLOUD_X + CLOUD_X_SEPARATION, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT,
-                     SOFT_YELLOW_COLOR);
+
   display_drawBitmap(SCREEN_LEFT_EDGE, MOUNTAIN_TOP_Y, mountain_top_bitmap, DISPLAY_WIDTH, MOUNTAIN_TOP_HEIGHT,
                      SOFT_YELLOW_COLOR);
   display_drawBitmap(SCREEN_LEFT_EDGE, MOUNTAIN_BODY_Y, mountain_body_bitmap, DISPLAY_WIDTH, MOUNTAIN_BODY_HEIGHT,
@@ -129,17 +126,7 @@ void displayArtillery_init() {
                      TERRAIN_GREEN_COLOR);
   }
 
-  // B and values
-  display_drawBitmap(B_DIGIT_1_X, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  displayArtillery_update_B_counter_display(INITIAL_COUNTER_VALUE);
-
-  // P and values
-  display_drawBitmap(P_DIGIT_1_X, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  displayArtillery_update_P_counter_display(INITIAL_COUNTER_VALUE);
-
-  // W and values
-  display_drawBitmap(W_DIGIT_1_X, TOP_ROW_LETTERS_Y, W_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
-  displayArtillery_update_W_counter_display(INITIAL_WIND_SPEED);
+  displayArtillery_draw_top_segment();
 
   // Bottom Numbers
   displayArtillery_timer_display(INITIAL_TIMER_VALUE);
@@ -183,6 +170,50 @@ void displayArtillery_assign_player_location(player_t *player) {
   }
 }
 
+void displayArtillery_draw_top_segment() {
+  display_drawBitmap(SCREEN_LEFT_EDGE, SCREEN_TOP_EDGE, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LINE_COLOR);
+  display_drawBitmap(SCREEN_LEFT_EDGE, TOP_SEGMENT_Y, top_segment_bitmap, DISPLAY_WIDTH, TOP_SEGMENT_HEIGHT,
+                     DISPLAY_BLACK);
+  display_drawBitmap(SCREEN_LEFT_EDGE, LINE_2_Y, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LINE_COLOR);
+
+  // B and values
+  display_drawBitmap(B_DIGIT_1_X, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
+  displayArtillery_update_B_counter_display(INITIAL_COUNTER_VALUE, DRAW);
+
+  // P and values
+  display_drawBitmap(P_DIGIT_1_X, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
+  displayArtillery_update_P_counter_display(INITIAL_COUNTER_VALUE, DRAW);
+
+  // W and values
+  display_drawBitmap(W_DIGIT_1_X, TOP_ROW_LETTERS_Y, W_bitmap, CHAR_WIDTH, CHAR_HEIGHT, SOFT_GREEN_COLOR);
+  displayArtillery_update_W_counter_display(INITIAL_WIND_SPEED, DRAW);
+}
+
+void displayArtillery_erase_top_segment() {
+  display_drawBitmap(SCREEN_LEFT_EDGE, SCREEN_TOP_EDGE, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+  display_drawBitmap(SCREEN_LEFT_EDGE, TOP_SEGMENT_Y, top_segment_bitmap, DISPLAY_WIDTH, TOP_SEGMENT_HEIGHT,
+                     LIGHT_PURPLE_BG_COLOR);
+  display_drawBitmap(SCREEN_LEFT_EDGE, LINE_2_Y, line_bitmap, DISPLAY_WIDTH, LINE_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+
+  // B and values
+  display_drawBitmap(B_DIGIT_1_X, TOP_ROW_LETTERS_Y, B_bitmap, CHAR_WIDTH, CHAR_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+  displayArtillery_update_B_counter_display(INITIAL_COUNTER_VALUE, !DRAW);
+
+  // P and values
+  display_drawBitmap(P_DIGIT_1_X, TOP_ROW_LETTERS_Y, P_bitmap, CHAR_WIDTH, CHAR_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+  displayArtillery_update_P_counter_display(INITIAL_COUNTER_VALUE, !DRAW);
+
+  // W and values
+  display_drawBitmap(W_DIGIT_1_X, TOP_ROW_LETTERS_Y, W_bitmap, CHAR_WIDTH, CHAR_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+  displayArtillery_update_W_counter_display(INITIAL_WIND_SPEED, !DRAW);
+}
+
+void displayArtillery_draw_clouds(uint16_t cloud_1_x) {
+  display_drawBitmap(CLOUD_X, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(CLOUD_X + CLOUD_X_SEPARATION, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT,
+                     SOFT_YELLOW_COLOR);
+}
+
 void displayArtillery_timer_display(uint8_t count) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
@@ -213,63 +244,73 @@ void displayArtillery_timer_erase(uint8_t count) {
   uint8_t tensPlace = (count - onesPlace) / 10;
 
   // Clear previous value
-  display_drawBitmap(BOTTOM_DIGIT_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[tensPlace]), CHAR_WIDTH,
-                     BOTTOM_DIGIT_HEIGHT, TERRAIN_GREEN_COLOR);
-  display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH,
-                     BOTTOM_DIGIT_HEIGHT, TERRAIN_GREEN_COLOR);
+  display_drawBitmap(BOTTOM_DIGIT_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[tensPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
+  display_drawBitmap(BOTTOM_DIGIT_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[onesPlace]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
 }
 
-void displayArtillery_update_B_counter_display(uint8_t count) {
+void displayArtillery_update_B_counter_display(uint8_t count, bool draw) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
 
   // Calculate the digits
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
+
+    // Determine what color to erase the previous number with
+  uint16_t clearColor = (!draw) ? LIGHT_PURPLE_BG_COLOR : DISPLAY_BLACK;
 
   // Clear previous value
   display_drawBitmap(B_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
   display_drawBitmap(B_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
 
   // Draw current value
-  display_drawBitmap(B_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
-  display_drawBitmap(B_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
+  if (draw) {
+    display_drawBitmap(B_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+    display_drawBitmap(B_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+  }
 
   // Update previous value
   prevTensPlace = tensPlace;
   prevOnesPlace = onesPlace;
 }
 
-void displayArtillery_update_P_counter_display(uint8_t count) {
+void displayArtillery_update_P_counter_display(uint8_t count, bool draw) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
 
   // Calculate the digits
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
+
+  // Determine what color to erase the previous number with
+  uint16_t clearColor = (!draw) ? LIGHT_PURPLE_BG_COLOR : DISPLAY_BLACK;
 
   // Clear previous value
   display_drawBitmap(P_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
   display_drawBitmap(P_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
 
   // Draw current value
-  display_drawBitmap(P_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
-  display_drawBitmap(P_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
+  if (draw) {
+    display_drawBitmap(P_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+    display_drawBitmap(P_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+  }
 
   // Update previous value
   prevTensPlace = tensPlace;
   prevOnesPlace = onesPlace;
 }
 
-void displayArtillery_update_W_counter_display(uint8_t count) {
+void displayArtillery_update_W_counter_display(uint8_t count, bool draw) {
   static uint8_t prevTensPlace = 0;
   static uint8_t prevOnesPlace = 0;
 
@@ -277,17 +318,22 @@ void displayArtillery_update_W_counter_display(uint8_t count) {
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
 
+    // Determine what color to erase the previous number with
+  uint16_t clearColor = (!draw) ? LIGHT_PURPLE_BG_COLOR : DISPLAY_BLACK;
+
   // Clear previous value
   display_drawBitmap(W_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevTensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
   display_drawBitmap(W_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[prevOnesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     DISPLAY_BLACK);
+                     clearColor);
 
   // Draw current value
-  display_drawBitmap(W_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
-  display_drawBitmap(W_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
-                     SOFT_YELLOW_COLOR);
+  if (draw) {
+    display_drawBitmap(W_DIGIT_1_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[tensPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+    display_drawBitmap(W_DIGIT_2_X, TOP_ROW_DIGITS_Y, &(*counterBitmaps[onesPlace]), CHAR_WIDTH, CHAR_HEIGHT,
+                       SOFT_YELLOW_COLOR);
+  }
 
   // Update previous value
   prevTensPlace = tensPlace;
@@ -338,4 +384,18 @@ void displayArtillery_drawPlayers() {
                      SOFT_YELLOW_COLOR);
 }
 
-void displayArtillery_score(uint8_t score1, uint8_t score2) {}
+void displayArtillery_draw_score(uint8_t score1, uint8_t score2) {
+  // Draw current value
+  display_drawBitmap(SCORE_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[score1]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     GREEN_NUMBERS_COLOR);
+  display_drawBitmap(SCORE_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[score2]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     GREEN_NUMBERS_COLOR);
+}
+
+void displayArtillery_erase_score(uint8_t score1, uint8_t score2) {
+  // Draw current value
+  display_drawBitmap(SCORE_1_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[score1]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
+  display_drawBitmap(SCORE_2_X, BOTTOM_DIGITS_Y, &(*timerBitmaps[score2]), CHAR_WIDTH, BOTTOM_DIGIT_HEIGHT,
+                     TERRAIN_GREEN_COLOR);
+}
