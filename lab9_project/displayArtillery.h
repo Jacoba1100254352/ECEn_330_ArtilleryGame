@@ -12,7 +12,7 @@ void displayArtillery_init();
 
 void displayArtillery_draw_clouds(uint16_t cloud_1_x);
 
-void displayArtillery_drawBullet(bullet_t *bullet, bool erase);
+void displayArtillery_drawBullet(bullet_t bullet, bool erase);
 
 void displayArtillery_timer_display(uint8_t count);
 void displayArtillery_timer_erase(uint8_t count);

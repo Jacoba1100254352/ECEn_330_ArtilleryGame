@@ -9,10 +9,10 @@ void timer_tick(bool player1_turn);
 void timer_start_turn_timer();
 void timer_stop_turn_timer();
 
-bool timer_isexpired();
+bool timer_isExpired();
 
-void timer_power_isActive();
-void timer_angle_isActive();
+void timer_power_setActive();
+void timer_angle_setActive();
 
 void timer_hide_button(bool hide);
 

@@ -17,7 +17,7 @@ void timer_init(float period_seconds) {
   timer = 30;
   timer_tick_period = (uint8_t)1 / period_seconds;
   flash_tick_period = timer_tick_period / 4;
-  timer_angle_isActive();
+  timer_angle_setActive();
   button_hide = false;
 }
 
@@ -75,11 +75,11 @@ void timer_tick(bool player1_turn) {
   playerFlashSecCounter++;
 }
 
-void timer_angle_isActive() {
+void timer_angle_setActive() {
   angle_isActive = true;
   power_isActive = false;
 }
-void timer_power_isActive() {
+void timer_power_setActive() {
   angle_isActive = false;
   power_isActive = true;
 }
@@ -103,4 +103,4 @@ void timer_stop_turn_timer() {
   displayArtillery_timer_erase(timer);
 }
 
-bool timer_isexpired() { return timer_expired; }
+bool timer_isExpired() { return timer_expired; }

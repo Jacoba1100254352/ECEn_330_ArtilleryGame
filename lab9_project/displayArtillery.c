@@ -155,9 +155,9 @@ void displayArtillery_draw_clouds(uint16_t cloud_1_x) {
                      SOFT_YELLOW_COLOR);
 }
 
-void displayArtillery_drawBullet(bullet_t *bullet, bool erase) {
+void displayArtillery_drawBullet(bullet_t bullet, bool erase) {
   int16_t color = (erase) ? DISPLAY_RED : DISPLAY_WHITE;
-  display_drawBitmap(bullet->x_current, bullet->y_current, bullet_bitmap, BULLET_WIDTH, BULLET_HEIGHT, color);
+  display_drawBitmap(bullet.x_current, bullet.y_current, bullet_bitmap, BULLET_WIDTH, BULLET_HEIGHT, color);
 }
 
 void displayArtillery_timer_display(uint8_t count) {
