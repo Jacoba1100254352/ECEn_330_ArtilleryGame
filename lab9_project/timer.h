@@ -1,9 +1,7 @@
 #ifndef TIMER
 #define TIMER
 
-#include "playerControl.h"
 #include <stdbool.h>
-#include <stdint.h>
 
 void timer_init(float period);
 void timer_tick(bool player1_turn);

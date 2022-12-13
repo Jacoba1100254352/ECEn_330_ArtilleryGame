@@ -3,8 +3,6 @@
 
 #include "bitmaps.h"
 #include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
 
 typedef struct {
   // The player's x and y locations, to be randomly generated at beginning of each round
@@ -23,11 +21,7 @@ typedef struct {
 } player_t;
 
 // Initialize the player control logic
-// This function initializes the player, its x/y coordinates, and assigns it
-// which player it is.
-
-// NOTE FOR OTHER TEAM MEMBERS: I assume we will create two players in
-// gameControl and run it from there
+// This function initializes the player, its x/y coordinates, and assigns it a player number
 void playerControl_init(player_t *player, bool player_num);
 
 // Tick the game control logic

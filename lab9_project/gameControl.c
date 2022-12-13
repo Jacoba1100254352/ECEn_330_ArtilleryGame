@@ -1,14 +1,13 @@
 #include "gameControl.h"
+#include "config.h"
 #include "bullet.h"
 #include "buttons.h"
-#include "config.h"
-#include "display.h"
 #include "displayArtillery.h"
-#include "math.h"
 #include "playerControl.h"
 #include "timer.h"
-#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+#include <math.h>
 
 #define DRAW true
 #define HIDE_BUTTON true
@@ -26,15 +25,13 @@ player_t player2;
 static bool button_isReleased;
 static bool bullet_wasFired;
 static bool player1_turn;
-static bool flag_right;
 static bool score_isDisplayed;
 
 static int8_t wind = 0;
 
 static void generateWind() {
   wind = rand() % 10 - 5;
-  printf("Wind val: %d", wind);
-  flag_right = (wind > 0);
+  bool flag_right = (wind > 0);
   displayArtillery_flip_flag(flag_right);
   displayArtillery_update_W_counter_display(abs(wind), DRAW);
 }
@@ -46,7 +43,6 @@ static void checkCollision() {
 
   // Update and display score, stop bullet
   currentPlayer->score++;
-  printf("Player 1 hit\nPlayer 1 score: %d Player 2 score: %d\n", player1.score, player2.score);
   bullet.dead = true;
   score_isDisplayed = true;
 
@@ -67,7 +63,6 @@ void gameControl_init() { // Clear the screen
   button_isReleased = true;
   bullet_wasFired = false;
   player1_turn = true;
-  flag_right = true;
   score_isDisplayed = false;
 
   wind = 0;

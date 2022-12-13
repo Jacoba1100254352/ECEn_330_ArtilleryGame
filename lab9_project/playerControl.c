@@ -23,14 +23,17 @@ static playerControl_st_t currentState;
 
 void playerControl_init(player_t *player, bool player_num) {
   player->player_num = player_num;
-  displayArtillery_assign_player_location(player);
+
+  player->changeAngle = true;
 
   player->angle = 45;
   player->power = 45;
 
-  player->changeAngle = true;
-
   player->score = 0;
+
+  currentState = INIT;
+
+  displayArtillery_assign_player_location(player);
 }
 
 static void incVal(player_t *player, uint8_t buttons) {
