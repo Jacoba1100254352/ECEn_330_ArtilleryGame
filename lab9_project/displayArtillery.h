@@ -10,7 +10,10 @@ void displayArtillery_init();
 
 // Other Display Functions
 
-void displayArtillery_draw_clouds(uint16_t cloud_1_x);
+void displayArtillery_cloud_tick();
+
+void displayArtillery_draw_clouds(int16_t cloud_set_x);
+void displayArtillery_erase_clouds(int16_t cloud_set_x);
 
 void displayArtillery_drawBullet(bullet_t bullet, bool erase);
 

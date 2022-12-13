@@ -37,7 +37,7 @@
 
 // Y Locations
 #define BOTTOM_DIGITS_Y 217
-#define CLOUD_Y 45
+#define CLOUD_Y 48
 #define LINE_2_Y (LINE_HEIGHT + TOP_SEGMENT_HEIGHT)
 #define MOUNTAIN_BODY_Y 80
 #define MOUNTAIN_TOP_Y 64
@@ -50,10 +50,10 @@
 #define BULLET_HEIGHT 3
 #define BUTTONS_HEIGHT 9
 #define CHAR_HEIGHT 10
-#define CLOUD_HEIGHT 11
+#define CLOUD_HEIGHT 8
 #define FLAG_HEIGHT 11
 #define INDICATOR_HEIGHT 2
-#define LINE_HEIGHT 3
+#define LINE_HEIGHT 2
 #define MOUNTAIN_BODY_HEIGHT 160 // DISPLAY_HEIGHT - MOUNTAIN_BODY_Y
 #define MOUNTAIN_TOP_HEIGHT 16
 #define PLAYER_HEIGHT 12
@@ -87,8 +87,8 @@ static uint8_t player_one_ylocation;
 static uint8_t player_two_ylocation;
 
 /***********
-*   INIT   *
-***********/
+ *   INIT   *
+ ***********/
 
 // Initialize the game control logic
 // This function will initialize all missiles, stats, plane, etc.
@@ -146,13 +146,47 @@ void displayArtillery_init() {
 }
 
 /******************************
-*   OTHER DISPLAY FUNCTIONS   *
-******************************/
+ *   OTHER DISPLAY FUNCTIONS   *
+ ******************************/
 
-void displayArtillery_draw_clouds(uint16_t cloud_1_x) {
-  display_drawBitmap(CLOUD_X, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT, SOFT_YELLOW_COLOR);
-  display_drawBitmap(CLOUD_X + CLOUD_X_SEPARATION, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT,
+void displayArtillery_cloud_tick() {
+  static int16_t cloud_1_x = 0;
+  static int16_t previous_cloud_set_1_x = 0;
+  static int16_t previous_cloud_set_2_x = 0;
+
+  // cloud_1_x becomes negative so needs to be added to DISPLAY_WIDTH as fixed below
+
+  // Erase previous Cloud sets
+  displayArtillery_erase_clouds(previous_cloud_set_1_x);
+  displayArtillery_erase_clouds(previous_cloud_set_2_x);
+
+  // If the clouds are completely off the screen, reset to displaying only one set on the right
+  if (cloud_1_x < (-CLOUD_WIDTH * 2 - CLOUD_X_SEPARATION))
+    cloud_1_x = DISPLAY_WIDTH + cloud_1_x;
+
+  // Display leftmost cloud set
+  displayArtillery_draw_clouds(cloud_1_x);
+
+  // If the cloud has gone off the screen, start drawing some more on the right
+  if (cloud_1_x < 0)
+    // Display rightmost cloud set
+    displayArtillery_draw_clouds(DISPLAY_WIDTH + cloud_1_x);
+
+  previous_cloud_set_1_x = cloud_1_x;
+  previous_cloud_set_2_x = DISPLAY_WIDTH + cloud_1_x;
+
+  cloud_1_x--;
+}
+
+void displayArtillery_draw_clouds(int16_t cloud_set_x) {
+  display_drawBitmap(cloud_set_x, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT, SOFT_YELLOW_COLOR);
+  display_drawBitmap(cloud_set_x + CLOUD_X_SEPARATION, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT,
                      SOFT_YELLOW_COLOR);
+}
+void displayArtillery_erase_clouds(int16_t cloud_set_x) {
+  display_drawBitmap(cloud_set_x, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT, LIGHT_PURPLE_BG_COLOR);
+  display_drawBitmap(cloud_set_x + CLOUD_X_SEPARATION, CLOUD_Y, clouds_bitmap, CLOUD_WIDTH, CLOUD_HEIGHT,
+                     LIGHT_PURPLE_BG_COLOR);
 }
 
 void displayArtillery_drawBullet(bullet_t bullet, bool erase) {
@@ -197,8 +231,8 @@ void displayArtillery_timer_erase(uint8_t count) {
 }
 
 /****************************
-*   TOP DISPLAY FUNCTIONS   *
-****************************/
+ *   TOP DISPLAY FUNCTIONS   *
+ ****************************/
 
 void displayArtillery_angle() {
   display_drawBitmap(ANGLE_BUTTON_X, TOP_ROW_LETTERS_Y, buttons_bitmap, SIDE_IMG_WIDTH, BUTTONS_HEIGHT,
@@ -219,7 +253,7 @@ void displayArtillery_update_B_counter_display(uint8_t count, bool draw) {
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
 
-    // Determine what color to erase the previous number with
+  // Determine what color to erase the previous number with
   uint16_t clearColor = (!draw) ? LIGHT_PURPLE_BG_COLOR : DISPLAY_BLACK;
 
   // Clear previous value
@@ -277,7 +311,7 @@ void displayArtillery_update_W_counter_display(uint8_t count, bool draw) {
   uint8_t onesPlace = count % 10;
   uint8_t tensPlace = (count - onesPlace) / 10;
 
-    // Determine what color to erase the previous number with
+  // Determine what color to erase the previous number with
   uint16_t clearColor = (!draw) ? LIGHT_PURPLE_BG_COLOR : DISPLAY_BLACK;
 
   // Clear previous value
@@ -351,10 +385,9 @@ void displayArtillery_erase_top_segment() {
   displayArtillery_update_W_counter_display(INITIAL_WIND_SPEED, !DRAW);
 }
 
-
 /*******************************
-*   PLAYER DISPLAY FUNCTIONS   *
-*******************************/
+ *   PLAYER DISPLAY FUNCTIONS   *
+ *******************************/
 
 static void displayArtillery_draw_player1() {
   display_drawBitmap(PLAYER_1_X, player_one_ylocation, player_left_bitmap, PLAYER_WIDTH, PLAYER_HEIGHT,
@@ -397,8 +430,8 @@ void displayArtillery_drawPlayers() {
 }
 
 /**********************
-*   SCORE FUNCTIONS   *
-**********************/
+ *   SCORE FUNCTIONS   *
+ **********************/
 
 void displayArtillery_draw_score(uint8_t score1, uint8_t score2) {
   // Draw current value

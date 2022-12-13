@@ -15,6 +15,10 @@
 #define PLAYER_HEIGHT 12
 #define PLAYER_SIZE 8
 
+#define CLOUD_DELAY_STRENGTH 3
+#define MAX_WIND_RANGE 10
+#define MIN_WIND_STRENGTH -5
+
 static player_t *currentPlayer;
 static player_t *otherPlayer;
 player_t player1;
@@ -28,7 +32,7 @@ static bool score_isDisplayed;
 static int8_t wind = 0;
 
 static void generateWind() {
-  wind = rand() % 10 - 5;
+  wind = rand() % MAX_WIND_RANGE + MIN_WIND_STRENGTH;
   bool flag_right = (wind > 0);
   displayArtillery_flip_flag(flag_right);
   displayArtillery_update_W_counter_display(abs(wind), DRAW);
@@ -80,10 +84,14 @@ void gameControl_init() { // Clear the screen
 void gameControl_tick() {
   static bool triggered = false;
   static uint8_t delay = 1;
+  static uint8_t cloudDelay = 1;
   uint8_t buttons = buttons_read();
 
   timer_tick(player1_turn);
   playerControl_tick(currentPlayer);
+
+  if (cloudDelay % CLOUD_DELAY_STRENGTH == 1)
+    displayArtillery_cloud_tick();
 
   // If displaying score, tick score display timer then reset
   if (score_isDisplayed)
@@ -128,7 +136,7 @@ void gameControl_tick() {
     double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player1.angle);
     uint16_t bullet_starting_x = currentPlayer->x_location + ((player1_turn) ? PLAYER_HEIGHT : 0);
     bullet_init(bullet_starting_x, currentPlayer->y_location, currentPlayer->power, angle, wind);
-    
+
     triggered = true;
   }
 
@@ -161,5 +169,6 @@ void gameControl_tick() {
     checkCollision();
     bullet_wasFired = true;
   }
-  // delay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
+  //delay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
+  cloudDelay++;
 }
