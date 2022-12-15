@@ -133,7 +133,7 @@ void gameControl_tick() {
     timer_hide_button(HIDE_BUTTON);
     displayArtillery_erase_top_segment();
 
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player1.angle);
+    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player2.angle);
     uint16_t bullet_starting_x = currentPlayer->x_location + ((player1_turn) ? PLAYER_HEIGHT : 0);
     bullet_init(bullet_starting_x, currentPlayer->y_location, currentPlayer->power, angle, wind);
 
