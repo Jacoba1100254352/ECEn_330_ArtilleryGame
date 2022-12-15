@@ -83,7 +83,7 @@ void gameControl_init() { // Clear the screen
 // and updating statistics.
 void gameControl_tick() {
   static bool triggered = false;
-  static uint8_t delay = 1;
+  static uint8_t bulletDelay = 1;
   static uint8_t cloudDelay = 1;
   uint8_t buttons = buttons_read();
 
@@ -150,6 +150,7 @@ void gameControl_tick() {
     generateWind();
     timer_start_turn_timer();
 
+    // Initialize booleans
     bullet_wasFired = false;
     triggered = false;
 
@@ -173,11 +174,11 @@ void gameControl_tick() {
 
     // Reset players
     displayArtillery_drawPlayers();
-  } else if (!bullet_isDead() && delay % 2 == 1) { // Firing the bullet with the possibility of a delay
+  } else if (!bullet_isDead() && bulletDelay % 2 == 1) { // Firing the bullet with the possibility of a delay
     bullet_tick();
     checkCollision();
     bullet_wasFired = true;
   }
-  //delay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
+  //bulletDelay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
   cloudDelay++;
 }
