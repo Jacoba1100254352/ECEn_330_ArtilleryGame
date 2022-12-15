@@ -111,7 +111,7 @@ void gameControl_tick() {
   // If BTN1 is pressed then alternate between angle and power
   if (button_isReleased && buttons & BUTTONS_BTN1_MASK) {
     // Determine active button and display immediately when changed to avoid confusion
-    if (currentPlayer->changeAngle) {
+    if (!currentPlayer->changeAngle) {
       timer_angle_setActive();
       displayArtillery_angle();
     } else {
@@ -161,6 +161,15 @@ void gameControl_tick() {
     // Update counters based on the current players previous settings
     displayArtillery_update_B_counter_display(currentPlayer->angle, DRAW);
     displayArtillery_update_P_counter_display(currentPlayer->power, DRAW);
+
+    // Make sure the correct button is being displayed
+    if (currentPlayer->changeAngle) {
+      timer_angle_setActive();
+      displayArtillery_angle();
+    } else {
+      timer_power_setActive();
+      displayArtillery_power();
+    }
 
     // Reset players
     displayArtillery_drawPlayers();
