@@ -108,8 +108,21 @@ void gameControl_tick() {
     } else // Don't allow anything else to happen/tick until timer is up
       return;
 
-  // If BTN1 is pressed then alternate between angle and power
-  if (button_isReleased && buttons & BUTTONS_BTN1_MASK) {
+  // When button fire is initially triggered
+  if ((bullet_isDead() && !bullet_wasFired && button_isReleased && buttons & BUTTONS_BTN0_MASK) ||
+      (timer_isExpired() && !triggered)) {
+    // Stop the timer once you are moving and erase the top segment (stop flashing too)
+    timer_stop_turn_timer();
+    timer_hide_button(HIDE_BUTTON);
+    displayArtillery_erase_top_segment();
+
+    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player2.angle);
+    uint16_t bullet_starting_x = currentPlayer->x_location + ((player1_turn) ? PLAYER_HEIGHT : 0);
+    bullet_init(bullet_starting_x, currentPlayer->y_location, currentPlayer->power, angle, wind);
+
+    triggered = true;
+    button_isReleased = false;
+  } else if (button_isReleased && buttons & BUTTONS_BTN1_MASK) { // If BTN1 is pressed then alternate between angle and power
     // Determine active button and display immediately when changed to avoid confusion
     if (!currentPlayer->changeAngle) {
       timer_angle_setActive();
@@ -123,22 +136,9 @@ void gameControl_tick() {
     currentPlayer->changeAngle = !currentPlayer->changeAngle;
 
     button_isReleased = false;
-  } else if (!buttons) // If no buttons are pressed, allow a button switch again
+  } else if (!buttons)
     button_isReleased = true;
 
-  // When button fire is initially triggered
-  if ((bullet_isDead() && !bullet_wasFired && buttons & BUTTONS_BTN0_MASK) || (timer_isExpired() && !triggered)) {
-    // Stop the timer once you are moving and erase the top segment (stop flashing too)
-    timer_stop_turn_timer();
-    timer_hide_button(HIDE_BUTTON);
-    displayArtillery_erase_top_segment();
-
-    double angle = (currentPlayer == &player1) ? 90 + player1.angle : -(90 + player2.angle);
-    uint16_t bullet_starting_x = currentPlayer->x_location + ((player1_turn) ? PLAYER_HEIGHT : 0);
-    bullet_init(bullet_starting_x, currentPlayer->y_location, currentPlayer->power, angle, wind);
-
-    triggered = true;
-  }
 
   // Reset, the bullet has stopped moving
   if (bullet_isDead() && bullet_wasFired) {
@@ -179,6 +179,6 @@ void gameControl_tick() {
     checkCollision();
     bullet_wasFired = true;
   }
-  //bulletDelay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
+  // bulletDelay++; // uncomment to make the bullet appear slightly slower (and more like the original game)
   cloudDelay++;
 }
