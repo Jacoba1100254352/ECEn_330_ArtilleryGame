@@ -1,8 +1,0 @@
-{
-    "recommendations": [
-        "ms-vscode.cpptools",
-        "ms-python.python",
-        "xaver.clang-format",
-        "twxs.cmake",
-    ]
-}
